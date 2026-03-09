@@ -136,7 +136,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodelemon server.js"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
