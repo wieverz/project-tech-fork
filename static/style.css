@@ -1,0 +1,33 @@
+/* ////////// nav bar partial ///////// */
+.hoofd-nav {
+  /* van https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  display: flex;
+  width: 97vw;
+  position:fixed;
+  }
+  .nav-brand {
+    color:#262626;
+    margin-right: 20px;
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+  .nav-brand:hover{
+    color: #4c0000;
+    text-decoration: underline;
+  }
+  .nav-link {
+    color: #262626;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  .nav-link:hover {
+    color: #4c0000;
+    text-decoration: underline;
+  }
