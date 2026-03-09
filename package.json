@@ -119,6 +119,7 @@
     "string-width": "^4.2.3",
     "strip-ansi": "^6.0.1",
     "supports-color": "^7.2.0",
+    "terser": "^5.46.0",
     "to-regex-range": "^5.0.1",
     "toidentifier": "^1.0.1",
     "ua-parser-js": "^1.0.41",
