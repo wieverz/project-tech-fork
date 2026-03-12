@@ -1,3 +1,55 @@
+/* font ophalen */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap');
+
+/* CSS Variabelen */
+:root {
+
+ /* padding */ 
+  --padding: 2rem;
+  --margin: 0.2em;
+
+  /* kleuren */
+  --achterGrondKleurWit: #ffffff;
+  --accentKleurGoud: #EEB628;
+  --accentKleurRood: #D44737;
+  --accentKleurGrijs: #252525;
+
+  /* typografie */
+
+  --logoFont: 'Montserrat', sans-serif;
+  --logoGroote: 32px;
+  --logoGewicht: 900; 
+
+  --headerFont: 'Instrument Sans', sans-serif;
+  --headerGrootte: 32px;
+  --headerGewicht: 700; 
+
+  --titelsFont: 'Montserrat', sans-serif;
+  --titelsGroote: 24px;
+  --titelsGewicht: 700;
+
+  --regularFont: 'Montserrat', sans-serif;
+  --regularGroote: 20px;
+  --regularWeight: 400;
+
+  /* buttons */ 
+
+  --buttonCornerRadius: 32px;
+  --buttonColor: #D44737;
+  --buttonTextColor: #FFFFFF;
+  --buttonPadding: 1em;
+  --buttonMargin: 1em;
+
+  --filterButtonCornerRadius: 32px;
+  --filterButtonColor: #FFFFFF;
+  --filterButtonOutlineColor:#D4AF37;
+  --filterButtonTextColor: #252525;
+  --filterButtonPadding: 1em;
+  --filterButtonMargin: 1em;
+
+}
+
 /* ////////// nav bar partial ///////// */
 .hoofd-nav {
 /* van https://css.glass */
@@ -31,3 +83,4 @@ position:fixed;
   color: #4c0000;
   text-decoration: underline;
 }
+
