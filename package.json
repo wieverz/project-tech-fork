@@ -1,7 +1,35 @@
 {
+  "name": "project-tech-",
+  "version": "1.0.0",
+  "description": "Project Tech - Sarah, Anna, Wietse &amp; Noah",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.3.1",
+    "ejs": "^3.1.10",
+    "express": "^4.22.1",
+    "express-session": "^1.19.0",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.3.0",
+    "terser": "^5.31.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItzANoah/Project-Tech-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ItzANoah/Project-Tech-/issues"
+  },
+  "homepage": "https://github.com/ItzANoah/Project-Tech-#readme",
   "devDependencies": {
-    "stylelint": "^17.4.0",
-    "stylelint-config-standard": "^40.0.0",
-    "stylelint-config-standard-scss": "^17.0.0"
+    "nodemon": "^3.1.14"
   }
 }
