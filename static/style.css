@@ -5,6 +5,10 @@
 /* CSS Variabelen */
 :root {
 
+ /* padding */ 
+  --padding: 2rem;
+  --margin: 0.2em;
+
   /* kleuren */
   --achterGrondKleurWit: #ffffff;
   --accentKleurGoud: #EEB628;
@@ -34,11 +38,15 @@
   --buttonCornerRadius: 32px;
   --buttonColor: #D44737;
   --buttonTextColor: #FFFFFF;
+  --buttonPadding: 1em;
+  --buttonMargin: 1em;
 
   --filterButtonCornerRadius: 32px;
   --filterButtonColor: #FFFFFF;
   --filterButtonOutlineColor:#D4AF37;
   --filterButtonTextColor: #252525;
+  --filterButtonPadding: 1em;
+  --filterButtonMargin: 1em;
 
 }
 
