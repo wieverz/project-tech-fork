@@ -2,12 +2,13 @@
   "name": "project-tech-",
   "version": "1.0.0",
   "description": "Project Tech - Sarah, Anna, Wietse &amp; Noah",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
-    "bcryptjs": "^3.0.3",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.3.1",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.22.1",
+    "express-session": "^1.19.0",
     "mongodb": "^7.1.0",
     "mongoose": "^9.3.0",
     "terser": "^5.31.0"

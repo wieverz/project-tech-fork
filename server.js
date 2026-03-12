@@ -3,7 +3,6 @@ const fs = require('fs');
 const app = express();
 const port = 4000;
 const session = require('express-session');
-const bcrypt = require('bcrypt');
 
 app.use(session({
   secret: 'redbullgeeftjevleugels', // willekeurige lange zin
@@ -19,24 +18,42 @@ app.use(express.static("static"));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+require('dotenv').config(); // MOET bovenaan staan voor de database link!
+const { MongoClient } = require('mongodb');
+const bcrypt = require('bcrypt');
+const path = require('path'); // Ingebouwd in Node, hoef je niet te installeren
 
 
-mongoose.connect(process.env.DB_URL);
-/////// mongo db:
-const { MongoClient, ServerApiVersion } = require("mongodb");
-require('dotenv').config();
+// Database connectie variabelen
+const uri = process.env.URI;
+const client = new MongoClient(uri);
 
-// Vertel Express dat we EJS gebruiken
+async function connectDB() {
+    try {
+        await client.connect();
+        console.log("Succesvol verbonden met MongoDB via MongoClient");
+    } catch (error) {
+        console.error("Database verbinding mislukt:", error);
+    }
+}
+connectDB();
+
+// Middleware instellen
 app.set('view engine', 'ejs');
-
-// Zorg dat Express bestanden uit de 'public' map kan lezen (voor CSS/Plaatjes)
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
-// De route voor de homepage
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'fallback-geheim',
+  resave: false,
+  saveUninitialized: false
+}));
+
+// Een test route
 app.get('/', (req, res) => {
-  res.render('index'); // Dit zoekt naar views/index.ejs
+    res.send('De server werkt!');
 });
 
 app.listen(port, () => {
-  console.log(`Server draait op http://localhost:${port}`);
+    console.log(`🚀 Server draait op http://localhost:${port}`);
 });
