@@ -57,3 +57,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server draait op http://localhost:${port}`);
 });
+
+app.get('/register', (req, res) => {
+  res.render('register'); 
+});
