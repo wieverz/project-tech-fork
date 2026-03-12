@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/ItzANoah/Project-Tech-#readme",
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.14"
   }
 }
