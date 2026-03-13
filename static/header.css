@@ -7,27 +7,35 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 20px;
-  display: flex;
+  padding: var(--padding);
   width: 97vw;
   position:fixed;
+
+  display: flex;
+  justify-content: end;
+  
   }
   .nav-logo {
-    color: --accentColorRed;
-    margin-right: 20px;
-    font-size: 1.3rem;
+    color: var(--accentColorRed);
+    font-family: var(--logoFont);
+    font-weight: var(--logoWeight);
+    font-size: var(--logoSize);
     text-decoration: none;
+    margin-right: 20px;
   }
   .nav-logo:hover{
-    color: #4c0000;
-    text-decoration: underline;
+    color: var(--accentColorRed);
+    text-decoration: none;
   }
   .nav-link {
-    color: #262626;
+    font-family: var(--titlesFont);
+    font-size: var(--titlesSize);
+    font-weight: var(--titlesWeight);
+    color: var(--accentColorGrey);
     text-decoration: none;
-    margin-right: 15px;
+    margin-right: var(--margin);
   }
   .nav-link:hover {
-    color: #4c0000;
+    color: var(--accentColorRed);
     text-decoration: underline;
   }
