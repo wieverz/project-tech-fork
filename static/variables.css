@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap');
+/* CSS Variabelen */
+:root {
+
+  /* standards */ 
+   --padding: 2rem;
+   --margin: 0.2em;
+   --sectionPadding: 4rem 0; /* Ruimte tussen secties (boven/onder) */
+ 
+   /* kleuren */
+   --backgroundColorWhite: #ffffff;
+   --accentColorGold: #EEB628;
+   --accentColorRed: #D44737;
+   --accentColorGrey: #252525;
+   --accentColorBlack: #000000;
+ 
+   /* typografie */
+   --logoFont: 'Montserrat', sans-serif;
+   --logoSize: 2rem;
+   --logoWeight: 900; 
+ 
+   --headerFont: 'Instrument Sans', sans-serif;
+   --headerSize: 2rem;
+   --headerWeight: 700; 
+ 
+   --titlesFont: 'Montserrat', sans-serif;
+   --titlesSize: 1.5rem;
+   --titlesWeight: 700;
+ 
+   --regularFont: 'Montserrat', sans-serif;
+   --regularSize: 1.25rem;
+   --regularWeight: 400;
+ 
+   /* buttons */ 
+   --buttonCornerRadius: 32px;
+   --buttonColor: #D44737;
+   --buttonTextColor: #FFFFFF;
+   --buttonPadding: 1em;
+   --buttonMargin: 1em;
+ 
+   --filterButtonCornerRadius: 32px;
+   --filterButtonColor: #FFFFFF;
+   --filterButtonOutlineColor:#D4AF37;
+   --filterButtonTextColor: #252525;
+   --filterButtonPadding: 1em;
+   --filterButtonMargin: 1em;
+ 
+   /* Shaduwen */
+   --buttonShadow: rgba(0, 0, 0, 0.1) 0px 1px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px, rgba(0, 0, 0, 0.1) 0px 2px 4px;
+   --textShadow: 1px 1px 2px #a4a4a4;
+   --generalShadow: 1px 1px 2px #a4a4a4;
+ 
+    /* Button Hovers */
+   --buttonColorHover: #b83a2d; 
+   --filterButtonColorHover: #f5f5f5; 
+ 
+ }
+ 
+ 
