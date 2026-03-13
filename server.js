@@ -51,7 +51,6 @@ app.use(session({
 
 // Een test route
 app.get('/', (req, res) => {
-    res.send('De server werkt!');
     res.render('index');
 });
 
