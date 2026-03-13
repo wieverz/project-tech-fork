@@ -1,0 +1,41 @@
+/* ////////// nav bar partial ///////// */
+.hoofd-nav {
+  /* van https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: var(--padding);
+  width: 97vw;
+  position:fixed;
+
+  display: flex;
+  justify-content: end;
+  
+  }
+  .nav-logo {
+    color: var(--accentColorRed);
+    font-family: var(--logoFont);
+    font-weight: var(--logoWeight);
+    font-size: var(--logoSize);
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  .nav-logo:hover{
+    color: var(--accentColorRed);
+    text-decoration: none;
+  }
+  .nav-link {
+    font-family: var(--titlesFont);
+    font-size: var(--titlesSize);
+    font-weight: var(--titlesWeight);
+    color: var(--accentColorGrey);
+    text-decoration: none;
+    margin-right: var(--margin);
+  }
+  .nav-link:hover {
+    color: var(--accentColorRed);
+    text-decoration: underline;
+  }
