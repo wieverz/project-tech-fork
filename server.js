@@ -61,3 +61,7 @@ app.listen(port, () => {
 app.get('/register', (req, res) => {
   res.render('register');
 });
+
+app.get('/profielPaginaIndividueel', (req, res) => {
+    res.render('profielPaginaIndividueel');
+});
