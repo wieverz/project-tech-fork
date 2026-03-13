@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48cbc233-9151-4246-b104-b9cb784b41b1" name="Changes" comment="connectie mongoDB voltooid" />
+    <list default="true" id="48cbc233-9151-4246-b104-b9cb784b41b1" name="Changes" comment="connectie mongoDB voltooid">
+      <change afterPath="$PROJECT_DIR$/static/matching.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +51,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "dev",
     "javascript.preferred.runtime.type.id": "node",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,6 +81,7 @@
       <workItem from="1773312347751" duration="1362000" />
       <workItem from="1773316688175" duration="2566000" />
       <workItem from="1773319294924" duration="332000" />
+      <workItem from="1773404071657" duration="356000" />
     </task>
     <task id="LOCAL-00001" summary="Dev merge in matching">
       <option name="closed" value="true" />
