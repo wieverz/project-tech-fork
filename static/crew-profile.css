@@ -1,0 +1,105 @@
+/* Background color wrapper */
+.background-wrapper {
+    background-color: var(--accentColorLightGray);
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+}
+
+/* --- Container --- */
+.project-container {
+    max-width: 1600px; 
+    margin: 0 auto;    
+}
+
+/* --- Header (Lord of Balls + Director) --- */
+.project-header {
+    display: flex;
+    justify-content: space-between; /* Pushes Dir link to the right */
+    align-items: flex-end;         /* Starring and Dir on same height */
+}
+
+.project-title {
+    font-family: var(--titlesFont);
+    font-size: var(--logoSize);
+    font-weight: var(--titlesWeight);
+    color: var(--accentColorBlack);
+}
+
+.starring-info {
+    color: var(--accentColorBlack);
+    font-family: var(--headerFont);
+    font-weight: var(--headerweight);
+    font-size:  var(--headerSize);
+}
+
+.director-link, .director-link a {
+    color: var(--accentColorGrey);
+    font-family: var(--regularFont);
+    font-size: var(--regularSize);
+    font-weight: var(--regularWeight);
+}
+
+/* --- Slideshow Container --- */
+.slideshow {
+    position: relative;
+    background-color: var(--accentColorGrey); 
+    width: 100%;
+    height: 550px;
+    border-radius: 10px;
+    margin: 2rem 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.slide-nav:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* --- Tags --- */
+.tag-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tag {
+    background-color: var(--accentColorGrey);
+    color: var(--backgroundColorWhite);
+    padding: 8px 20px;
+    border-radius: var(--buttonCornerRadius);
+    font-family: var(--regularFont);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.project-text {
+    color: var(--accentColorBlack);
+    font-family: var(--regularFont);
+    font-size: var(--regularSize);
+    font-weight: var(--regularWeight);
+}
