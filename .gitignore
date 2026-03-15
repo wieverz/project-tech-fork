@@ -2,3 +2,4 @@ node_modules/
 .env
 .idea/
 /static/style.css
+/public/css/style.css

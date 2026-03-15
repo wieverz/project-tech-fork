@@ -17,14 +17,9 @@ h1, h2, h3, h4 {
     margin: unset;
 }
 
-h1 {
-    font-family: var(--headerFont);
-    font-weight: var(--headerWeight);
-    font-size: var(--headerSize);
-}
 
 h2 {
-    font-family: var(--titlesFont);
+    font-family: var(--titlesFont); /*of header variabele?*/
     font-weight: var(--titlesWeight);
     font-size: var(--titlesSize);
 }
