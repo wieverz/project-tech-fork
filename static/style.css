@@ -11,21 +11,23 @@
     margin: 0;
     padding: 0;
 }
+/* :where niet specifiek, oftewel makkelijk te overschrijven -> https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:where */
+:where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--headerFont);
+    font-weight: var(--headerWeight);
 
-h1, h2, h3, h4 {
     padding: unset;
     margin: unset;
 }
 
+h1 {
+    font-size: var(--headerSize);
+}
 
 h2 {
-    font-family: var(--titlesFont); /*of header variabele?*/
-    font-weight: var(--titlesWeight);
     font-size: var(--titlesSize);
 }
 
 p {
-    font-family: var(--regularFont);
-    font-weight: var(--regularWeight);
     font-size: var(--regularSize);
 }
