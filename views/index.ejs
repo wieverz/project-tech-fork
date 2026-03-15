@@ -11,17 +11,22 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <header>
-            <section>
-                <img src="" alt="">
+        <header class="hero">
+            <div class="hero__container">
                 <hgroup>
-                  <h1>Zoek talent. Of wordt gevonden.</h1>
-                  <p>Start een project. Sluit je aan.</p>
+                    <h1>Zoek talent. Of wordt gevonden.</h1>
+                    <p>Start een project. Sluit je aan.</p>
                 </hgroup>
 
                 <button>Vind projecten</button>
                 <button>Vind talenten</button>
-            </section>
+            </div>
+
+            <img
+                class="hero__image"
+                src="/images/home-page-image.png"
+                alt="Filmset met camera’s, verlichting en crewleden tijdens een productie – banner voor platform om filmprojecten en talent te vinden."
+            >
         </header>
 
         <%- include('partials/matching') %>
