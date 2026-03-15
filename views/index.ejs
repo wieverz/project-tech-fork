@@ -4,42 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmCrew-Matching</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="stylesheet" href="/static/matching.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 
 <body>
-<%- include('partials/header') %>
-    <header>
-        <section>
-            <img src="" alt="">
-            <hgroup>
-              <h1>Zoek talent. Of word gevonden.</h1>
-              <p>Start een project. Sluit je aan.</p>
-            </hgroup>
-
-            <button>Vind projecten</button>
-            <button>Vind talenten</button>
-        </section>
-    </header>
-
+    <%- include('partials/header') %>
     <main>
-        <section class="matching__containter">
-            <h2>Vind jouw perfecte film match!</h2>
-            <button>Filter op:</button>
-            <button>Project type:</button>
-            <button>Sorteren:</button>
-            <button>Refresh</button>
+        <header>
+            <section>
+                <img src="" alt="">
+                <hgroup>
+                  <h1>Zoek talent. Of wordt gevonden.</h1>
+                  <p>Start een project. Sluit je aan.</p>
+                </hgroup>
 
-            <article class="match__card">
-                <h3>Naam</h3>
-                <p>Beschrijving</p>
-                <button>Bekijk details</button>
-            </article>
-        </section>
+                <button>Vind projecten</button>
+                <button>Vind talenten</button>
+            </section>
+        </header>
 
-        <section class="reviews__container">
+        <%- include('partials/matching') %>
+
+        <section class="reviews">
             <h2>Succesvolle matching verhalen</h2>
             <article class="review__card">
                 <h3>Naam</h3>
@@ -47,7 +34,7 @@
             </article>
         </section>
 
-        <section class="movie-article__container">
+        <section class="movie-article">
             <h2>Film artikelen</h2>
             <article class="movie-article__card">
                 <h3>Naam</h3>
@@ -56,8 +43,5 @@
         </section>
     </main>
 
-    <footer>
-
-    </footer>
 </body>
 </html>
