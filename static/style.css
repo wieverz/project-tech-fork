@@ -6,3 +6,31 @@
 @import "login-register.css";
 @import "profielPaginaCrew.css";
 @import "partials";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {
+    padding: unset;
+    margin: unset;
+}
+
+h1 {
+    font-family: var(--headerFont);
+    font-weight: var(--headerWeight);
+    font-size: var(--headerSize);
+}
+
+h2 {
+    font-family: var(--titlesFont);
+    font-weight: var(--titlesWeight);
+    font-size: var(--titlesSize);
+}
+
+p {
+    font-family: var(--regularFont);
+    font-weight: var(--regularWeight);
+    font-size: var(--regularSize);
+}
