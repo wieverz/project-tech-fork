@@ -6,6 +6,7 @@
 @import "login-register.css";
 @import "profielPaginaCrew.css";
 @import "partials";
+@import "mathing-page.css";
 
 * {
     margin: 0;
