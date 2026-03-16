@@ -49,4 +49,8 @@ p {
 
 body {
     padding: var(--bodyPadding);
+
+    @media (max-width < 867px) {
+        padding: var(--bodyPaddingSmall);
+    }
 }
