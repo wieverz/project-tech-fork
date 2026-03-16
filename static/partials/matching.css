@@ -1,4 +1,8 @@
 /* matching component */
+.matching {
+    padding: var(--sectionPadding);
+}
+
 .matching__title {
     font-size: var(--h2Size);
 }
@@ -37,6 +41,10 @@
 }
 
 .filter select {
+    font-family: var(--montserratFont);
+    font-weight: var(--fontWeightRegular);
+    font-size: var(--bodyTextSize);
+
     background-color: unset;
     border: none;
     flex-grow: 1;
