@@ -2,12 +2,39 @@
   <link rel="stylesheet" href="header.css">
 </head>
 
-<header>
+<!-- <header> oud
   <nav class="hoofd-nav">
     <a href="/" class="nav-logo">FilmCrew</a>
       <a href="/" class="nav-link">Find Projects</a>
-      <a href="/profile" class="nav-link">Find Talents</a>
-      <a href="/profile" class="nav-link">Matches</a>
-      <a href="/login" class="nav-link">login</a>
+      <a href="/" class="nav-link">Find Talents</a>
+      <a href="/" class="nav-link">Matches</a>
+
+      <div class="actions">
+      <button class="search-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <a href="/login" class="login-btn">Login</a>
+    </div>
   </nav>
+</header> -->
+
+<header class="header__main">
+  <div class="header__logo">FilmCrew</div>
+  
+  <nav class="nav__container">
+    <ul class="nav__list">
+      <li class="nav__link dark"><a href="#">Find Projects</a></li>
+      <li class="nav__link light"><a href="#">Find Talents</a></li>
+      <li class="nav__link dark"><a href="#">Matches</a></li>
+    </ul>
+    
+    <div class="header__actions">
+      <button class="header__search-btn">
+        <svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <a href="/login" class="header__login-btn">Login</a>
+    </div>
+  </nav>
+  
+  <div class="header__end-cap"></div>
 </header>
