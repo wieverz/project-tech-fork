@@ -1,60 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap');
 /* CSS Variabelen */
 :root {
 
-  /* standards */ 
-   --padding: 2rem;
-   --margin: 0.2em;
-   --sectionPadding: 4rem 0; /* Ruimte tussen secties (boven/onder) */
- 
-   /* kleuren */
-   --backgroundColorWhite: #ffffff;
+   /* Logo */
+   --logoColorDark: #D44737;
+   --logoColor: #252525;
+   --logoFont: 'Montserrat', sans-serif;
+   --logoSize: 2rem;
+   --logoWeight: 900;
+
+   /* Colors */
+   --accentColorWhite: #ffffff;
    --accentColorGold: #EEB628;
    --accentColorRed: #D44737;
    --accentColorGrey: #252525;
-   --accentColorBlack: #000000;
- 
-   /* typografie */
-   --logoFont: 'Montserrat', sans-serif;
-   --logoSize: 2rem;
-   --logoWeight: 900; 
- 
-   --headerFont: 'Instrument Sans', sans-serif;
-   --headerSize: 2rem;
-   --headerWeight: 700; 
- 
-   --titlesFont: 'Montserrat', sans-serif;
-   --titlesSize: 1.5rem;
-   --titlesWeight: 700;
- 
-   --regularFont: 'Montserrat', sans-serif;
-   --regularSize: 1rem;
-   --regularWeight: 400;
- 
-   /* buttons */ 
-   --buttonCornerRadius: 32px;
-   --buttonColor: #D44737;
-   --buttonTextColor: #FFFFFF;
-   --buttonPadding: 1em;
-   --buttonMargin: 1em;
- 
-   --filterButtonCornerRadius: 32px;
-   --filterButtonColor: #FFFFFF;
-   --filterButtonOutlineColor:#D4AF37;
-   --filterButtonTextColor: #252525;
-   --filterButtonPadding: 1em;
-   --filterButtonMargin: 1em;
- 
-   /* Shadows */
+
+   --textColor: #252525;
+   --textColorWhite: #ffffff;
+
+   --hoverColorGold: hsl(43, 95%, 45%);
+   --hoverColorRed: hsl(6, 75%, 40%);
+
+   /* Typography */
+   --abrilFont: "Abril Fatface";
+   --instrumentFont: "Instrument Sans";
+   --montserratFont: 'Montserrat', sans-serif;
+
+   --h1Size: 6rem;
+   --h2Size: 2rem;
+   --h3Size: 1.5rem;
+   --bodyTextSize: 1rem;
+
+   --fontWeightLight: 200;
+   --fontWeightRegular: 400;
+   --fontWeightBold: 700;
+
+   /* Spacing */
+   --sectionPadding: 7.5rem 0;
+   --bodyPadding: 0 5rem;
+
+   --buttonPadding: 0.5rem 2rem;
+
+   --gapExtraSmall: 0.5rem;
+   --gapSmall: 1rem;
+   --gapMedium: 2rem;
+   --gapLarge: 4rem;
+
+   /* Extra's */
+   --buttonCornerRadius: 2rem;
+   --textShadow: 0 4px 4px rgba(0, 0, 0, 0.25);
    --buttonShadow: rgba(0, 0, 0, 0.1) 0px 1px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px, rgba(0, 0, 0, 0.1) 0px 2px 4px;
-   --textShadow: 1px 1px 2px #a4a4a4;
    --generalShadow: 1px 1px 2px #a4a4a4;
- 
-    /* Button Hovers */
-   --buttonColorHover: #b83a2d; 
-   --filterButtonColorHover: #f5f5f5; 
- 
- }
- 
- 
+}
