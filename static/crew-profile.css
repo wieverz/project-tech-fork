@@ -154,6 +154,3 @@ li {
   flex: 0 0 25%;
 }
 
-li:nth-child(even) {
-  background-color: cyan;
-}

@@ -1,38 +1,58 @@
 /* font ophalen */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-@import "header.css";
 @import "partials";
-
 @import "variables.css";
-@import "header.css";
 @import "login-register.css";
 @import "crew-profile.css";
-@import "matching.css";
-
+@import "profielPaginaIndividueel.css";
 
 * {
     margin: 0;
     padding: 0;
 }
-/* :where niet specifiek, oftewel makkelijk te overschrijven -> https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:where */
-:where(h1, h2, h3, h4, h5, h6) {
-    font-family: var(--headerFont);
-    font-weight: var(--headerWeight);
 
-    padding: unset;
-    margin: unset;
+/* :where niet specifiek, oftewel makkelijk te overschrijven -> https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:where */
+:where(h1, h2, h3, p, a, label) {
+    color: var(--textColor);
+    font-weight: var(--fontWeightRegular);
+    font-family: var(--montserratFont);
 }
 
 h1 {
-    font-size: var(--headerSize);
+    color: var(--accentColorGold);
+    font-family: var(--abrilFont);
+    font-size: var(--h1Size);
+    font-weight: var(--fontWeightRegular);
 }
 
 h2 {
-    font-size: var(--titlesSize);
+    color: var(--textColor);
+    font-family: var(--instrumentFont);
+    font-size: var(--h2Size);
+    font-weight: var(--fontWeightBold);
+}
+
+h3 {
+    color: var(--textColor);
+    font-family: var(--montserratFont);
+    font-size: var(--h3Size);
+    font-weight: var(--fontWeightBold);
 }
 
 p {
-    font-size: var(--regularSize);
+    color: var(--textColor);
+    font-family: var(--montserratFont);
+    font-size: var(--bodyTextSize);
+    font-weight: var(--fontWeightRegular);
+}
+
+main {
+    padding: var(--mainPadding);
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: var(--mainPaddingSmall);
+    }
 }
