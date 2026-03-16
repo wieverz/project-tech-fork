@@ -47,10 +47,12 @@ p {
     font-weight: var(--fontWeightRegular);
 }
 
-body {
-    padding: var(--bodyPadding);
+main {
+    padding: var(--mainPadding);
+}
 
-    @media (max-width < 640px) {
-        padding: var(--bodyPaddingSmall);
+@media (max-width: 640px) {
+    main {
+        padding: var(--mainPaddingSmall);
     }
 }
