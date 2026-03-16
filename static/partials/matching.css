@@ -1,0 +1,82 @@
+/* matching component */
+.matching__title {
+    font-size: 2rem;
+}
+
+.matching__filter-bar,
+.matching__filters {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.matching__filter-bar {
+    justify-content: space-between;
+}
+
+.filter {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    border-radius: var(--filterButtonCornerRadius);
+    background-color: var(--accentColorGold);
+    color: var(--filterButtonTextColor);
+
+    @media screen and (max-width: 640px) {
+        flex-grow: 1;
+    }
+}
+
+.filter label:before {
+    content: '';
+    inset: 0;
+    position: absolute;
+}
+
+.filter select {
+    background-color: unset;
+    border: none;
+    flex-grow: 1;
+}
+
+.filter option, .filter select, .filter label {
+    font-family: var(--regularFont);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.filter--outline {
+    background-color: var(--filterButtonColor);
+    border: .1rem solid var(--filterButtonOutlineColor);
+}
+
+.filter:has(select),
+.filter:has(select) * {
+    cursor: pointer;
+}
+
+.filter, .matching__refresh-btn {
+    padding: 0.5rem 1.5rem;
+}
+
+.matching__refresh-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    border-radius: 2rem;
+    border: none;
+    background: var(--accentColorGold);
+
+    font-family: "Montserrat Alternates";
+    font-size: 1rem;
+    font-weight: 500;
+
+    @media screen and (max-width: 640px) {
+        flex-grow: 1;
+    }
+}
