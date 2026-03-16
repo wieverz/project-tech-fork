@@ -1,12 +1,13 @@
 /* matching component */
 .matching__title {
-    font-size: 2rem;
+    font-size: var(--h2Size);
 }
 
+/* Filter bar */
 .matching__filter-bar,
 .matching__filters {
     display: flex;
-    gap: 2rem;
+    gap: var(--gapMedium);
     flex-wrap: wrap;
 }
 
@@ -19,11 +20,10 @@
 
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--gapExtraSmall);
 
-    border-radius: var(--filterButtonCornerRadius);
+    border-radius: var(--buttonCornerRadius);
     background-color: var(--accentColorGold);
-    color: var(--filterButtonTextColor);
 
     @media screen and (max-width: 640px) {
         flex-grow: 1;
@@ -42,15 +42,9 @@
     flex-grow: 1;
 }
 
-.filter option, .filter select, .filter label {
-    font-family: var(--regularFont);
-    font-weight: 500;
-    font-size: 1rem;
-}
-
 .filter--outline {
-    background-color: var(--filterButtonColor);
-    border: .1rem solid var(--filterButtonOutlineColor);
+    background-color: var(--accentColorWhite);
+    border: .1rem solid var(--accentColorGold);
 }
 
 .filter:has(select),
@@ -59,24 +53,50 @@
 }
 
 .filter, .matching__refresh-btn {
-    padding: 0.5rem 1.5rem;
+    padding: var(--buttonPadding);
 }
 
 .matching__refresh-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--gapExtraSmall);
 
-    border-radius: 2rem;
+    border-radius: var(--buttonCornerRadius);
     border: none;
     background: var(--accentColorGold);
-
-    font-family: "Montserrat Alternates";
-    font-size: 1rem;
-    font-weight: 500;
 
     @media screen and (max-width: 640px) {
         flex-grow: 1;
     }
+}
+
+/* Matching cards */
+.matching__cards {
+    display: flex;
+    gap: var(--gapMedium);
+}
+
+.matching__card, .matching__card img {
+    border-radius: var(--buttonCornerRadius);
+}
+
+.matching__card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--buttonCornerRadius);
+    padding: var(--buttonPadding);
+
+    background-color: var(--accentColorRed);
+}
+
+.matching__card-link a {
+    text-decoration: none;
+    color: var(--textColorWhite);
+}
+
+.matching__card :where(h3, p) {
+    padding: 0 1rem;
 }
