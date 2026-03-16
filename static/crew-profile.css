@@ -1,9 +1,8 @@
 /* Background color wrapper */
 .background-wrapper {
-    background-color: var(--accentColorLightGray);
+    background-color: var(--accentColorLightGrey);
     width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 2.5rem;
+    padding: 1rem 0;
 }
 
 /* --- Container --- */
@@ -17,27 +16,6 @@
     display: flex;
     justify-content: space-between; /* Pushes Dir link to the right */
     align-items: flex-end;         /* Starring and Dir on same height */
-}
-
-.project-title {
-    font-family: var(--titlesFont);
-    font-size: var(--logoSize);
-    font-weight: var(--titlesWeight);
-    color: var(--accentColorGold);
-}
-
-.starring-info {
-    color: var(--accentColorBlack);
-    font-family: var(--headerFont);
-    font-weight: var(--headerweight);
-    font-size:  var(--headerSize);
-}
-
-.director-link, .director-link a {
-    color: var(--accentColorGrey);
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
 }
 
 /* --- Slideshow Container --- */
