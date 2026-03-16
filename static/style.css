@@ -50,7 +50,7 @@ p {
 body {
     padding: var(--bodyPadding);
 
-    @media (max-width < 867px) {
+    @media (max-width < 640px) {
         padding: var(--bodyPaddingSmall);
     }
 }
