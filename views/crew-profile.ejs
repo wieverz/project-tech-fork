@@ -59,24 +59,27 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
 
     <section class="carousel_1">
         <h2 class="carousel_1-Title">Andere projecten van de regisseur</h2>
-
+        
         <ul class="carousel_1--Carousel">
-  <li class="Item 1">
-    <h2>Page 1</h2>
-  </li>
-  <li class="Item 2">
-    <h2>Page 2</h2>
-  </li>
-  <li class="Item 3">
-    <h2>Page 3</h2>
-  </li>
-  <li class="Item 4">
-    <h2>Page 4</h2>
-  </li>
-  <li class="Item 5">
-    <h2>Page 5</h2>
-  </li>
-</ul>
+        <% for (let i = 0; i < 5; i++) { %>
+            <li class="Item1">
+        <article class="matching__card">
+            <header>
+                <img src="/images/cameraman.png" width="335" alt="">
+                <h3>David de Boer - Acteur</h3>
+            </header>
+            <p>5 jaar ervaring als lead actor, speelde in meerdere shortfilms en commercials.</p>
+            <div class="matching__card-link">
+                <a href="#">Bekijk details</a>
+            </div>
+        </article>
+        </li>
+        <% } %>
+         </ul>
+
+<section class="matching__cards">
+    
+    </section>
 
     </section>
 
