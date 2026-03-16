@@ -7,7 +7,7 @@
         <header class="project-header">
 
         <div class="title-group">
-            <h1>Lord Of Balls</h1>
+            <h1 class="project_Title">Lord Of Balls</h1>
             <h2>Starring Lord De Vries</h2>
         </div>
 
@@ -19,19 +19,23 @@
 
     <section class="slideshow" aria-label="Project visuals">
         <button class="slide-nav prev" aria-label="Previous image">&#10094;</button>
-        
-        <div class="slide-viewport">
+        <ul> 
+	<% for (let i = 0; i < 5; i++) { %>
+       <li class="slide-viewport">
             <img src="/images/placeholder-hero.jpg" alt="Main project visual" class="main-visual">
-        </div>
+       </li> 
+	<% } %>
+	<ul>
 
         <button class="slide-nav next" aria-label="Next image">&#10095;</button>
     </section>
 
     <nav class="tag-container" aria-label="Project categories">
-        <span class="tag">Sci-Fi</span>
-        <span class="tag">Short-Film</span>
-        <span class="tag">Horror</span>
-        <span class="tag">Engels</span>
+	<ul> 
+	<% for (let i = 0; i < 5; i++) { %>
+        <span class="tag">Sci-Fi</span> 
+	<% } %>
+	<ul>
     </nav>
 
     <p class="project-text">
@@ -43,7 +47,7 @@ Vergeet basketballen en voetbal; dit is de arena waar reputaties worden gemaakt 
 </div>
 
  <section class="production">
-        <h2 class="production_Title">Productie Informatie</h2>
+        <h3 class="production_Title">Productie Informatie</h3>
         <p class="production_Summary">We zijn op zoek naar enthousiaste cast- en crewleden die willen bijdragen aan dit unieke, visuele project.
 
 Geschatte werktijd (totaal): 4 tot 5 maanden.
@@ -58,12 +62,13 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
         </p>
     </section>
 
-    <section class="carousel_1">
-        <h2 class="carousel_1-Title">Andere projecten van de regisseur</h2>
+    <section class="carousel">
+        <h2 class="carousel__Title">Andere projecten van de regisseur</h2>
         
-        <ul class="carousel_1--Carousel">
+        <ul class="carousel__list">
         <% for (let i = 0; i < 5; i++) { %>
-            <li class="Item1">
+            <li class="carousel__list-Item">
+
         <article class="matching__card">
             <header>
                 <img src="/images/cameraman.png" width="335" alt="">
@@ -74,6 +79,7 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
                 <a href="#">Bekijk details</a>
             </div>
         </article>
+        
         </li>
         <% } %>
          </ul>

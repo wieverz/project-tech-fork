@@ -18,6 +18,10 @@
     align-items: flex-end;         /* Starring and Dir on same height */
 }
 
+.project_Title {
+    font-size: 4rem;
+}
+
 /* --- Slideshow Container --- */
 .slideshow {
     position: relative;
@@ -67,20 +71,17 @@
 
 .tag {
     background-color: var(--accentColorRed);
-    color: var(--backgroundColorWhite);
+    color: var(--accentColorWhite);
     padding: 8px 20px;
     border-radius: var(--buttonCornerRadius);
-    font-family: var(--regularFont);
-    font-size: 0.9rem;
-    font-weight: 600;
+
+    font-family: var(--montserratFont);
+    font-size: var(--bodyTextSize);
+    font-weight: var(--fontWeightRegular);
 }
 
 .project-text {
-    color: var(--accentColorBlack);
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .production {
@@ -94,28 +95,24 @@
 
 .production_Summary {
     margin-top: 1rem;
-    color: var(--accentColorBlack);
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
 }
 
 
 
 
 
-.carousel_1, .carousel_2, .carousel_3 {
+.carousel {
     max-width: 75%; 
     margin: 0 auto;  
 }
 
-.carousel_1-Title {
+.carousel__Title {
     margin-top: 1rem;
     padding-bottom: 1rem;
     padding-top: 1rem;
 }
 
-.carousel_1--Carousel {
+.carousel__list {
   width: 100%;
   padding: 20px;
   display: flex;
@@ -124,10 +121,8 @@
   scroll-snap-type: x mandatory;
 }
 
-.Item1 {
+.carousel__list-Item {
   list-style-type: none;
-  background-color: #eeeeee;
-  border: 1px solid #dddddd;
   scroll-snap-align: center;
   flex: 0 0 25%;
 }
