@@ -95,7 +95,7 @@
   
   .header__login-btn {
     background: var(--accentColorRed);
-    color: var(--backgroundColorWhite);
+    color: var(--accentColorWhite);
     font-family: var(--montserratFont);
     font-size: var(--headerTextSize);
     font-weight: var(--fontWeightBold);
