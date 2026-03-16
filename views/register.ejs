@@ -10,8 +10,8 @@
 <body>
 <%- include('partials/header') %>
 <main>
-    <h2>Nieuw account aanmaken</h2>
-    <form class="registerform" action="/register" method="POST">
+    <h2 class="register__h2">Nieuw account aanmaken</h2>
+    <form class="register__form" action="/register" method="POST">
         <label for="username">Kies een gebruikersnaam:</label>
         <input type="text" id="username" name="username" placeholder="gebruikersnaam" required>
 
@@ -24,9 +24,9 @@
         <label for="password">Kies een wachtwoord:</label>
         <input type="password" id="password" name="password" placeholder="wachtwoord" required>
 
-        <button type="submit">Account aanmaken</button>
+        <button class="" type="submit">Account aanmaken</button>
     </form>
-    <p>Heb je al een account? <a href="/login">Log hier in</a></p>
+    <p class="register__login-redirect" >Heb je al een account? <a href="/login">Log hier in</a></p>
 </main>
 </body>
 </html>
