@@ -25,3 +25,7 @@ header > ul{
     display: flex;
     align-items: flex-start;
 }
+
+header > ul > li{
+    margin: var(--margin);
+}
