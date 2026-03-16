@@ -1,11 +1,12 @@
 /* font ophalen */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap');
 
+@import "partials";
 @import "variables.css";
 @import "login-register.css";
-@import "profielPaginaCrew.css";
-@import "partials";
+@import "crew-profile.css";
+@import "profielPaginaIndividueel.css";
 
 * {
     margin: 0;
