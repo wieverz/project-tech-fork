@@ -51,7 +51,6 @@ app.use(session({
 
 // Een test route
 app.get('/', (req, res) => {
-    res.send('De server werkt!');
     res.render('index');
 });
 
@@ -62,6 +61,6 @@ app.get('/register', (req, res) => {
   res.render('register');
 });
 
-app.get('/profielPaginaIndividueel', (req, res) => {
-    res.render('profielPaginaIndividueel');
+app.get('/crew-profile', (req, res) => {
+  res.render('crew-profile');
 });
