@@ -1,8 +1,4 @@
 
-section{
-    padding-bottom: 1em;
-    padding-top: 1em;
-}
 
 /* Gebruik een class zodat niet elke section op je site verandert */
 .profile-header {
@@ -24,21 +20,21 @@ section{
 }
 
 .qualities {
-    list-style: none;      /* Geen bolletjes */
-    padding: 0;            /* Geen extra ruimte links */
-    margin: 1em 0 0 0;     /* Ruimte boven de lijst */
-    display: block;        /* We zetten de lijst zelf op block */
-    width: 100%;           /* De lijst mag breed zijn... */
+    list-style: none;      
+    padding: 0;            
+    margin: 1em 0 0 0;     
+    display: block;        
+    width: 100%;           
 }
 
 .qualities li {
     display: inline-block;
-    background-color: #e0e0e0; /* Hier kun je de achtergrondkleur aanpassen */
-    color: #333;               /* De kleur van de tekst */
-    padding: 0.4em 1em;        /* Ruimte binnen het rechthoekje (boven/onder, links/rechts) */
+    background-color: var(--accentColorGold); 
+    color: #333;             
+    padding: 0.4em 1em;       
     margin-bottom: 0.5em;
-    border-radius: 8px;        /* De ronde hoeken */
+    border-radius: 8px;        
     font-family: var(--montserratFont);
-    font-size: 0.9em;          /* Maakt de tekst iets subtieler */
+    font-size: 0.9em;          
     font-weight: 500;     
 }
