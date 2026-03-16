@@ -4,18 +4,18 @@
 .profile-header {
     display: flex;
     align-items: flex-start; /* Zorgt dat de tekst bovenaan begint */
-    gap: 2em;               /* De ruimte tussen de foto en de tekst */
+    gap: var(--gapMedium);               /* De ruimte tussen de foto en de tekst */
 }
 
 .profile-content {
-    padding-top: 1em;
+    padding-top: var(--gapSmall);
     display: flex;
     flex-direction: column; /* Zorgt dat de tekst onder elkaar blijft staan */
 }
 
 /* Optioneel: zorg dat de afbeelding niet vervormt */
 .profile-header img {
-    padding-top: 1em;
+    padding-top: var(--gapSmall);
     width: 18em;
     height: auto;
     object-fit: cover;
@@ -23,18 +23,19 @@
 
 .important-qualities {
     display: flex;
-    padding: 0.5em 0 0.5em 0;
+    padding-top: var(--gapSmall);
+    padding-bottom: var(--gapSmall);
 }
 
 .important-qualities li{
-    margin-right: 2em;
+    margin-right: var(--gapMedium);
     list-style: none;
 }
 
 .qualities {
     list-style: none;      
     padding: 0;            
-    margin: 1em 0 0 0;     
+    margin-top: var(--gapSmall);     
     display: block;        
     width: 100%;           
 }
@@ -59,9 +60,9 @@
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 gelijke kolommen */
-    gap: 1.5em;
+    gap: var(--gapSmall);
     list-style: none;
-    padding: 0;
+    padding-top: var(--gapMedium);
 }
 
 /* De kaart zelf */
@@ -103,7 +104,7 @@
 .project-info h3 {
     margin: 0;
     font-size: 1.2em;
-    color: white;              
+    color: var(--accentColorWhite);              
     font-family: var(--montserratFont);
 }
 
