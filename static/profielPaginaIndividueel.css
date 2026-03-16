@@ -1,31 +1,44 @@
-body{
-    padding: var(--padding);
-}
 
 section{
     padding-bottom: 1em;
     padding-top: 1em;
 }
 
-section:first-of-type{
+/* Gebruik een class zodat niet elke section op je site verandert */
+.profile-header {
     display: flex;
-    align-items: flex-start;
-    gap: 2em;
+    align-items: flex-start; /* Zorgt dat de tekst bovenaan begint */
+    gap: 2em;               /* De ruimte tussen de foto en de tekst */
 }
 
-img{
+.profile-content {
+    display: flex;
+    flex-direction: column; /* Zorgt dat de tekst onder elkaar blijft staan */
+}
+
+/* Optioneel: zorg dat de afbeelding niet vervormt */
+.profile-header img {
     width: 18em;
+    height: auto;
+    object-fit: cover;
 }
 
-p{
-    font-family: var(--regularFont);
+.qualities {
+    list-style: none;      /* Geen bolletjes */
+    padding: 0;            /* Geen extra ruimte links */
+    margin: 1em 0 0 0;     /* Ruimte boven de lijst */
+    display: block;        /* We zetten de lijst zelf op block */
+    width: 100%;           /* De lijst mag breed zijn... */
 }
 
-header > ul{
-    display: flex;
-    align-items: flex-start;
-}
-
-header > ul > li{
-    margin: var(--margin);
+.qualities li {
+    display: inline-block;
+    background-color: #e0e0e0; /* Hier kun je de achtergrondkleur aanpassen */
+    color: #333;               /* De kleur van de tekst */
+    padding: 0.4em 1em;        /* Ruimte binnen het rechthoekje (boven/onder, links/rechts) */
+    margin-bottom: 0.5em;
+    border-radius: 8px;        /* De ronde hoeken */
+    font-family: var(--montserratFont);
+    font-size: 0.9em;          /* Maakt de tekst iets subtieler */
+    font-weight: 500;     
 }
