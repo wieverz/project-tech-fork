@@ -1,13 +1,24 @@
 <head>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<header>
-  <nav class="hoofd-nav">
-      <!-- <strong class="nav-brand">Matching App</strong> -->
-       <a href="/" class="logo"> FilmCrew </a>
-      <a href="/" class="nav-brand">Matching App</a>
-      <a href="/profile" class="nav-link">profile</a>
-      <a href="/login" class="nav-link">login</a>
+<header class="header__main">
+  <div class="header__logo">FilmCrew</div>
+  
+  <nav class="nav__container">
+    <ul class="nav__list">
+      <li class="nav__link dark"><a href="#">Find Projects</a></li>
+      <li class="nav__link light"><a href="#">Find Talents</a></li>
+      <li class="nav__link dark"><a href="#">Matches</a></li>
+    </ul>
+    
+    <div class="header__actions">
+      <button class="header__search-btn">
+        <svg  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <a href="/login" class="header__login-btn">Login</a>
+    </div>
   </nav>
+  
+  <div class="header__end-cap"></div>
 </header>
