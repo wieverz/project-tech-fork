@@ -64,3 +64,7 @@ app.get('/register', (req, res) => {
 app.get('/crew-profile', (req, res) => {
   res.render('crew-profile');
 });
+
+app.get('/profielPaginaIndividueel', (req, res) => {
+  res.render('profielPaginaIndividueel');
+});
