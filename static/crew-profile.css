@@ -151,6 +151,4 @@ li {
   width: 25%;
 }
 
-li:nth-child(even) {
-  background-color: cyan;
-}
+
