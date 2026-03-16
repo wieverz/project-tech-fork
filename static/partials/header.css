@@ -11,7 +11,7 @@
   }
   
   .header__logo {
-    color: var(--accentColorRed);
+    color: var(--logoColorDark);
     font-family: var(--logoFont);
     font-weight: var(--logoWeight);
     font-size: var(--logoSize);
@@ -19,7 +19,7 @@
     margin-right: auto;
     transition: font-size 0.2s;
   } .header__logo:hover{
-    color: var(--accentColorRed);
+    color: var(--logoColorDark);
     text-decoration: none;
     font-size: 2.075rem;
   }
@@ -50,9 +50,9 @@
   }
   
   .nav__link a {
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
+    font-family: var(--montserratFont);
+    font-size: var(--headerTextSize);
+    font-weight: var(--fontWeightBold);
     text-decoration: none;
     transform: skewX(-25deg); /* Tekst weer rechtzetten */
     white-space: nowrap;
@@ -60,7 +60,7 @@
   }
   /* Kleurvariaties */
   .nav__link.dark { background: var(--accentColorGrey); }
-  .nav__link.dark a { color: var(--backgroundColorWhite); }
+  .nav__link.dark a { color: var(--accentColorWhite); }
   
   .nav__link.light { background: white; }
   .nav__link.light a { color: var(--accentColorGrey); }
@@ -96,9 +96,9 @@
   .header__login-btn {
     background: var(--accentColorRed);
     color: var(--backgroundColorWhite);
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
+    font-family: var(--montserratFont);
+    font-size: var(--headerTextSize);
+    font-weight: var(--fontWeightBold);
     text-decoration: none;
     padding: 10px 25px;
     border-radius: 20px;
