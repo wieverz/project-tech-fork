@@ -45,7 +45,7 @@
     align-items: center;
     padding: 0 45px;
     transform: skewX(25deg); /* De hoek */
-    margin-left: -20px; /* Zorgt dat ze over elkaar heen vallen */
+    margin-left: -20px;
     transition: background 0.3s;
   }
   
