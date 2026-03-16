@@ -8,15 +8,27 @@
 }
 
 .profile-content {
+    padding-top: 1em;
     display: flex;
     flex-direction: column; /* Zorgt dat de tekst onder elkaar blijft staan */
 }
 
 /* Optioneel: zorg dat de afbeelding niet vervormt */
 .profile-header img {
+    padding-top: 1em;
     width: 18em;
     height: auto;
     object-fit: cover;
+}
+
+.important-qualities {
+    display: flex;
+    padding: 0.5em 0 0.5em 0;
+}
+
+.important-qualities li{
+    margin-right: 2em;
+    list-style: none;
 }
 
 .qualities {
@@ -37,4 +49,68 @@
     font-family: var(--montserratFont);
     font-size: 0.9em;          
     font-weight: 500;     
+}
+
+.projects-section {
+    padding: var(--sectionPadding);
+}
+
+/* Container voor alle projecten */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 gelijke kolommen */
+    gap: 1.5em;
+    list-style: none;
+    padding: 0;
+}
+
+/* De kaart zelf */
+.project-card {
+    background-color: #D9D9D9; 
+    border-radius: 25px;    
+    overflow: hidden;          /* Zorgt dat de inhoud niet buiten de ronde hoeken steekt */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card a {
+    text-decoration: none;  
+    color: inherit;
+}
+
+/* Het bovenste gedeelte (waar de afbeelding komt) */
+.image-placeholder {
+    height: 12em; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+}
+
+/* De donkere balk onderaan de kaart */
+.project-info {
+    background-color: var(--accentColorRed); 
+    padding: 1.2em;
+    border-radius: 0 0 25px 25px; 
+
+}
+
+.project-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: white;              
+    font-family: var(--montserratFont);
+}
+
+.project-info h4 {
+    margin: 5px 0 0 0;
+    font-weight: 300;
+    font-size: 0.9em;
+    color: #f0f0f0;
+    font-family: var(--montserratFont);
 }

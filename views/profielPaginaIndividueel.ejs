@@ -9,14 +9,17 @@
 
 <body>
     <%- include('partials/header') %>
+    <main>
     <section class="profile-header">
     <img src="/images/producer.jpg" alt="producer">
     
     <div class="profile-content">
-        <h2>Naam</h2>
+        <h2>Mooie Naam</h2>
         <h3>Functie</h3>
-        <h4>4 jaar werkervaring</h4>
-        <h4>Amsterdam</h4>
+        <ul class="important-qualities">
+            <li><h4>4 jaar werkervaring</h4></li>
+            <li><h4>Amsterdam</h4></li>
+        </ul>
         <p>Mijn naam is Mooie naam, ik werk al vier jaar als regisseur/ producer. Ik ben bekend met verschillende genres waaronder: 
         Thriller, drama & indie. Het liefste werk ik aan comedies en romantische films. Ik heb gestudeerd aan de filmacedemie in Utrecht. In mijn vrije tijd doe ik schaatsen en koken. Ik zou mijzelf omschrijven als een sociaal persoon. Ik hou van samenwerken, of dat nou met de acteurs, schrijvers of kostuum ontwerpers is. Denk je dat wij een echte match zijn? Stuur mij gerust een bericht.</p>
         <ul class="qualities">
@@ -29,29 +32,44 @@
     </div>
 </section>
 
-    <section>
-    <h2>Mijn projecten</h2>
-    <ul>
-        <li><a href="">
-                <img src="" alt="">
-                <h3>Titel korte film</h3>
-                <h4>Korte film</h4>
+    <section class="projects-section">
+    <h2>Projecten</h2>
+    <ul class="project-grid">
+        <li class="project-card">
+            <a href="">
+                <div class="image-placeholder">
+                    <img src="/images/project1.jpg" alt=""> </div>
+                <div class="project-info">
+                    <h3>Boterbloem</h3>
+                    <h4>Korte film</h4>
+                </div>
             </a>
         </li>
-        <li><a href="">
-                <img src="" alt="">
-                <h3>Titel serie</h3>
-                <h4>Pilot aflevering</h4>
+        <li class="project-card">
+            <a href="">
+                <div class="image-placeholder">
+                    <img src="/images/project2.jpg" alt="">
+                </div>
+                <div class="project-info">
+                    <h3>Happy hour</h3>
+                    <h4>Pilot-aflevering</h4>
+                </div>
             </a>
         </li>
-                <li><a href="">
-                <img src="" alt="">
-                <h3>Titel reclame</h3>
-                <h4>Relclame spotje</h4>
+        <li class="project-card">
+            <a href="">
+                <div class="image-placeholder">
+                    <img src="/images/project3.jpg" alt="">
+                </div>
+                <div class="project-info">
+                    <h3>Schoon!</h3>
+                    <h4>Reclamespotje</h4>
+                </div>
             </a>
         </li>
     </ul>
-    </section>
+</section>
 
+    </main>
 </body>
 </html>
