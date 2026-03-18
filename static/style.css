@@ -19,42 +19,46 @@
     padding: 0;
 }
 
-/* :where niet specifiek, oftewel makkelijk te overschrijven -> https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:where */
-:where(h1, h2, h3, p, a, label) {
-    color: var(--textColor);
-    font-weight: var(--fontWeightRegular);
-    font-family: var(--montserratFont);
-}
-
-h1 {
-    color: var(--accentColorGold);
-    font-family: var(--abrilFont);
-    font-size: var(--h1Size);
-    font-weight: var(--fontWeightRegular);
-}
-
-h2 {
-    color: var(--textColor);
-    font-family: var(--instrumentFont);
-    font-size: var(--h2Size);
-    font-weight: var(--fontWeightBold);
-}
-
-h3 {
-    color: var(--textColor);
-    font-family: var(--montserratFont);
-    font-size: var(--h3Size);
-    font-weight: var(--fontWeightBold);
-}
-
-p {
+/* :where niet specifiek, oftewel makkelijk te overschrijven wanneer nodig -> https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:where */
+body {
     color: var(--textColor);
     font-family: var(--montserratFont);
     font-size: var(--bodyTextSize);
     font-weight: var(--fontWeightRegular);
 }
 
-main {
+a, p, label, input {
+    font: inherit;
+}
+
+:where(h1, h2, h3) {
+    color: var(--textColor);
+    font-weight: var(--fontWeightRegular);
+    font-family: var(--montserratFont);
+}
+
+:where(h1) {
+    color: var(--accentColorGold);
+    font-family: var(--abrilFont);
+    font-size: var(--h1Size);
+    font-weight: var(--fontWeightRegular);
+}
+
+:where(h2) {
+    color: var(--textColor);
+    font-family: var(--instrumentFont);
+    font-size: var(--h2Size);
+    font-weight: var(--fontWeightBold);
+}
+
+:where(h3) {
+    color: var(--textColor);
+    font-family: var(--montserratFont);
+    font-size: var(--h3Size);
+    font-weight: var(--fontWeightBold);
+}
+
+:where(main) {
     padding: var(--mainPadding);
 }
 
