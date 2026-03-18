@@ -1,19 +1,32 @@
 /* ////////// Register pagina ///////// */
-
-main{
-  padding-top: 5em;
+.register__h2{
+  margin: var(--formPadding);
 }
-
-.registerform{
-  background: white;
+.register__form{
+  background-color: var(--accentColorWhite);
+  padding: var(--buttonPadding) ;
   padding: 20px;
+  max-width: 750px;
+  margin: 20px auto;
+
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  max-width: 500px;
-  margin: 20px auto;
+
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; 
+  
+}
+
+.register__login-redirect{
+  margin: var(--formPadding);
+  margin-left: 38.75rem;
+}
+.register__login-redirect a{
+  transition: all 0.2s;
+}
+.register__login-redirect a:hover{
+  color: var(--accentColorRed);
+  font-weight: var(--fontWeightBold);
 }
 
 #username, #password, #email, #leeftijd{
