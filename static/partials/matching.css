@@ -112,3 +112,7 @@
 .matching__cards-item {
     flex: none !important;
 }
+
+.matching {
+    margin: var(--sectionPadding);
+}

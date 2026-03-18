@@ -21,6 +21,9 @@
 
 .hero__container button {
     width: fit-content;
+    padding: var(--buttonPadding);
+    background-color: var(--accentColorRed);
+    border-radius: var(--buttonCornerRadius);
 }
 
 .hero__heading {
