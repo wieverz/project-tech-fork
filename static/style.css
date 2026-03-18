@@ -27,7 +27,7 @@ body {
     font-weight: var(--fontWeightRegular);
 }
 
-a, p, label, input {
+a, p, label, input, button {
     font: inherit;
 }
 
