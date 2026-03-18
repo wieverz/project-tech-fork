@@ -16,6 +16,7 @@
 }
 
 .matching__filter-bar {
+    margin-top: var(--gapSmall);
     justify-content: space-between;
 }
 
@@ -80,10 +81,19 @@
 }
 
 /* Matching cards */
-.matching__cards {
-    display: flex;
-    gap: var(--gapMedium);
+.matching__card{
+    width: min-content;
 }
+
+.matching__cards > ul {
+    padding: unset;
+}
+
+.matching__cards-list {
+    margin-top: var(--gapLarge);
+}
+
+
 
 .matching__card, .matching__card img {
     border-radius: var(--buttonCornerRadius);
@@ -107,4 +117,8 @@
 
 .matching__card :where(h3, p) {
     padding: 0 1rem;
+}
+
+.matching__cards-item {
+    flex: none !important;
 }

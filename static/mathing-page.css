@@ -1,6 +1,7 @@
 /* Hero */
 .hero {
     position: relative;
+    margin: 0 -5rem;
 }
 
 .hero__container {
