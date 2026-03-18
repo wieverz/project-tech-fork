@@ -17,18 +17,19 @@
 
     </header>
 
-    <section class="slideshow" aria-label="Project visuals">
-        <button class="slide-nav prev" aria-label="Previous image">&#10094;</button>
-        <ul> 
-	<% for (let i = 0; i < 5; i++) { %>
-       <li class="slide-viewport">
-            <img src="/images/placeholder-hero.jpg" alt="Main project visual" class="main-visual">
-       </li> 
-	<% } %>
-	<ul>
+  <section class="slideshow" aria-label="Project visuals">
+    <button class="slideshow__nav slideshow__nav--prev" aria-label="Previous image">&#10094;</button>
+    
+    <div class="slideshow__container">
+        <% projectImages.forEach((img, index) => { %>
+            <div class="slideshow__item <%= index === 0 ? 'slideshow__item--active' : '' %>">
+                <img src="<%= img %>" alt="Project visual <%= index + 1 %>" class="slideshow__image">
+            </div>
+        <% }) %>
+    </div>
 
-        <button class="slide-nav next" aria-label="Next image">&#10095;</button>
-    </section>
+    <button class="slideshow__nav slideshow__nav--next" aria-label="Next image">&#10095;</button>
+   </section>
 
     <nav class="tag-container" aria-label="Project categories">
 	<ul> 
@@ -102,6 +103,6 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
 
 
 
-
+<script src="/crew-profile.js"></script>
 </body>
 </html>

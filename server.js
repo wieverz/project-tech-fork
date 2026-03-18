@@ -64,7 +64,3 @@ app.get('/register', (req, res) => {
 app.get('/login', (req, res) => {
   res.render('login');
 });
-
-app.get('/crew-profile', (req, res) => {
-  res.render('crew-profile');
-});
