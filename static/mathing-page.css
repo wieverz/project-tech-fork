@@ -5,10 +5,26 @@
 }
 
 .hero__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapMedium);
+
     padding: 7rem 5rem 5rem;
 }
 
+.hero__container p {
+    color: var(--textColorWhite);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-family: var(--montserratFont);
+    font-weight: var(--fontWeightBold);
+}
+
+.hero__container button {
+    width: fit-content;
+}
+
 .hero__heading {
+    font-size: clamp(3rem, 5vw, 6rem);
     text-shadow: var(--textShadow);
 }
 
@@ -24,3 +40,4 @@
     filter: blur(4px);
     object-fit: cover;
 }
+
