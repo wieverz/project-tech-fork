@@ -3,18 +3,38 @@
 .profile-header {
     display: flex;
     align-items: flex-start; 
-    gap: var(--gapMedium);               
+    gap: var(--gapMedium);
+    padding-top: var(--gapSmall);
 }
 
 .profile-content {
-    padding-top: var(--gapSmall);
+    position: relative; /* Dit is het anker voor de knop */
     display: flex;
-    flex-direction: column; /* Zorgt dat de tekst onder elkaar blijft staan */
+    flex-direction: column;
+}
+
+.admin-toggle-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    /* Styling */
+    background-color: var(--accentColorRed); /* Jouw kleur */
+    color: white;
+    font-family: var(--montserratFont); /* Jouw font */
+    font-weight: var(--fontWeightBold);
+    padding: 0.6em 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.admin-toggle-btn:hover {
+    background-color: #333; /* Kleur bij hover */
 }
 
 /*  zorgt dat de afbeelding niet vervormt */
 .profile-header img {
-    padding-top: var(--gapSmall);
     width: 18em;
     height: auto;
     object-fit: cover;
@@ -219,4 +239,44 @@
     text-align: left;
     display: flex;
     flex-direction: column;
+}
+
+/* Verberg alle aanpas-knoppen standaard */
+.edit-only {
+    display: none;
+}
+
+/* Als de body de class 'is-editing' heeft, toon dan de aanpas-opties */
+body.is-editing .edit-only {
+    display: inline-block;
+}
+
+/* Optioneel: geef secties een subtiele rand als je ze kunt aanpassen */
+body.is-editing section {
+    outline: 0.1em dashed var(--accentColorGold);
+    cursor: pointer;
+}
+
+/* Standaard is de 'voeg toe' kaart onzichtbaar */
+.add-project-card {
+    display: none !important; 
+}
+
+/* ALLEEN als de body de class 'is-editing' heeft, tonen we de kaart */
+body.is-editing .add-project-card {
+    display: flex !important;
+    border: 0.2em dashed var(--accentColorRed);
+    justify-content: center;
+    align-items: center;
+    min-height: 12em;
+    background-color: var(--accentColorWhite);
+}
+
+/* Styling voor de knop binnen de kaart */
+.add-project-card .add-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--montserratFont);
+    color: var(--accentColorRed);
 }

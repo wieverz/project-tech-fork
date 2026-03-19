@@ -14,6 +14,7 @@
     <img src="/images/producer.jpg" alt="producer">
     
     <div class="profile-content">
+        <button id="edit-mode-toggle" class="admin-toggle-btn">Aanpassen</button>
         <h2>Mooie Naam</h2>
         <h3>Producer</h3>
         <ul class="important-qualities">
@@ -68,8 +69,13 @@
                 </div>
                  </button>
         </li>
-    </ul>
-</section>
+<li class="project-card add-project-card">
+        <button class="add-btn">
+            <span class="plus-icon">+</span>
+            <h3>Project toevoegen</h3>
+        </button>
+    </li>
+</ul>
 
     </main>
 
@@ -185,6 +191,23 @@
             closeModal();
         }
     });
+
+const editBtn = document.getElementById('edit-mode-toggle');
+
+editBtn.addEventListener('click', () => {
+    // Schakel de 'is-editing' class aan of uit op de body
+    document.body.classList.toggle('is-editing');
+
+    // Verander de tekst van de knop op basis van de mode
+    if (document.body.classList.contains('is-editing')) {
+        editBtn.textContent = "Opslaan";
+        editBtn.style.backgroundColor = "#28a745"; // Groen voor opslaan
+    } else {
+        editBtn.textContent = "Aanpassen";
+        editBtn.style.backgroundColor = "var(--accentColorRed)";
+    }
+});
+
 </script>
 
 </body>
