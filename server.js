@@ -60,6 +60,9 @@ app.listen(port, () => {
 app.get('/register', (req, res) => {
   res.render('register');
 });
+app.get('/register2', (req, res) => {
+  res.render('register2');
+});
 
 app.get('/login', (req, res) => {
   res.render('login');
