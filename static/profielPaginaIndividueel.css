@@ -1,10 +1,9 @@
 
 
-/* Gebruik een class zodat niet elke section op je site verandert */
 .profile-header {
     display: flex;
-    align-items: flex-start; /* Zorgt dat de tekst bovenaan begint */
-    gap: var(--gapMedium);               /* De ruimte tussen de foto en de tekst */
+    align-items: flex-start; 
+    gap: var(--gapMedium);               
 }
 
 .profile-content {
@@ -13,7 +12,7 @@
     flex-direction: column; /* Zorgt dat de tekst onder elkaar blijft staan */
 }
 
-/* Optioneel: zorg dat de afbeelding niet vervormt */
+/*  zorgt dat de afbeelding niet vervormt */
 .profile-header img {
     padding-top: var(--gapSmall);
     width: 18em;
@@ -25,6 +24,10 @@
     display: flex;
     padding-top: var(--gapSmall);
     padding-bottom: var(--gapSmall);
+    font-family: var(--montserratFont);
+    font-size: var(--bodyTekstSize);
+    font-weight: var( --fontWeightBold);
+    color: var(--accentColorRed);
 }
 
 .important-qualities li{
@@ -35,21 +38,20 @@
 .qualities {
     list-style: none;      
     padding: 0;            
-    margin-top: var(--gapSmall);     
+    margin-top: var(--gapMedium);     
     display: block;        
     width: 100%;           
 }
 
 .qualities li {
     display: inline-block;
-    background-color: var(--accentColorGold); 
-    color: #333;             
-    padding: 0.4em 1em;       
+    background-color: var(--accentColorGold);          
+    padding: 0.5em 1.1em;       
     margin-bottom: 0.5em;
-    border-radius: 8px;        
+    border-radius: 1em;        
     font-family: var(--montserratFont);
-    font-size: 0.9em;          
-    font-weight: 500;     
+    font-size: var(--bodyTekstSize);         
+    font-weight: var( --fontWeightBold);  
 }
 
 .projects-section {
