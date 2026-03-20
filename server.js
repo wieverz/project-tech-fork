@@ -76,4 +76,9 @@ const projectImages = [
 res.render('crew-profile', {
 projectImages: projectImages
 });
+  res.render('crew-profile');
+});
+
+app.get('/profielPaginaIndividueel', (req, res) => {
+  res.render('profielPaginaIndividueel');
 });

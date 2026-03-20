@@ -14,14 +14,13 @@
     "mongoose": "^9.3.0",
     "terser": "^5.31.0"
   },
-"scripts": {
-  "start": "node server.js",
-  "build:css": "postcss static/style.css -o public/css/style.css",
-  "watch:css": "postcss static/style.css -o public/css/style.css -w",
-  "watch:server": "nodemon server.js",
-  "dev": "concurrently \"npm run watch:css\" \"npm run watch:server\""
-},
-
+  "scripts": {
+    "start": "node server.js",
+    "build:css": "postcss static/style.css -o public/css/style.css",
+    "watch:css": "postcss static/style.css -o public/css/style.css -w",
+    "watch:server": "nodemon server.js",
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch:server\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ItzANoah/Project-Tech-.git"

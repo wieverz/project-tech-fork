@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndividueelProfielPagina</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+    <section class="profile-header">
+    <img src="/images/producer.jpg" alt="producer">
+    
+    <div class="profile-content">
+        <button id="edit-mode-toggle" class="admin-toggle-btn">Aanpassen</button>
+        <h1>Mooie Naam</h1>
+        <h3>Producer</h3>
+        <ul class="important-qualities">
+            <li><h4>4 jaar werkervaring</h4></li>
+            <li><h4>Amsterdam</h4></li>
+        </ul>
+        <p>Mijn naam is Mooie naam, ik werk al vier jaar als regisseur/ producer. Ik ben bekend met verschillende genres waaronder: 
+        Thriller, drama & indie. Het liefste werk ik aan comedies en romantische films. Ik heb gestudeerd aan de filmacedemie in Utrecht. In mijn vrije tijd doe ik schaatsen en koken. Ik zou mijzelf omschrijven als een sociaal persoon. Ik hou van samenwerken, of dat nou met de acteurs, schrijvers of kostuum ontwerpers is. Denk je dat wij een echte match zijn? Stuur mij gerust een bericht.</p>
+        <ul class="qualities">
+            <li>Color grading</li>
+            <li>Producen</li>
+            <li>Samenwerken</li>
+            <li>Schrijven</li>
+            <li>Engelse taal</li>
+        </ul>
+    </div>
+</section>
+
+<section class="projects-section">
+    <h2>Projecten</h2>
+    <ul class="project-grid">
+        <li class="project-card">
+            <button class="project-link" data-project-id="project1">
+                <div class="image-placeholder">
+                    <img src="/images/project1.jpg" alt="">
+                </div>
+                <div class="project-info">
+                    <h3>Boterbloem</h3>
+                    <h4>Korte film</h4>
+                </div>
+            </button>
+        </li>
+        <li class="project-card">
+             <button class="project-link" data-project-id="project2">
+                <div class="image-placeholder">
+                    <img src="/images/project2.jpg" alt="foto bar">
+                </div>
+                <div class="project-info">
+                    <h3>Happy hour</h3>
+                    <h4>Pilot-aflevering</h4>
+                </div>
+                 </button>
+        </li>
+         <li class="project-card">
+             <button class="project-link" data-project-id="project3">
+                                <div class="image-placeholder">
+                    <img src="/images/project3.jpg" alt="spons">
+                </div>
+                <div class="project-info">
+                    <h3>Schoon!</h3>
+                    <h4>Reclamespotje</h4>
+                </div>
+                 </button>
+        </li>
+<li class="project-card add-project-card">
+        <button class="add-btn">
+            <span class="plus-icon">+</span>
+            <h3>Project toevoegen</h3>
+        </button>
+    </li>
+</ul>
+
+    </main>
+
+    <div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        
+        <div id="modal-body">
+            </div>
+    </div>
+</div>
+
+<script>
+    // 3a: De Project Details (onze "nep-database")
+    const projectDetails = {
+        project1: {
+            title: "Boterbloem",
+            type: "Korte film",
+            mainImage: "/images/project1.jpg", // Gebruik eventueel een andere foto
+            genres: ["Drama", "Indie"],
+            role: "Producent",
+            contribution: "Verantwoordelijk voor de complete productieplanning, budgetbeheer en het casten van de hoofdrollen. Tevens de distributie-strategie bepaald.",
+            year: "2023"
+        },
+        project2: {
+            title: "Happy hour",
+            type: "Pilot-aflevering",
+            mainImage: "/images/project2.jpg",
+            genres: ["Komedie", "Satire"],
+            role: "Co-Regisseur / Line Producer",
+            contribution: "Regie gevoerd over de outdoor scènes en de logistiek op de set beheerd. Nauw samengewerkt met de schrijvers voor de uiteindelijke montage.",
+            year: "2024"
+        },
+        project3: {
+            title: "Schoon!",
+            type: "Reclamespotje",
+            mainImage: "/images/project3.jpg",
+            genres: ["Reclame", "Product"],
+            role: "Producer",
+            contribution: "Het concept ontwikkeld voor een grote schoonmaakmerk-campagne. De volledige crew aangestuurd en de post-productie gesuperviseerd.",
+            year: "2024"
+        }
+    };
+
+    // 3b: Variabelen voor de DOM-elementen
+    const modal = document.getElementById("project-modal");
+    const modalBody = document.getElementById("modal-body");
+    const closeBtn = document.getElementsByClassName("close-modal")[0];
+    const projectLinks = document.querySelectorAll(".project-link");
+
+    // 3c: Functie om de modal te openen en vullen
+    function openModal(projectId) {
+        const details = projectDetails[projectId];
+        if (!details) return; // Beveiliging als ID niet bestaat
+
+        // Maak de genres tags HTML
+        const genresTags = details.genres.map(genre => `<span class="tag">${genre}</span>`).join('');
+
+        // Genereer de complete HTML inhoud
+        const modalHtml = `
+            <img src="${details.mainImage}" alt="${details.title}" class="modal-image">
+            <h2>${details.title}</h2>
+            <h3>${details.type} (${details.year})</h3>
+            
+            <div class="modal-meta">
+                <span class="tag">Rol: ${details.role}</span>
+                ${genresTags}
+            </div>
+            
+            <p class="modal-description">${details.contribution}</p>
+        `;
+
+        // Stop de HTML in de modal-body
+        modalBody.innerHTML = modalHtml;
+
+        // Toon de modal
+        modal.style.display = "block";
+        
+        // Voorkom scrollen van de achtergrondpagina
+        document.body.style.overflow = "hidden";
+    }
+
+    // 3d: Functie om de modal te sluiten
+    function closeModal() {
+        modal.style.display = "none";
+        // Herstel scrollen van de achtergrondpagina
+        document.body.style.overflow = "auto";
+    }
+
+    // 3e: Event Listeners koppelen
+
+    // 1. Luister naar clicks op de projectkaarten
+    projectLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            const projectId = this.getAttribute("data-project-id");
+            openModal(projectId);
+        });
+    });
+
+    // 2. Luister naar click op het kruisje
+    closeBtn.addEventListener("click", closeModal);
+
+    // 3. Luister naar click buiten de pop-up kaart (op de zwarte achtergrond)
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    });
+
+    // 4. Luister naar de 'Escape' toets om te sluiten
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && modal.style.display === "block") {
+            closeModal();
+        }
+    });
+
+const editBtn = document.getElementById('edit-mode-toggle');
+
+editBtn.addEventListener('click', () => {
+    // Schakel de 'is-editing' class aan of uit op de body
+    document.body.classList.toggle('is-editing');
+
+    // Verander de tekst van de knop op basis van de mode
+    if (document.body.classList.contains('is-editing')) {
+        editBtn.textContent = "Opslaan";
+        editBtn.style.backgroundColor = "#28a745"; // Groen voor opslaan
+    } else {
+        editBtn.textContent = "Aanpassen";
+        editBtn.style.backgroundColor = "var(--accentColorRed)";
+    }
+});
+
+</script>
+
+</body>
+</html>
