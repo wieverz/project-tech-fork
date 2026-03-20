@@ -119,7 +119,7 @@
 }
 
 .tag {
-    background-color: var(--accentColorRed);
+    background-color: var(--accentColorGold);
     color: var(--accentColorWhite);
     padding: 8px 20px;
     border-radius: var(--buttonCornerRadius);
