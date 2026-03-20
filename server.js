@@ -71,3 +71,7 @@ app.get('/login', (req, res) => {
 app.get('/crew-profile', (req, res) => {
   res.render('crew-profile');
 });
+
+app.get('/current-matches', (req, res) => {
+  res.render('current-matches');
+});
