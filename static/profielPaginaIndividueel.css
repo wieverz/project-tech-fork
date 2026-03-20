@@ -4,7 +4,7 @@
     display: flex;
     align-items: flex-start; 
     gap: var(--gapMedium);
-    padding-top: var(--gapSmall);
+    padding-top: var(--gapLarge);
 }
 
 .profile-content {
@@ -71,7 +71,7 @@
     border-radius: 1em;        
     font-family: var(--montserratFont);
     font-size: var(--bodyTekstSize);         
-    font-weight: var( --fontWeightBold);  
+    font-weight: var( --fontWeightRegular);  
 }
 
 .projects-section {
@@ -89,7 +89,7 @@
 
 /* De kaart zelf */
 .project-card {
-    background-color: #D9D9D9; 
+    background-color: var(--accentColorWhite); 
     border-radius: 25px;    
     overflow: hidden;          /* Zorgt dat de inhoud niet buiten de ronde hoeken steekt */
     display: flex;
@@ -134,7 +134,7 @@
 }
 
 .project-info h4 {
-    margin: 5px 0 0 0;
+    margin-top: var(--gapExtraSmall);
     font-weight: 300;
     font-size: var(--bodyTextSize);
     color: #f0f0f0;
