@@ -1,26 +1,50 @@
 /* Background color wrapper */
-.background-wrapper {
+.background--wrapper {
     background-color: var(--accentColorLightGrey);
     width: 100%;
     padding: 1rem 0;
 }
 
 /* --- Container --- */
-.project-container {
+.project--container{
     max-width: 75%; 
     margin: 0 auto;    
 }
 
 /* --- Header (Lord of Balls + Director) --- */
-.project-header {
+.project--header {
     display: flex;
-    justify-content: space-between; /* Pushes Dir link to the right */
-    align-items: flex-end;         /* Starring and Dir on same height */
+    justify-content: space-between;
+    align-items: flex-end;         
 }
 
-.project_Title {
+.project--title {
     font-size: 4rem;
 }
+
+/* profile button */ 
+
+.button--profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accentColorGrey); 
+    color: var(--accentColorWhite);
+    padding: 8px 16px;  /* vervangen met percentage */
+    border: none;           
+    border-radius: 5px;
+    cursor: pointer;        
+    font-family: inherit;  
+    font-size: var(--bodyTextSize);
+    transition: background 0.3s ease;
+    margin-bottom: 30px; /* aanpassen */  
+}
+
+.button--profile:hover {
+      background-color: var(--accentColorRed);
+}
+
+/* slidehow */
 
 .slideshow {
     position: relative;
@@ -121,24 +145,3 @@
 .production_Summary {
     margin-top: 1rem;
 }
-
-.edit-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--accentColorGrey); 
-    color: var(--accentColorWhite);
-    padding: 8px 16px;  /* vervangen met percentage */
-    border: none;           
-    border-radius: 5px;
-    cursor: pointer;        
-    font-family: inherit;  
-    font-size: var(--bodyTextSize);
-    transition: background 0.3s ease;
-    margin-bottom: 30px; /* aanpassen */
-}
-
-.edit-btn:hover {
-    background-color: var(--accentColorRed);
-}
-
