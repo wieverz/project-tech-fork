@@ -69,7 +69,21 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/crew-profile', (req, res) => {
-  res.render('crew-profile');
+  
+
+const projectImages = [
+"/images/placeholder-hero.jpg",
+"/images/cameraman.png",
+"/images/home-page-image.png"
+];
+
+res.render('crew-profile', {
+projectImages: projectImages
+});
+});
+
+app.get('/current-matches', (req, res) => {
+  res.render('current-matches');
 });
 
 app.get('/current-matches', (req, res) => {

@@ -1,9 +1,8 @@
 /* Background color wrapper */
 .background-wrapper {
-    background-color: var(--accentColorLightGray);
+    background-color: var(--accentColorLightGrey);
     width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 2.5rem;
+    padding: 1rem 0;
 }
 
 /* --- Container --- */
@@ -19,28 +18,10 @@
     align-items: flex-end;         /* Starring and Dir on same height */
 }
 
-.project-title {
-    font-family: var(--titlesFont);
-    font-size: var(--logoSize);
-    font-weight: var(--titlesWeight);
-    color: var(--accentColorGold);
+.project_Title {
+    font-size: 4rem;
 }
 
-.starring-info {
-    color: var(--accentColorBlack);
-    font-family: var(--headerFont);
-    font-weight: var(--headerweight);
-    font-size:  var(--headerSize);
-}
-
-.director-link, .director-link a {
-    color: var(--accentColorGrey);
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
-}
-
-/* --- Slideshow Container --- */
 .slideshow {
     position: relative;
     background-color: var(--accentColorGrey); 
@@ -49,12 +30,37 @@
     border-radius: 10px;
     margin: 2rem 0;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.slide-nav {
+.slideshow__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slideshow__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Modifier voor de zichtbare slide */
+.slideshow__item--active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slideshow__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slideshow__nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -66,19 +72,20 @@
     height: 50px;
     cursor: pointer;
     border-radius: 50%;
-    z-index: 5;
+    z-index: 10; 
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease;
 }
 
-.slide-nav:hover {
+.slideshow__nav:hover {
     background: rgba(255, 255, 255, 0.4);
 }
 
-.prev { left: 20px; }
-.next { right: 20px; }
+/* Specifieke modifiers voor de knoppen */
+.slideshow__nav--prev { left: 20px; }
+.slideshow__nav--next { right: 20px; }
 
 /* --- Tags --- */
 .tag-container {
@@ -89,20 +96,17 @@
 
 .tag {
     background-color: var(--accentColorRed);
-    color: var(--backgroundColorWhite);
+    color: var(--accentColorWhite);
     padding: 8px 20px;
     border-radius: var(--buttonCornerRadius);
-    font-family: var(--regularFont);
-    font-size: 0.9rem;
-    font-weight: 600;
+
+    font-family: var(--montserratFont);
+    font-size: var(--bodyTextSize);
+    font-weight: var(--fontWeightRegular);
 }
 
 .project-text {
-    color: var(--accentColorBlack);
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
-    margin-top: 2rem;
+    margin: 2rem 0;
 }
 
 .production {
@@ -116,41 +120,25 @@
 
 .production_Summary {
     margin-top: 1rem;
-    color: var(--accentColorBlack);
-    font-family: var(--regularFont);
-    font-size: var(--regularSize);
-    font-weight: var(--regularWeight);
 }
 
-
-
-
-
-.matching__cards, .carousel_2, .carousel_3 {
-    max-width: 75%; 
-    margin: 0 auto;  
+.edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accentColorGrey); 
+    color: var(--accentColorWhite);
+    padding: 8px 16px;  /* vervangen met percentage */
+    border: none;           
+    border-radius: 5px;
+    cursor: pointer;        
+    font-family: inherit;  
+    font-size: var(--bodyTextSize);
+    transition: background 0.3s ease;
+    margin-bottom: 30px; /* aanpassen */
 }
 
-.carousel_1-Title {
-    margin-top: 1rem;
-}
-
-.carousel_1--Carousel {
-  width: 100%;
-  height: 300px;
-  padding: 20px;
-  display: flex;
-  gap: 2vw;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-}
-
-.Item1 {
-  list-style-type: none;
-  background-color: #eeeeee;
-  border: 1px solid #dddddd;
-  padding: 20px;
-  scroll-snap-align: center;
-  flex: 0 0 25%;
+.edit-btn:hover {
+    background-color: var(--accentColorRed);
 }
 

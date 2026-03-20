@@ -13,6 +13,7 @@
    --accentColorGold: #EEB628;
    --accentColorRed: #D44737;
    --accentColorGrey: #252525;
+   --accentColorLightGrey: #E6E6E6;
 
    --textColor: #252525;
    --textColorWhite: #ffffff;
@@ -38,7 +39,7 @@
    /* Spacing */
    --sectionPadding: 7.5rem 0;
    --mainPadding: 0 5rem;
-   --mainPaddingSmall: 1.5rem;
+   --mainPaddingSmall: 0 1.5rem;
 
    --formPadding: 2rem 20rem;
 

@@ -1,36 +1,48 @@
 <%- include('partials/head') %> 
+<%- include('partials/header') %> 
     <div class="background-wrapper">
 
     <main class="project-container">
 
         <header class="project-header">
+    <div class="title-group">
+        <h1 class="project_Title">Lord Of Balls</h1>
+        <h2>Starring Lord De Vries</h2>
+    </div>
 
-        <div class="title-group">
-            <h1 class="project-title">Lord Of Balls</h1>
-            <h2 class="starring-info">Starring Lord De Vries</h2>
-        </div>
-
-        <div class="director-group">
-            <p class="director-link">Dir: <a href="/director/d-de-vries"> D. de Vries</a></p>
-        </div>
-
-    </header>
-
-    <section class="slideshow" aria-label="Project visuals">
-        <button class="slide-nav prev" aria-label="Previous image">&#10094;</button>
+    <!-- onclick veranderen in event listener eventueel  -->
+    <div class="header-actions">
+        <button type="button" class="edit-btn" onclick="openEditMode()">
+            Wijzig profiel
+            <span class="edit-icon">&#9998;</span>
+        </button>
         
-        <div class="slide-viewport">
-            <img src="/images/placeholder-hero.jpg" alt="Main project visual" class="main-visual">
+        <div class="director-info">
+            <p>Dir: <a href="/director/d-de-vries"> D. de Vries</a></p>
         </div>
+    </div>
+</header>
 
-        <button class="slide-nav next" aria-label="Next image">&#10095;</button>
-    </section>
+  <section class="slideshow" aria-label="Project visuals">
+    <button class="slideshow__nav slideshow__nav--prev" aria-label="Previous image">&#10094;</button>
+    
+    <div class="slideshow__container">
+        <% projectImages.forEach((img, index) => { %>
+            <div class="slideshow__item <%= index === 0 ? 'slideshow__item--active' : '' %>">
+                <img src="<%= img %>" alt="Project visual <%= index + 1 %>" class="slideshow__image">
+            </div>
+        <% }) %>
+    </div>
+
+    <button class="slideshow__nav slideshow__nav--next" aria-label="Next image">&#10095;</button>
+   </section>
 
     <nav class="tag-container" aria-label="Project categories">
-        <span class="tag">Sci-Fi</span>
-        <span class="tag">Short-Film</span>
-        <span class="tag">Horror</span>
-        <span class="tag">Engels</span>
+	<ul> 
+	<% for (let i = 0; i < 5; i++) { %>
+        <span class="tag">Sci-Fi</span> 
+	<% } %>
+	<ul>
     </nav>
 
     <p class="project-text">
@@ -42,7 +54,7 @@ Vergeet basketballen en voetbal; dit is de arena waar reputaties worden gemaakt 
 </div>
 
  <section class="production">
-        <h2 class="production_Title">Productie Informatie</h2>
+        <h3 class="production_Title">Productie Informatie</h3>
         <p class="production_Summary">We zijn op zoek naar enthousiaste cast- en crewleden die willen bijdragen aan dit unieke, visuele project.
 
 Geschatte werktijd (totaal): 4 tot 5 maanden.
@@ -57,12 +69,13 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
         </p>
     </section>
 
-    <section class="carousel_1">
-        <h2 class="carousel_1-Title">Andere projecten van de regisseur</h2>
+    <section class="carousel">
+        <h2 class="carousel__Title">Andere projecten van de regisseur</h2>
         
-        <ul class="carousel_1--Carousel">
+        <ul class="carousel__list">
         <% for (let i = 0; i < 5; i++) { %>
-            <li class="Item1">
+            <li class="carousel__list-Item">
+
         <article class="matching__card">
             <header>
                 <img src="/images/cameraman.png" width="335" alt="">
@@ -73,28 +86,61 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
                 <a href="#">Bekijk details</a>
             </div>
         </article>
+        
         </li>
         <% } %>
-         </ul>
-
-<section class="matching__cards">
+    </ul>
     
     </section>
 
-    </section>
+    <section class="carousel">
+        <h2 class="carousel__Title">Crew die meewerkt aan de film</h2>
+        
+        <ul class="carousel__list">
+        <% for (let i = 0; i < 5; i++) { %>
+            <li class="carousel__list-Item">
 
-      <section class="carousel_2">
-        <h2 class="carousel_2-Title">Crew die meewerkt aan de film</h2>
-    </section>
-
-      <section class="carousel_2">
-        <h2 class="carousel_2-Title">Open sollicitaties</h2>
-    </section>
-
+        <article class="matching__card">
+            <header>
+                <img src="/images/cameraman.png" width="335" alt="">
+                <h3>David de Boer - Acteur</h3>
+            </header>
+            <p>5 jaar ervaring als lead actor, speelde in meerdere shortfilms en commercials.</p>
+            <div class="matching__card-link">
+                <a href="#">Bekijk details</a>
+            </div>
+        </article>
+        
+        </li>
+        <% } %>
+    </ul>
     
+    </section>
 
+    <section class="carousel">
+        <h2 class="carousel__Title">Open sollicitaties</h2>
+        
+        <ul class="carousel__list">
+        <% for (let i = 0; i < 5; i++) { %>
+            <li class="carousel__list-Item">
 
+        <article class="matching__card">
+            <header>
+                <img src="/images/cameraman.png" width="335" alt="">
+                <h3>David de Boer - Acteur</h3>
+            </header>
+            <p>5 jaar ervaring als lead actor, speelde in meerdere shortfilms en commercials.</p>
+            <div class="matching__card-link">
+                <a href="#">Bekijk details</a>
+            </div>
+        </article>
+        
+        </li>
+        <% } %>
+    </ul>
+    
+    </section>
 
-
+<script src="/crew-profile.js"></script>
 </body>
 </html>

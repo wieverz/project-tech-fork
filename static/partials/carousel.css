@@ -1,0 +1,40 @@
+/* 
+dit is om ee carousel aan te kunnen maken op jou pagina. 
+
+<ul class="carousel__list">
+        <% for (let i = 0; i < 5; i++) { %>
+            <li class="carousel__list-Item">
+ZELF IETS TOEVOEGEN IN HET CAROUSEL
+	 </li>
+     <% } %>
+</ul> 
+
+         */
+
+.carousel {
+    max-width: 75%; 
+    margin: 0 auto;  
+}
+
+.carousel__Title {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.carousel__list {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  gap: 2vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__list-Item {
+  list-style-type: none;
+  scroll-snap-align: center;
+  flex: 0 0 25%;
+}
+
+
