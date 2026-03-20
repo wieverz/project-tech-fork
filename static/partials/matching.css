@@ -72,6 +72,10 @@
 
 /* Matching cards */
 .matching__card{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
     width: min-content;
 }
 

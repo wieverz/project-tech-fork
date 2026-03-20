@@ -1,7 +1,11 @@
 /* Hero */
 .hero {
     position: relative;
-    margin: 0 -5rem;
+    margin: 0 -1.5rem;
+
+    @media (min-width: 640px) {
+        margin: 0 -5rem;
+    }
 }
 
 .hero__container {
