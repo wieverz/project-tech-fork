@@ -1,76 +1,5 @@
-/* Everything for the matching-slider + filters */
-.matching__filter-bar,
-.matching__filters {
-    display: flex;
-    gap: var(--gapMedium);
-    flex-wrap: wrap;
-}
-
-.matching__filter-bar {
-    justify-content: space-between;
-}
-
-.filter {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    gap: var(--gapExtraSmall);
-
-    border-radius: var(--buttonCornerRadius);
-    background-color: var(--accentColorGold);
-
-    @media screen and (max-width: 640px) {
-        flex-grow: 1;
-    }
-}
-
-.filter label:before {
-    content: '';
-    inset: 0;
-    position: absolute;
-}
-
-.filter select {
-    font-family: var(--montserratFont);
-    font-weight: var(--fontWeightRegular);
-    font-size: var(--bodyTextSize);
-
-    background-color: unset;
-    border: none;
-    flex-grow: 1;
-}
-
-.filter:has(select),
-.filter:has(select) * {
-    cursor: pointer;
-}
-
-.filter, .matching__refresh-btn {
-    padding: var(--buttonPadding);
-}
-
-.matching__refresh-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--gapExtraSmall);
-
-    border-radius: var(--buttonCornerRadius);
-    border: none;
-    background: var(--accentColorGold);
-
-    @media screen and (max-width: 640px) {
-        flex-grow: 1;
-    }
-}
-
 /* Matching cards */
-.matching {
-    margin: var(--sectionPadding);
-}
-
-.matching__card{
+.matching__card {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -78,16 +7,6 @@
     background-color: var(--accentColorLightGrey);
     border-radius: var(--buttonCornerRadius);
     width: min-content;
-}
-
-.matching, .matching__cards {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gapSmall);
-}
-
-.matching__cards > ul {
-    padding: unset;
 }
 
 .matching__card, .matching__card img {
@@ -114,7 +33,7 @@
     padding: 0 1rem;
 }
 
-.matching__cards-item {
+.matching-slider__item {
     flex: none !important;
 }
 
@@ -123,13 +42,17 @@
 
 
 /* Matching-page */
-.results-bar {
+.matching {
     display: flex;
     justify-content: space-between;
 }
 
+.matching__results-bar {
+    display: flex;
+    justify-content: space-between;
+}
 
-.match__header {
+.matching__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -138,7 +61,7 @@
     margin: var(--sectionPadding);
 }
 
-.match__header a {
+.matching__header a {
     display: flex;
     align-items: center;
     gap: var(--gapExtraSmall);
