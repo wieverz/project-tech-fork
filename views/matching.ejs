@@ -7,7 +7,43 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<%- include('partials/header') %>
+    <%- include('partials/header') %>
+    <main>
+        <header class="match__header">
+            <div>
+                <h1>Vind jouw perfecte project!</h1>
+                <p>Ontdek projecten die aansluiten bij jouw talent. Duik in de details en meld je aan <br> om deel uit te maken van de productie.</p>
+            </div>
+            <a href="./">Terug
+                <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M17 8.90922C16.9985 10.2589 16.4469 11.5529 15.4663 12.5073C14.4857 13.4617 13.1562 13.9985 11.7694 14H4.5773C4.40389 14 4.23759 13.933 4.11497 13.8136C3.99236 13.6943 3.92347 13.5324 3.92347 13.3637C3.92347 13.1949 3.99236 13.033 4.11497 12.9137C4.23759 12.7943 4.40389 12.7273 4.5773 12.7273H11.7694C12.8098 12.7273 13.8076 12.325 14.5433 11.609C15.279 10.893 15.6923 9.92184 15.6923 8.90922C15.6923 7.8966 15.279 6.92546 14.5433 6.20943C13.8076 5.4934 12.8098 5.09113 11.7694 5.09113H2.23251L5.03988 7.82266C5.16257 7.94206 5.23149 8.10401 5.23149 8.27287C5.23149 8.44174 5.16257 8.60368 5.03988 8.72309C4.9172 8.84249 4.7508 8.90957 4.5773 8.90957C4.4038 8.90957 4.2374 8.84249 4.11472 8.72309L0.191758 4.905C0.130968 4.8459 0.0827424 4.77572 0.049839 4.69847C0.0169357 4.62122 0 4.53841 0 4.45479C0 4.37116 0.0169357 4.28835 0.049839 4.2111C0.0827424 4.13385 0.130968 4.06367 0.191758 4.00457L4.11472 0.186485C4.2374 0.0670808 4.4038 -2.51627e-09 4.5773 0C4.7508 2.51626e-09 4.9172 0.0670808 5.03988 0.186485C5.16257 0.30589 5.23149 0.467838 5.23149 0.636701C5.23149 0.805565 5.16257 0.967513 5.03988 1.08692L2.23251 3.81844H11.7694C13.1562 3.81991 14.4857 4.35673 15.4663 5.31112C16.4469 6.26551 16.9985 7.55951 17 8.90922Z" fill="black"/>
+                </svg>
+            </a>
+        </header>
+
+        <section>
+            <div class="results-bar">
+                <h2>Resultaten (..)</h2>
+                <div class="filter">
+                    <label class="filter__label" for="sort">Sorteren:</label>
+                    <select id="sort">
+                        <option value="best-match">Beste match</option>
+                        <option value="most-popular">Meest populair</option>
+                        <option value="a-z">A > Z</option>
+                        <option value="z-a">Z > A</option>
+                        <option value="most-recent">Meest recent</option>
+                        <option value="oldest-first">Oudste eerst</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="matching__grid">
+                <% for (let i = 0; i < 20; i++) { %>
+                    <%- include('partials/matching') %>
+                <% } %>
+            </div>
+        </section>
+    </main>
 
 </body>
 </html>

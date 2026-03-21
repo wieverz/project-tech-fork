@@ -1,4 +1,4 @@
-/* Filter bar */
+/* Everything for the matching-slider + filters */
 .matching__filter-bar,
 .matching__filters {
     display: flex;
@@ -41,11 +41,6 @@
     flex-grow: 1;
 }
 
-.filter--outline {
-    background-color: var(--accentColorWhite);
-    border: .1rem solid var(--accentColorGold);
-}
-
 .filter:has(select),
 .filter:has(select) * {
     cursor: pointer;
@@ -71,11 +66,17 @@
 }
 
 /* Matching cards */
+.matching {
+    margin: var(--sectionPadding);
+}
+
 .matching__card{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
+    background-color: var(--accentColorLightGrey);
+    border-radius: var(--buttonCornerRadius);
     width: min-content;
 }
 
@@ -117,6 +118,39 @@
     flex: none !important;
 }
 
-.matching {
+
+
+
+
+/* Matching-page */
+.results-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.match__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+
     margin: var(--sectionPadding);
+}
+
+.match__header a {
+    display: flex;
+    align-items: center;
+    gap: var(--gapExtraSmall);
+
+    border: 3px solid var(--accentColorGold);
+    border-radius: var(--buttonCornerRadius);
+    padding: var(--buttonPadding);
+    text-decoration: none;
+}
+
+.matching__grid {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gapMedium);
 }
