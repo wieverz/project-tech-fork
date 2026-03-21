@@ -77,3 +77,68 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gapMedium);
 }
+
+.matching aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapMedium);
+
+    padding: 2rem 3rem;
+    height: fit-content;
+
+    border-radius: var(--buttonCornerRadius);
+    background-color: var(--accentColorGrey);
+}
+
+.matching aside * {
+    color: var(--textColorWhite);
+}
+
+.matching aside button {
+    padding: var(--buttonPadding);
+    background-color: var(--accentColorRed);
+    border-radius: var(--buttonCornerRadius);
+}
+
+.matching form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapLarge);
+}
+
+.matching fieldset {
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapExtraSmall);
+}
+
+.matching legend {
+    font-size: var(--h3Size);
+    margin-bottom: var(--gapSmall);
+}
+
+.matching [type="search"] {
+    color: var(--textColor);
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: var(--gapSmall);
+}
+
+.filter-option--last {
+    display: flex;
+    align-items: center;
+    gap: var(--gapExtraSmall);
+}
+
+.matching [type="radio"],
+.matching [type="checkbox"] {
+    accent-color: var(--accentColorGold);
+
+    width: 1.2rem;
+    height: 1.2rem;
+}
