@@ -1,0 +1,86 @@
+<section class="matching">
+    <h2 class="matching__title">Vind jouw perfecte film match!</h2>
+
+    <div class="matching__filter-bar">
+        <div class="matching__filters">
+            <div class="filter">
+                <label class="filter__label" for="role">Filter Rol:</label>
+                <select id="role">
+                    <option value="all">Alle</option>
+                    <option value="actor">Acteur</option>
+                    <option value="soundman">Geluidsman</option>
+                    <option value="director">Regisseur</option>
+                    <option value="cameraman">Cameraman</option>
+                </select>
+            </div>
+
+            <div class="filter">
+                <label class="filter__label" for="type">Project type:</label>
+                <select id="type">
+                    <option value="all">Alle</option>
+                    <option value="short-film">Short film</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="documentary">Documentaire</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="tv-series">TV serie</option>
+                    <option value="student-film">Studenten film</option>
+                </select>
+            </div>
+
+            <div class="filter filter--outline">
+                <label class="filter__label" for="sort">Sorteren:</label>
+                <select id="sort">
+                    <option value="best-match">Beste match</option>
+                    <option value="most-popular">Meest populair</option>
+                    <option value="a-z">A > Z</option>
+                    <option value="z-a">Z > A</option>
+                    <option value="most-recent">Meest recent</option>
+                    <option value="oldest-first">Oudste eerst</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="matching__refresh-btn">
+            <svg class="matching__refresh-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none" aria-hidden="true">
+                <path d="M18.75 1.69315V6.19315C18.75 6.49152 18.6315 6.77767 18.4205 6.98865C18.2095 7.19963 17.9234 7.31815 17.625 7.31815H13.125C12.8266 7.31815 12.5405 7.19963 12.3295 6.98865C12.1185 6.77767 12 6.49152 12 6.19315C12 5.89478 12.1185 5.60863 12.3295 5.39766C12.5405 5.18668 12.8266 5.06815 13.125 5.06815H14.9062L14.175 4.3369C12.8511 3.00642 11.0532 2.25584 9.17625 2.25003H9.13594C7.27575 2.24596 5.48875 2.97443 4.16156 4.27784C3.94823 4.48645 3.66076 4.60177 3.3624 4.59843C3.06405 4.59509 2.77923 4.47336 2.57062 4.26003C2.36202 4.04669 2.2467 3.75923 2.25004 3.46087C2.25338 3.16251 2.3751 2.8777 2.58844 2.66909C4.33614 0.952953 6.68935 -0.00591244 9.13875 2.74329e-05H9.1875C11.6585 0.00676464 14.0257 0.994451 15.7687 2.74596L16.5 3.4744V1.69315C16.5 1.39478 16.6185 1.10864 16.8295 0.897657C17.0405 0.686679 17.3266 0.568152 17.625 0.568152C17.9234 0.568152 18.2095 0.686679 18.4205 0.897657C18.6315 1.10864 18.75 1.39478 18.75 1.69315ZM14.5884 14.1085C13.2606 15.4126 11.4724 16.1411 9.61125 16.1363H9.57094C7.694 16.1305 5.89611 15.3799 4.57219 14.0494L3.84375 13.3182H5.625C5.92337 13.3182 6.20952 13.1996 6.4205 12.9886C6.63147 12.7777 6.75 12.4915 6.75 12.1932C6.75 11.8948 6.63147 11.6086 6.4205 11.3977C6.20952 11.1867 5.92337 11.0682 5.625 11.0682H1.125C0.826631 11.0682 0.540483 11.1867 0.329505 11.3977C0.118526 11.6086 0 11.8948 0 12.1932V16.6932C0 16.9915 0.118526 17.2777 0.329505 17.4886C0.540483 17.6996 0.826631 17.8182 1.125 17.8182C1.42337 17.8182 1.70952 17.6996 1.9205 17.4886C2.13147 17.2777 2.25 16.9915 2.25 16.6932V14.9119L2.98125 15.6432C4.72474 17.3936 7.09189 18.3803 9.5625 18.3863H9.615C12.0644 18.3922 14.4176 17.4333 16.1653 15.7172C16.2709 15.6139 16.3552 15.4908 16.4133 15.355C16.4713 15.2191 16.5021 15.0732 16.5037 14.9254C16.5054 14.7777 16.4779 14.6311 16.4229 14.494C16.3679 14.3568 16.2864 14.2319 16.1831 14.1263C16.0798 14.0206 15.9567 13.9364 15.8209 13.8783C15.685 13.8203 15.5391 13.7895 15.3913 13.7879C15.2436 13.7862 15.097 13.8137 14.9599 13.8687C14.8228 13.9237 14.6978 14.0052 14.5922 14.1085H14.5884Z" fill="black"/>
+            </svg>
+            Refresh
+        </button>
+    </div>
+
+    <section class="matching__cards">
+        <h3>Resultaten</h3>
+        <ul class="matching__cards-list carousel__list">
+            <% for (let i = 0; i < 5; i++) { %>
+            <li class="matching__cards-item carousel__list-Item">
+
+                <article class="matching__card">
+                    <header>
+                        <img src="/images/cameraman.png" width="335" alt="">
+                        <h3>David de Boer - Acteur</h3>
+                    </header>
+                    <p>5 jaar ervaring als lead actor, speelde in meerdere shortfilms en commercials.</p>
+                    <div class="matching__card-link">
+                        <a href="#">Bekijk details</a>
+                    </div>
+                </article>
+
+            </li>
+            <% } %>
+        </ul>
+    </section>
+
+</section>
+
+<script>
+    const filterGroups = document.querySelectorAll(".filter");
+
+    filterGroups.forEach(group => {
+      const label = group.querySelector('label');
+      label.addEventListener('click', () => {
+        const select = group.querySelector('select');
+        select?.showPicker()
+      //   showPicker opent de combobox van een select element https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/showPicker
+      })
+    })
+</script>
