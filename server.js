@@ -65,6 +65,11 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
+app.get('/matching', (req, res) => {
+  res.render('matching');
+});
+
+
 app.get('/crew-profile', (req, res) => {
     const projectImages = [
         "/images/placeholder-hero.jpg", 
