@@ -71,13 +71,19 @@ app.get('/matching', (req, res) => {
 
 
 app.get('/crew-profile', (req, res) => {
-    const projectImages = [
-        "/images/placeholder-hero.jpg", 
-        "/images/cameraman.png", 
-        "/images/home-page-image.png"
-    ];
+  //  Maak de lijst met afbeeldingen aan
+  const projectImages = [
+    "/images/placeholder-hero.jpg",
+    "/images/cameraman.png",
+    "/images/home-page-image.png"
+  ];
 
-    res.render('crew-profile', { 
-        projectImages: projectImages 
-    });
+  // maak de tags aan 
+  const projectTags = ["Sci-Fi", "Action", "Adventure", "Thriller", "Animation"];
+
+  // Stuur alles naar de render functie
+  res.render('crew-profile', {
+    projectImages: projectImages,
+    projectTags: projectTags
+  });
 });
