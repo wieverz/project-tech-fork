@@ -13,6 +13,13 @@
     flex-direction: column;
 }
 
+.profile-content h1 {
+    font-family: var(--montserratFont);
+    font-weight: var(--fontWeightBold);
+    font-size: 4em;
+    margin-bottom: -0.1em;
+}
+
 .admin-toggle-btn {
     position: absolute;
     top: 0;
@@ -45,7 +52,7 @@
     padding-top: var(--gapSmall);
     padding-bottom: var(--gapSmall);
     font-family: var(--montserratFont);
-    font-size: var(--bodyTekstSize);
+    font-size: var(--headerTextSize);
     font-weight: var( --fontWeightBold);
     color: var(--accentColorRed);
 }
