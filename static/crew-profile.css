@@ -22,7 +22,7 @@
     font-size: 4rem;
 }
 
-/* profile button */ 
+/* profiel buttons */ 
 
 .button--profile {
     display: flex;
@@ -112,6 +112,8 @@
 .slideshow__nav--next { right: 20px; }
 
 /* --- Tags --- */
+
+/* tags, knop en inputveld zelfde rij */
 .tag-container {
     display: flex;
     gap: 10px;
@@ -129,9 +131,36 @@
     font-weight: var(--fontWeightRegular);
 }
 
+/* tags op een rij en zonder styling */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;     
+    gap: 10px;           
+    list-style: none;     
+    padding: 0;         
+    margin: 0;
+}
+
+/* De kruisjes knop in de tag */
+.remove-tag {
+    background: none;
+    border: none;
+    color: var(--accentColorWhite);
+    font-weight: var(--fontWeightBold);
+    cursor: pointer;
+}
+
+.remove-tag:hover {
+    color: var(--accentColorRed);
+}
+
+/* text over het project */
+
 .project-text {
     margin: 2rem 0;
 }
+
+/* productie sectie */
 
 .production {
     max-width: 75%; 
@@ -144,4 +173,63 @@
 
 .production_Summary {
     margin-top: 1rem;
+}
+
+/* --- Edit Mode --- */
+
+/* Verberg edit-elementen standaard */
+.edit-only {
+    display: none !important;
+}
+
+/* Toon edit-elementen alleen als de body de class 'is-editing' heeft */
+body.is-editing .edit-only {
+    display: flex !important;
+}
+
+/* Gedeelde styling voor beide knoppen bovenop de slideshow */
+.add-photo-btn, .remove-photo {
+    position: absolute;
+    top: 15px;
+    z-index: 100;
+    pointer-events: auto; 
+    cursor: pointer;
+    
+    /* Visuele stijl  */
+
+    background-color: black;
+    color: var(--accentColorWhite);
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    
+    font-size: var(--fontWeightRegular);
+    font-weight: var(--fontWeightBold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+/* linker knop toevoegen */
+.add-photo-btn {
+    left: 15px;
+}
+.add-photo-btn:hover {
+    background-color: green; /* Of een andere kleur naar wens */
+    transform: scale(1.05);
+}
+
+/* rechter knop verwijderen */
+.remove-photo {
+    right: 15px;
+}
+.remove-photo:hover {
+    background-color: var(--accentColorRed);
+    transform: scale(1.05);
 }
