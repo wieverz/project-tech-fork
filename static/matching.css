@@ -26,7 +26,15 @@
     background-color: var(--accentColorRed);
 }
 
+.matching__card-link:hover {
+    background-color: var(--hoverColorRed);
+}
+
 .matching__card-link a {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
     color: var(--textColorWhite);
 }
@@ -82,6 +90,10 @@
     text-decoration: none;
 }
 
+.matching__header a:hover {
+    border: 3px solid var(--hoverColorGold);
+}
+
 .matching__grid {
     display: grid;
     /* Grid responsiveness https://www.youtube.com/watch?v=bj0Z_GncIwY */
@@ -113,6 +125,11 @@
     padding: var(--buttonPadding);
     background-color: var(--accentColorRed);
     border-radius: var(--buttonCornerRadius);
+    border: none;
+}
+
+.matching__aside button:hover {
+    background-color: var(--hoverColorRed);
 }
 
 .matching__aside form {
@@ -135,6 +152,8 @@
 }
 
 .matching__aside [type="search"] {
+    padding: var(--buttonPadding);
+    border-radius: var(--buttonCornerRadius);
     color: var(--textColor);
 }
 

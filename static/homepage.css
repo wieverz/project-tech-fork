@@ -77,6 +77,10 @@
     }
 }
 
+.filter-dropdown:hover {
+    background-color: var(--hoverColorGold);
+}
+
 .filter-dropdown label:before {
     content: '';
     inset: 0;
