@@ -12,7 +12,8 @@
 @import "login-register.css";
 @import "crew-profile.css";
 @import "profielPaginaIndividueel.css";
-@import "mathing-page.css";
+@import "homepage.css";
+@import "matching.css";
 
 * {
     margin: 0;
