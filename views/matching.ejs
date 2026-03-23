@@ -3,11 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matching</title>
+    <title>matching</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<%- include('partials/header') %>
+    <%- include('partials/header') %>
+    <main>
+        <header class="matching__header">
+            <div>
+                <h1>Vind jouw perfecte project!</h1>
+                <p>Ontdek projecten die aansluiten bij jouw talent. Duik in de details en meld je aan <br> om deel uit te maken van de productie.</p>
+            </div>
+            <a href="./">Terug
+                <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M17 8.90922C16.9985 10.2589 16.4469 11.5529 15.4663 12.5073C14.4857 13.4617 13.1562 13.9985 11.7694 14H4.5773C4.40389 14 4.23759 13.933 4.11497 13.8136C3.99236 13.6943 3.92347 13.5324 3.92347 13.3637C3.92347 13.1949 3.99236 13.033 4.11497 12.9137C4.23759 12.7943 4.40389 12.7273 4.5773 12.7273H11.7694C12.8098 12.7273 13.8076 12.325 14.5433 11.609C15.279 10.893 15.6923 9.92184 15.6923 8.90922C15.6923 7.8966 15.279 6.92546 14.5433 6.20943C13.8076 5.4934 12.8098 5.09113 11.7694 5.09113H2.23251L5.03988 7.82266C5.16257 7.94206 5.23149 8.10401 5.23149 8.27287C5.23149 8.44174 5.16257 8.60368 5.03988 8.72309C4.9172 8.84249 4.7508 8.90957 4.5773 8.90957C4.4038 8.90957 4.2374 8.84249 4.11472 8.72309L0.191758 4.905C0.130968 4.8459 0.0827424 4.77572 0.049839 4.69847C0.0169357 4.62122 0 4.53841 0 4.45479C0 4.37116 0.0169357 4.28835 0.049839 4.2111C0.0827424 4.13385 0.130968 4.06367 0.191758 4.00457L4.11472 0.186485C4.2374 0.0670808 4.4038 -2.51627e-09 4.5773 0C4.7508 2.51626e-09 4.9172 0.0670808 5.03988 0.186485C5.16257 0.30589 5.23149 0.467838 5.23149 0.636701C5.23149 0.805565 5.16257 0.967513 5.03988 1.08692L2.23251 3.81844H11.7694C13.1562 3.81991 14.4857 4.35673 15.4663 5.31112C16.4469 6.26551 16.9985 7.55951 17 8.90922Z" fill="black"/>
+                </svg>
+            </a>
+        </header>
+
+        <section class="matching">
+            <aside>
+                <h2>Filters</h2>
+                <form action="">
+                    <fieldset>
+                        <legend>Project type</legend>
+                        <div class="filter-option">
+                            <input type="checkbox" id="shortfilm" name="shortfilm">
+                            <label for="shortfilm">Short film</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="checkbox" id="documentary" name="documentary">
+                            <label for="documentary">Documentaire</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="checkbox" id="commercial" name="commercial">
+                            <label for="commercial">Commercial</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="checkbox" id="tv-serie" name="tv-serie">
+                            <label for="tv-serie">TV serie</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Genre</legend>
+                        <div class="filter-option">
+                            <input type="checkbox" id="horror" name="horror">
+                            <label for="horror">Horror</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="checkbox" id="drama" name="drama">
+                            <label for="drama">Drama</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="checkbox" id="comedy" name="comedy">
+                            <label for="comedy">Comedy</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="checkbox" id="thriller" name="thriller">
+                            <label for="thriller">Thriller</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Locatie (radius)</legend>
+                        <div class="filter-option">
+                            <input type="radio" id="ten" name="kilometers">
+                            <label for="ten">10km</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="radio" id="twenty" name="kilometers">
+                            <label for="twenty">20km</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="radio" id="thirty" name="kilometers">
+                            <label for="thirty">30km</label>
+                        </div>
+
+                        <div class="filter-option">
+                            <input type="radio" id="allKm" name="kilometers" checked>
+                            <label for="allKm">40km +</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Regisseur</legend>
+                        <div class="filter-option">
+                            <input type="search" id="search-director" name="search-director">
+                            <label for="search-director">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                                    <path d="M24.5884 22.6243L19.0982 17.1322C20.7444 14.9872 21.5129 12.2964 21.2479 9.60559C20.983 6.91482 19.7044 4.42557 17.6715 2.64281C15.6386 0.860048 13.0037 -0.0827372 10.3012 0.00570391C7.59878 0.0941451 5.03115 1.20719 3.1192 3.11905C1.20725 5.03091 0.0941494 7.59843 0.00570417 10.3008C-0.0827411 13.0031 0.860088 15.6379 2.64293 17.6707C4.42578 19.7035 6.91514 20.982 9.60603 21.2469C12.2969 21.5119 14.9879 20.7434 17.1329 19.0974L22.6277 24.593C22.7567 24.722 22.9099 24.8244 23.0785 24.8942C23.2471 24.9641 23.4278 25 23.6103 25C23.7928 25 23.9735 24.9641 24.1421 24.8942C24.3107 24.8244 24.4639 24.722 24.593 24.593C24.722 24.464 24.8244 24.3108 24.8942 24.1422C24.9641 23.9736 25 23.7929 25 23.6104C25 23.4279 24.9641 23.2472 24.8942 23.0786C24.8244 22.91 24.722 22.7568 24.593 22.6278L24.5884 22.6243ZM2.79786 10.6585C2.79786 9.10382 3.25891 7.58401 4.12271 6.29131C4.9865 4.9986 6.21425 3.99106 7.65069 3.3961C9.08714 2.80113 10.6678 2.64546 12.1927 2.94877C13.7176 3.25208 15.1183 4.00075 16.2177 5.10011C17.3171 6.19946 18.0658 7.60013 18.3692 9.12497C18.6725 10.6498 18.5168 12.2304 17.9218 13.6667C17.3268 15.1031 16.3192 16.3308 15.0265 17.1946C13.7337 18.0583 12.2138 18.5194 10.659 18.5194C8.57478 18.5172 6.5765 17.6883 5.10271 16.2146C3.62892 14.7409 2.8 12.7427 2.79786 10.6585Z" fill="black"/>
+                                </svg>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <button type="submit">Zoeken</button>
+                </form>
+            </aside>
+
+            <div>
+                <div class="matching__results-bar">
+                    <h2>Resultaten (..)</h2>
+                    <div class="filter-dropdown">
+                        <label class="filter__label" for="sort">Sorteren:</label>
+                        <select id="sort">
+                            <option value="best-match">Beste match</option>
+                            <option value="most-popular">Meest populair</option>
+                            <option value="a-z">A > Z</option>
+                            <option value="z-a">Z > A</option>
+                            <option value="most-recent">Meest recent</option>
+                            <option value="oldest-first">Oudste eerst</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="matching__grid">
+                    <% for (let i = 0; i < 20; i++) { %>
+                    <%- include('partials/matching') %>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
 
 </body>
+
+
+<script>
+  const filterGroups = document.querySelectorAll(".filter-dropdown");
+
+  filterGroups.forEach(group => {
+    const label = group.querySelector('label');
+    label.addEventListener('click', () => {
+      const select = group.querySelector('select');
+      select?.showPicker()
+      //   showPicker opent de combobox van een select element https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/showPicker
+    })
+  })
+</script>
 </html>
