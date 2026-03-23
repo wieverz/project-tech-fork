@@ -12,23 +12,13 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <%- include('partials/matching') %>
-
-        <section class="reviews">
-            <h2>Succesvolle matching verhalen</h2>
-            <article class="review__card">
-                <h3>Naam</h3>
-                <p>Beschrijving</p>
-            </article>
-        </section>
-
-        <section class="movie-article">
-            <h2>Film artikelen</h2>
-            <article class="movie-article__card">
-                <h3>Naam</h3>
-                <p>Beschrijving</p>
-            </article>
-        </section>
+        <h2> </h2>
+        <ul class="carousel__list">
+            <% for (let i = 0; i < 5; i++) { %>
+                <li class="carousel__list-Item">
+                    <%- include('partials/matching') %>
+                </li>
+    </ul> 
     </main>
 
 </body>
