@@ -69,12 +69,7 @@
                 </div>
                  </button>
         </li>
-<li class="project-card add-project-card">
-        <button class="add-btn">
-            <span class="plus-icon">+</span>
-            <h3>Project toevoegen</h3>
-        </button>
-    </li>
+    <%- include('partials/addProjectCard') %>
 </ul>
 
     </main>
@@ -203,7 +198,7 @@
     // 2. Luister naar click op het kruisje
     closeBtn.addEventListener("click", closeModal);
 
-    // 3. Luister naar click buiten de pop-up kaart (op de zwarte achtergrond)
+    // 3. Luister naar click buiten de pop-up kaart
     window.addEventListener("click", function(event) {
         if (event.target == modal) {
             closeModal();
@@ -308,12 +303,6 @@ function saveManualProject() {
     const img = document.getElementById('new-img').value;
     const trailer = document.getElementById('new-trailer').value;
     const desc = document.getElementById('new-desc').value;
-
-    // Simpele validatie check (ook al doet 'required' al veel)
-    if (!title || !img || !desc) {
-        feedback.textContent = "Vul a.u.b. alle verplichte velden in.";
-        return;
-    }
 
     // Uniek ID maken (bijv: project_170923456)
     const newId = 'project_' + Date.now();
