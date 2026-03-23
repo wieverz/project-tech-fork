@@ -1,1 +1,35 @@
 <!-- wietse -->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Matches</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <%- include('partials/matching') %>
+
+        <section class="reviews">
+            <h2>Succesvolle matching verhalen</h2>
+            <article class="review__card">
+                <h3>Naam</h3>
+                <p>Beschrijving</p>
+            </article>
+        </section>
+
+        <section class="movie-article">
+            <h2>Film artikelen</h2>
+            <article class="movie-article__card">
+                <h3>Naam</h3>
+                <p>Beschrijving</p>
+            </article>
+        </section>
+    </main>
+
+</body>
+</html>
