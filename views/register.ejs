@@ -11,22 +11,26 @@
 <%- include('partials/header') %>
 <main>
     <h2 class="register__h2">Nieuw account aanmaken</h2>
-    <form class="register__form" action="/register" method="POST">
+    <form class="register__form" action="/register" method="POST" novalidate>
         <label for="username">Kies een gebruikersnaam:</label>
         <input type="text" id="username" name="username" placeholder="gebruikersnaam" required>
+        <span class="register__error-message" id="username-error">Vul a.u.b. je gebruikersnaam in</span>
 
         <label for="email">Kies jouw mail-address</label>
         <input type="email" id="email" name="email" placeholder="E-mailadres" required>
+        <span class="register__error-message" id="username-error">Vul a.u.b. je email in</span>
 
-        <label for="leeftijd">Kies jouw leeftijd</label>
-        <input type="number" id="leeftijd" name="age" placeholder="Leeftijd" required>
+        <label for="leeftijd">Wat is jouw leeftijd? <span id="age-val">20</span> jaar</label>
+        <input type="range" id="age" name="age" min="16" max="70" value="5">
 
         <label for="password">Kies een wachtwoord:</label>
         <input type="password" id="password" name="password" placeholder="wachtwoord" required>
+        <span class="register__error-message" id="username-error">Vul a.u.b. je wachtwoord in</span>
 
-        <button class="" type="submit">Account aanmaken</button>
+        <button class="register__volgende-btn"> <a href="/register2">Volgende stap </a></button>
     </form>
     <p class="register__login-redirect" >Heb je al een account? <a href="/login">Log hier in</a></p>
 </main>
+<script src="/js/script.js"></script>
 </body>
 </html>

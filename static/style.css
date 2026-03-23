@@ -14,6 +14,7 @@
 @import "profielPaginaIndividueel.css";
 @import "homepage.css";
 @import "matching.css";
+@import "current-matches.css";
 
 * {
     margin: 0;
