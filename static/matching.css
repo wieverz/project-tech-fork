@@ -2,15 +2,18 @@
 .matching__card {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--gapExtraSmall);
 
     background-color: var(--accentColorLightGrey);
     border-radius: var(--buttonCornerRadius);
-    width: min-content;
+    width: 100%;
+    min-width: 335px;
 }
 
-.matching__card, .matching__card img {
+.matching__card img {
     border-radius: var(--buttonCornerRadius);
+    object-fit: cover;
+    width: 100%;
 }
 
 .matching__card-link {
@@ -44,7 +47,8 @@
 /* Matching-page */
 .matching {
     display: flex;
-    justify-content: space-between;
+    gap: var(--gapMedium);
+    width: 100%;
 }
 
 .matching__results-bar {
@@ -73,8 +77,8 @@
 }
 
 .matching__grid {
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(335px, 100%), 1fr));
     gap: var(--gapMedium);
 }
 
@@ -141,4 +145,11 @@
 
     width: 1.2rem;
     height: 1.2rem;
+}
+
+.matching__layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--gapMedium);
 }
