@@ -51,6 +51,7 @@
 .matching {
     display: flex;
     gap: var(--gapMedium);
+    margin: var(--sectionPadding);
     width: 100%;
 }
 
