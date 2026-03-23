@@ -72,6 +72,10 @@ app.get('/matching', (req, res) => {
   res.render('matching');
 });
 
+app.get('/profielPaginaIndividueel', (req, res) => {
+  res.render('profielPaginaIndividueel');
+});
+
 app.get('/crew-profile', (req, res) => {
   //  Maak de lijst met afbeeldingen aan
   const projectImages = [
@@ -93,3 +97,4 @@ app.get('/crew-profile', (req, res) => {
 app.get('/current-matches', (req, res) => {
   res.render('current-matches');
 });
+
