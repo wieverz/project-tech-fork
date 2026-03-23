@@ -88,7 +88,6 @@
 
     border-radius: var(--buttonCornerRadius);
     padding: var(--buttonPadding);
-
     background-color: var(--accentColorRed);
 }
 

@@ -239,3 +239,27 @@ body.is-editing .edit-only {
     background-color: var(--accentColorRed);
     transform: scale(1.05);
 }
+
+body.is-editing .add-project-card {
+    display: flex !important; 
+    
+    width: 335px; 
+    min-height: 367px; 
+
+    border-radius: var(--buttonCornerRadius);
+    background-color: var(--accentColorWhite);
+    flex-shrink: 0; 
+    gap: var(--gapMedium);
+}
+
+.add-project-card .add-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
