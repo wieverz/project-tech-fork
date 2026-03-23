@@ -1,4 +1,4 @@
-/* Matching cards */
+/* Matching cards + slider */
 .matching__card {
     display: flex;
     flex-direction: column;
@@ -7,7 +7,6 @@
     background-color: var(--accentColorLightGrey);
     border-radius: var(--buttonCornerRadius);
     width: 100%;
-    min-width: 335px;
 }
 
 .matching__card img {
@@ -34,6 +33,10 @@
 
 .matching__card :where(h3, p) {
     padding: 0 1rem;
+}
+
+.matching-slider .matching__card {
+    width: 335px;
 }
 
 .matching-slider__item {
