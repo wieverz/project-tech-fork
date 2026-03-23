@@ -22,6 +22,12 @@
     font-size: 4rem;
 }
 
+.project--header-info {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
 /* profiel buttons */ 
 
 .button--profile {

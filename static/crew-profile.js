@@ -67,7 +67,7 @@ function openEditMode() {
 
     // als de class is editing true is veranderd de knop in opslaan en vice versa 
     if (isEditing) {
-        btn.innerHTML = 'Opslaan';
+        btn.innerHTML = 'Opslaan<span>&#10003;</span>';
     } else {
         btn.innerHTML = 'Wijzig profiel ✎';
     }
@@ -154,7 +154,7 @@ function removeTag(element) {
 
 function addTagFromSelect() {
     const select = document.getElementById('tag-select');
-    const tagList = document.getElementById('tag-list');
+    const tagList = document.querySelector('.tag-list');
     const selectedValue = select.value;
 
     // als het gelijk is aan niets is er geen filter gekozen
