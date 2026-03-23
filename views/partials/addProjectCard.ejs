@@ -1,6 +1,25 @@
-<li class="project-card add-project-card is-editing Project--card-display">
-    <button class="add-btn">
+<li class="project-card add-project-card">
+    <button class="add-btn" onclick="openAddProjectModal()">
         <span class="plus-icon">+</span>
         <h3>Project toevoegen</h3>
     </button>
 </li>
+
+<div id="add-project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeAddProjectModal()">&times;</span>
+        <h2>Nieuw project toevoegen</h2>
+        <div class="choice-container">
+            <button class="choice-btn" onclick="showManualForm()">
+                <span class="icon">✍️</span>
+                <span>Handmatig Toevoegen</span>
+            </button>
+            <button class="choice-btn">
+                <span class="icon">🎬</span>
+                <span>Film Database (API)</span>
+            </button>
+        </div>
+        <div id="add-project-form-container"></div>
+    </div>
+</div>
+
