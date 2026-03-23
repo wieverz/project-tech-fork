@@ -12,12 +12,13 @@
 <body>
     <%- include('partials/header') %>
     <main>
-        <h2> </h2>
+        <h2 class="current__h2">Nieuwe Matches</h2>
         <ul class="carousel__list">
             <% for (let i = 0; i < 5; i++) { %>
                 <li class="carousel__list-Item">
                     <%- include('partials/matching') %>
                 </li>
+                <% } %>
     </ul> 
     </main>
 
