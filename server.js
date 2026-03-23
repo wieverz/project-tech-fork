@@ -72,23 +72,22 @@ app.get('/matching', (req, res) => {
   res.render('matching');
 });
 
-
 app.get('/crew-profile', (req, res) => {
-  
+  //  Maak de lijst met afbeeldingen aan
+  const projectImages = [
+    "/images/placeholder-hero.jpg",
+    "/images/cameraman.png",
+    "/images/home-page-image.png"
+  ];
 
-const projectImages = [
-"/images/placeholder-hero.jpg",
-"/images/cameraman.png",
-"/images/home-page-image.png"
-];
+  // maak de tags aan 
+  const projectTags = ["Sci-Fi", "Action", "Adventure", "Thriller", "Animation"];
 
-res.render('crew-profile', {
-projectImages: projectImages
-});
-});
-
-app.get('/current-matches', (req, res) => {
-  res.render('current-matches');
+  // Stuur alles naar de render functie
+  res.render('crew-profile', {
+    projectImages: projectImages,
+    projectTags: projectTags
+  });
 });
 
 app.get('/current-matches', (req, res) => {

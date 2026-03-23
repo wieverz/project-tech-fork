@@ -1,61 +1,86 @@
 <%- include('partials/head') %> 
 <%- include('partials/header') %> 
-    <div class="background-wrapper">
+    <div class="background--wrapper">
 
-    <main class="project-container">
+    <main class="project--container">
 
-        <header class="project-header">
-    <div class="title-group">
-        <h1 class="project_Title">Lord Of Balls</h1>
-        <h2>Starring Lord De Vries</h2>
+        <header class="project--header">
+        <div class="project--title-group">
+        <h1 class="project--title" contenteditable="false">Lord Of Balls</h1>
+        <h2 class="project--subtitle" contenteditable="false">Starring Lord De Vries</h2>
     </div>
 
+    <div>
     <!-- onclick veranderen in event listener eventueel  -->
-    <div class="header-actions">
-        <button type="button" class="edit-btn" onclick="openEditMode()">
+        <button type="button" class="button--profile" onclick="openEditMode()">
             Wijzig profiel
-            <span class="edit-icon">&#9998;</span>
+            <span>&#9998;</span>
         </button>
-        
         <div class="director-info">
             <p>Dir: <a href="/director/d-de-vries"> D. de Vries</a></p>
         </div>
-    </div>
-</header>
+        </div>
+    </header>
 
   <section class="slideshow" aria-label="Project visuals">
     <button class="slideshow__nav slideshow__nav--prev" aria-label="Previous image">&#10094;</button>
     
-    <div class="slideshow__container">
-        <% projectImages.forEach((img, index) => { %>
-            <div class="slideshow__item <%= index === 0 ? 'slideshow__item--active' : '' %>">
-                <img src="<%= img %>" alt="Project visual <%= index + 1 %>" class="slideshow__image">
-            </div>
-        <% }) %>
+   <div class="slideshow__container">
+    <div class="slideshow__upload edit-only">
+        <label for="file-upload" class="add-photo-btn">
+            Foto toevoegen
+        </label>
+        <input type="file" id="file-upload" accept="image/*" onchange="previewImage(this)" style="display:none;">
     </div>
+
+    <% projectImages.forEach((img, index) => { %>
+        <div class="slideshow__item <%= index === 0 ? 'slideshow__item--active' : '' %>">
+            <img src="<%= img %>" alt="Project visual" class="slideshow__image">
+            <button type="button" class="remove-photo edit-only" onclick="removePhotoFromSlideshow(this)">
+                Foto verwijderen
+            </button>
+        </div>
+    <% }) %>
+</div>
 
     <button class="slideshow__nav slideshow__nav--next" aria-label="Next image">&#10095;</button>
    </section>
 
     <nav class="tag-container" aria-label="Project categories">
-	<ul> 
-	<% for (let i = 0; i < 5; i++) { %>
-        <span class="tag">Sci-Fi</span> 
-	<% } %>
-	<ul>
-    </nav>
+    <ul class="tag-list"> 
+        <% projectTags.forEach((tag) => { %>
+            <li class="tag">
+                <%= tag %>
+                <button type="button" class="remove-tag edit-only" onclick="removeTag(this)">×</button>
+            </li>
+        <% }) %>
+    </ul>
 
-    <p class="project-text">
+    <div class="edit-only">
+        <select id="tag-select">
+            <option value="" disabled selected>Kies een filter...</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Horror">Horror</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Documentary">Documentary</option>
+        </select>
+        <button type="button" class="button--profile" onclick="addTagFromSelect()">Voeg toe</button>
+    </div>
+</nav>
+
+    <p class="project-text" contenteditable="false">
         Maak kennis met Lord de Vries. Hij is rijk, heeft een kasteel en een adellijke titel. Maar er is één ding dat hij níét heeft: street credibility. In zijn wanhopige poging om de coolste man op aarde te worden, ontdekt hij een verborgen ondergronds toernooi: extreem knikkeren voor miljardairs.
 Vergeet basketballen en voetbal; dit is de arena waar reputaties worden gemaakt of gebroken met glazen balletjes. Lord de Vries trekt zijn duurste, glimmendste joggingpak aan en zijn grootste zonnebril, vastbesloten om de 'Koning van de Knikkers' te worden en eindelijk respect te verdienen bij de 'jeugd van tegenwoordig'.
     </p>
 
 </main>
+
 </div>
 
  <section class="production">
         <h3 class="production_Title">Productie Informatie</h3>
-        <p class="production_Summary">We zijn op zoek naar enthousiaste cast- en crewleden die willen bijdragen aan dit unieke, visuele project.
+        <p class="production_Summary" contenteditable="false">We zijn op zoek naar enthousiaste cast- en crewleden die willen bijdragen aan dit unieke, visuele project.
 
 Geschatte werktijd (totaal): 4 tot 5 maanden.
 
@@ -117,7 +142,7 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
     
     </section>
 
-    <section class="carousel">
+    <section class="carousel open sollicitaties">
         <h2 class="carousel__Title">Open sollicitaties</h2>
         
         <ul class="carousel__list">
