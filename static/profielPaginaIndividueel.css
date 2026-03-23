@@ -275,7 +275,7 @@ body.is-editing main {
     display: none !important; 
 }
 
-/* ALLEEN als de body de class 'is-editing' heeft, tonen we de kaart */
+/* ALLEEN als de body de class 'is-editing' heeft szie je de kaart */
 body.is-editing .add-project-card {
     display: flex !important;
     border: 0.2em dashed var(--accentColorRed);
@@ -294,10 +294,10 @@ body.is-editing .add-project-card {
     color: var(--accentColorRed);
 }
 
-/* Maak het plusje groot en gecentreerd */
+/* Grootte plus */
 .add-project-card .plus-icon {
     display: block;
-    font-size: 5em; /* Lekker groot */
+    font-size: 5em; 
     line-height: 1;
     margin-bottom: 0.1em;
     transition: transform 0.3s ease;
