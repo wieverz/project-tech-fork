@@ -48,6 +48,24 @@
   object-fit: cover;
 }
 
+.carousel__list-Item {
+  position: relative;
+}
+.matches__newestmatch-noti {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 99;
+  background-color: rgb(212, 72, 54, 0.8);
+  color: var(--accentColorWhite);
+  padding: 10px 20px;
+  border-radius: var(--buttonCornerRadius);
+  font-weight: var(--fontWeightBold);
+  font-size: var(--bodyTextSize);
+  font-style: italic;
+  white-space: nowrap;
+}
+
 /*///////////// filters ////////////*/
 .matches__filter-dropdown {
   display: flex;
