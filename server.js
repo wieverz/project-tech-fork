@@ -68,10 +68,6 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
-app.get('/matching', (req, res) => {
-  res.render('matching');
-});
-
 app.get('/profielPaginaIndividueel', (req, res) => {
   res.render('profielPaginaIndividueel');
 });
@@ -98,3 +94,39 @@ app.get('/current-matches', (req, res) => {
   res.render('current-matches');
 });
 
+
+
+// Matching
+// app.get('/matching', async (req, res) => {
+//   try {
+//     const database = client.db();
+//     const profiles = await database.collection("profiles").find().toArray();
+//
+//     res.render('matching', { profiles });
+//
+//   } catch (error) {
+//   console.error(error);
+//   res.status(500).send("Database has an error");
+//   }
+// });
+
+app.get('/matching', async (req, res) => {
+  console.log("🔥 /matching route is aangeroepen");
+
+  try {
+    const db = client.db();
+
+    console.log("📦 Database verbonden");
+
+    const profiles = await db.collection("profiles").find().toArray();
+
+    console.log("👤 Profiles uit DB:", profiles);
+
+    res.render('matching', { profiles });
+
+  } catch (err) {
+    console.log("❌ Fout in /matching route");
+    console.error(err);
+    res.status(500).send("Database error");
+  }
+});
