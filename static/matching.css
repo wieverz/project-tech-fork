@@ -97,7 +97,7 @@
 .matching__grid {
     display: grid;
     /* Grid responsiveness https://www.youtube.com/watch?v=bj0Z_GncIwY */
-    grid-template-columns: repeat(auto-fill, minmax(min(335px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(325px, 100%), 1fr));
     gap: var(--gapMedium);
 }
 
