@@ -49,11 +49,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// Een test route
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
 app.listen(port, () => {
     console.log(`Server draait op http://localhost:${port}`);
 });
@@ -96,37 +91,32 @@ app.get('/current-matches', (req, res) => {
 
 
 
-// Matching
-// app.get('/matching', async (req, res) => {
-//   try {
-//     const database = client.db();
-//     const profiles = await database.collection("profiles").find().toArray();
-//
-//     res.render('matching', { profiles });
-//
-//   } catch (error) {
-//   console.error(error);
-//   res.status(500).send("Database has an error");
-//   }
-// });
-
-app.get('/matching', async (req, res) => {
-  console.log("🔥 /matching route is aangeroepen");
-
+// Home
+app.get('/', async (req, res) => {
   try {
-    const db = client.db();
+    const database = client.db("filmcrew");
+    const profiles = await database.collection("profiles").find().toArray();
 
-    console.log("📦 Database verbonden");
+    res.render('index', { profiles });
 
-    const profiles = await db.collection("profiles").find().toArray();
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Database has an error");
+  }
+});
 
-    console.log("👤 Profiles uit DB:", profiles);
+
+
+// Matching
+app.get('/matching', async (req, res) => {
+  try {
+    const database = client.db("filmcrew");
+    const profiles = await database.collection("profiles").find().toArray();
 
     res.render('matching', { profiles });
 
-  } catch (err) {
-    console.log("❌ Fout in /matching route");
-    console.error(err);
-    res.status(500).send("Database error");
+  } catch (error) {
+  console.error(error);
+  res.status(500).send("Database has an error");
   }
 });

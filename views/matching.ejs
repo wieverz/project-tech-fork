@@ -133,9 +133,9 @@
                 </div>
 
                 <div class="matching__grid">
-                    <% for (let i = 0; i < 5; i++) { %>
-                    <%- include('partials/matching') %>
-                    <% } %>
+                    <% profiles.forEach(profile => { %>
+                        <%- include('partials/matching', { profile }) %>
+                    <% }) %>
                 </div>
             </div>
 
