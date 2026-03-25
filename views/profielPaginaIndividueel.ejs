@@ -149,7 +149,7 @@
     // 3b: Variabelen voor de DOM-elementen
     const modal = document.getElementById("project-modal");
     const modalBody = document.getElementById("modal-body");
-    const closeBtn = document.getElementsByClassName("close-modal")[0];
+    const closeBtn = document.querySelector("#project-modal .close-modal");
     const projectLinks = document.querySelectorAll(".project-link");
 
     // 3c: Functie om de modal te openen en vullen
@@ -205,10 +205,9 @@
     closeBtn.addEventListener("click", closeModal);
 
     // 3. Luister naar click buiten de pop-up kaart
-    window.addEventListener("click", function(event) {
-        if (event.target == modal) {
-            closeModal();
-        }
+    window.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+    if (event.target === addProjectModal) addProjectModal.style.display = "none";
     });
 
     // 4. Luister naar de 'Escape' toets om te sluiten
@@ -303,12 +302,8 @@ function saveManualProject() {
     const feedback = document.getElementById('form-feedback');
     
     // Data ophalen
-    const title = document.getElementById('new-title').value;
-    const type = document.getElementById('new-type').value;
-    const role = document.getElementById('new-role').value;
-    const img = document.getElementById('new-img').value;
-    const trailer = document.getElementById('new-trailer').value;
-    const desc = document.getElementById('new-desc').value;
+    const fields = ["new-title", "new-type", "new-role", "new-img", "new-trailer", "new-desc"];
+    const [title, type, role, img, trailer, desc] = fields.map(id => document.getElementById(id).value);
 
     // Uniek ID maken (bijv: project_170923456)
     const newId = 'project_' + Date.now();
