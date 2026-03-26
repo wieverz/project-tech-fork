@@ -65,9 +65,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'fallback-geheim',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: { 
+    secure: false, // moet op true als we https gaan gebruikern
+    maxAge: 3600000 // 1 uur lang cookie
+  }
 }));
 
+//////// checkt of je bent ingelogd /////////
+function checkInlog(req, res, next) {
+  if (req.session.username) {
+    next(); // ga maar door naar de volgende stap
+  } else {
+    res.redirect('/login'); // Terug naar de login pagina
+  }
+}
 
 
 // Een test route
@@ -158,11 +170,41 @@ app.get('/crew-profile', (req, res) => {
   });
 });
 
-app.get('/current-matches', (req, res) => {
-  res.render('current-matches');
+app.get('/current-matches', checkInlog, async (req, res) => {
+  const matches = await projectsCollection.find().toArray();
+  
+  res.render('current-matches', { 
+    username: req.session.username, 
+    projects: matches 
+  });
 });
 
-app.get('/current-matches', (req, res) => {
-  res.render('current-matches');
-});
+///////////////// inlog functies ////////////////////
 
+app.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await profileCollection.findOne({ name: username });
+
+    if (user) {
+      // het is een hashed/beveiligd wachtwoord, maar heet in de db nogsteeds gewoon password
+      const match = await bcrypt.compare(password, user.password);
+
+      if (match) {
+        // Sessie vullen
+        req.session.userID = user._id;
+        req.session.username = user.name;
+        
+        console.log(`Gebruiker ${user.name} is ingelogd.`);
+        return res.redirect('/current-matches');
+      }
+    }
+    
+    // Als de gebruiker niet bestaat of het wachtwoord klopt niet
+    return res.render('login', { error: 'Onjuiste gebruikersnaam of wachtwoord' });
+    
+  } catch (err) {
+    console.error("Login fout:", err);
+    res.status(500).send("Serverfout.");
+  }
+});
