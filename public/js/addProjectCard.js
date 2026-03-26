@@ -51,11 +51,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // API placeholder
+// API placeholder
     const btnApi = document.getElementById('btn-api');
     if (btnApi) {
         btnApi.addEventListener('click', () => {
-            formContainer.innerHTML = `<div class="manual-form"><h3>Zoek in film database</h3><p>Later beschikbaar...</p></div>`;
+            formContainer.innerHTML = `
+                <div class="manual-form">
+                    <h3>Zoek in film database</h3>
+                    <p>Vind een bioscoop film:</p>
+                    <form onsubmit="event.preventDefault(); alert('Zoeken naar film...');">
+                        <input type="text" id="api-search-query" placeholder="Bijv. Spiderman" required>
+                        <button type="submit" class="admin-toggle-btn" style="position: static; margin-top: 1em; width: 100%;">
+                            Zoeken
+                        </button>
+                    </form>
+                </div>`;
+        });
+    }
+
+// Filmcrew placeholder
+    const btnFlmCrw = document.getElementById('btnFlmCrw');
+    if (btnFlmCrw) {
+        btnFlmCrw.addEventListener('click', () => {
+            formContainer.innerHTML = `
+                <div class="manual-form">
+                    <h3>Zoek in Film Crew database</h3>
+                    <p>Vind een film gemaakt via Film Crew:</p>
+                    <form onsubmit="event.preventDefault(); alert('Zoeken naar film...');">
+                        <input type="text" id="api-search-query" placeholder="Bijv. Boterbloem" required>
+                        <button type="submit" class="admin-toggle-btn" style="position: static; margin-top: 1em; width: 100%;">
+                            Zoeken
+                        </button>
+                    </form>
+                </div>`;
         });
     }
 });
