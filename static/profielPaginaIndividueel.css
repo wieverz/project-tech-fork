@@ -312,3 +312,12 @@ body.is-editing .add-project-card {
     font-size: 1.2em;
     margin: 0;
 }
+
+.modal-content .qualities {
+    margin: 1em 0; /* Geeft wat ruimte boven en onder de kwaliteiten */
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}

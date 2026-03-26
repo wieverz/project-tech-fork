@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <label>Jouw Rol *</label>
                     <input type="text" id="new-role" placeholder="Bijv. Producer" required>
                     <label>Afbeelding URL *</label>
-                    <input type="file" id="new-img" required>
+                    <input type="file" id="new-img" >
                     <label>Beschrijving van je bijdrage *</label>
                     <textarea id="new-desc" rows="4" placeholder="Wat heb je precies gedaan?" required></textarea>
                     <button type="submit" class="admin-toggle-btn" style="position: static; margin-top: 1em; width: 100%;">

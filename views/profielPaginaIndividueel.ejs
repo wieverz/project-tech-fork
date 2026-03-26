@@ -15,20 +15,20 @@
     
     <div class="profile-content">
         <button id="edit-mode-toggle" class="admin-toggle-btn">Aanpassen</button>
-        <h1>Mooie Naam</h1>
-        <h2>Producer</h2>
-        <ul class="important-qualities">
-            <li><h4>4 jaar werkervaring</h4></li>
-            <li><h4>Amsterdam</h4></li>
+        <h1 id="userName" contenteditable="false">Mooie Naam</h1>
+        <h2 id="rol" contenteditable="false">Producer</h2>
+        <ul class="important-qualities" id="importantQualities">
+            <li contenteditable="false"><h4>4 jaar werkervaring</h4></li>
+            <li contenteditable="false"><h4>Amsterdam</h4></li>
         </ul>
-        <p>Mijn naam is Mooie naam, ik werk al vier jaar als regisseur/ producer. Ik ben bekend met verschillende genres waaronder: 
+        <p id="bio" contenteditable="false">Mijn naam is Mooie naam, ik werk al vier jaar als regisseur/ producer. Ik ben bekend met verschillende genres waaronder: 
         Thriller, drama & indie. Het liefste werk ik aan comedies en romantische films. Ik heb gestudeerd aan de filmacedemie in Utrecht. In mijn vrije tijd doe ik schaatsen en koken. Ik zou mijzelf omschrijven als een sociaal persoon. Ik hou van samenwerken, of dat nou met de acteurs, schrijvers of kostuum ontwerpers is. Denk je dat wij een echte match zijn? Stuur mij gerust een bericht.</p>
-        <ul class="qualities">
-            <li>Color grading</li>
-            <li>Producen</li>
-            <li>Samenwerken</li>
-            <li>Schrijven</li>
-            <li>Engelse taal</li>
+        <ul class="qualities" id="idQualities" contenteditable="false">
+            <li contenteditable="false">Color grading</li>
+            <li contenteditable="false">Producen</li>
+            <li contenteditable="false">Samenwerken</li>
+            <li contenteditable="false">Schrijven</li>
+            <li contenteditable="false">Engelse taal</li>
         </ul>
     </div>
 </section>
@@ -91,7 +91,7 @@
 <script>
     // 1. Jouw eigen database
     const projectDetails = {
-        project1: { title: "Boterbloem", type: "Korte film", mainImage: "/images/project1.jpg", genres: ["Drama"], role: "Producent", contribution: "Planning...", year: "2023" },
+        project1: { title: "Boterbloem", type: "Korte film", mainImage: "/images/project1.jpg", genres: ["Drama"], role: "Producent", contribution: "Ik heb een groot deel van de planning van de film gedaan. Verscillende rollen gecombineerd, datas uitgestippeld enzovoort. Ik heb meegeholpen met de revisies op het script en de casting goedgekeurd.", year: "2023" },
         project2: { title: "Happy hour", type: "Pilot", mainImage: "/images/project2.jpg", genres: ["Komedie"], role: "Regie", contribution: "Logistiek...", year: "2024" },
         project3: { title: "Schoon!", type: "Reclame", mainImage: "/images/project3.jpg", genres: ["Product"], role: "Producer", contribution: "Concept...", year: "2024" }
     };
@@ -101,18 +101,32 @@
     const modalBody = document.getElementById("modal-body");
     const closeBtn = document.querySelector("#project-modal .close-modal");
 
-    function openModal(projectId) {
-        const details = projectDetails[projectId];
-        if (!details) return;
-        modalBody.innerHTML = `
-            <img src="${details.mainImage}" class="modal-image">
-            <h2>${details.title}</h2>
-            <h3>${details.type} (${details.year})</h3>
-            <p>${details.contribution}</p>
-        `;
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
+function openModal(projectId) {
+    const details = projectDetails[projectId];
+    if (!details) return;
+
+    // STAP A: Maak van de genres en kenmerken HTML-lijstjes met de juiste class
+    // We gebruiken hier de class 'qualities' zodat het er hetzelfde uitziet als bovenin!
+    const genreList = details.genres.map(g => `<li>${g}</li>`).join('');
+    const extraSpecs = `<li>${details.role}</li><li>${details.year}</li>`;
+
+    const modalHtml = `
+        <img src="${details.mainImage}" alt="${details.title}" class="modal-image">
+        <h2>${details.title}</h2>
+        <h3>${details.type}</h3>
+        
+        <ul class="qualities">
+            ${extraSpecs}
+            ${genreList}
+        </ul>
+        
+        <p class="modal-description">${details.contribution}</p>
+    `;
+
+    modalBody.innerHTML = modalHtml;
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+}
 
     function closeModal() {
         modal.style.display = "none";
@@ -126,47 +140,106 @@
 
     closeBtn.addEventListener("click", closeModal);
 
-    // 3. Jouw eigen Aanpas-knop (Edit Mode)
+// 3. Jouw eigen Aanpas-knop (Edit Mode)
     const editBtn = document.getElementById('edit-mode-toggle');
+
     editBtn.addEventListener('click', () => {
-        document.body.classList.toggle('is-editing');
-        editBtn.textContent = document.body.classList.contains('is-editing') ? "Opslaan" : "Aanpassen";
-        editBtn.style.backgroundColor = document.body.classList.contains('is-editing') ? "#28a745" : "var(--accentColorRed)";
+        // Stap A: Check of we nu in edit-mode zijn (geeft true of false)
+        const isEditing = document.body.classList.toggle('is-editing');
+
+        // Stap B: Zoek ALLE elementen die we bewerkbaar willen maken
+        const editableElements = [
+            document.getElementById('userName'),
+            document.getElementById('rol'),
+            document.getElementById('bio'),
+            ...document.querySelectorAll('#importantQualities li'),
+            ...document.querySelectorAll('#idQualities li')
+        ];
+
+        // Stap C: Loop door de lijst en zet contentEditable aan of uit
+        editableElements.forEach(el => {
+            if (el) {
+                el.contentEditable = isEditing;
+            }
+        });
+
+        // Stap D: Pas de knop-look aan op basis van de status (isEditing)
+        if (isEditing) {
+            editBtn.textContent = "Opslaan";
+            editBtn.style.backgroundColor = "#28a745"; // Groen
+        } else {
+            editBtn.textContent = "Aanpassen";
+            editBtn.style.backgroundColor = "var(--accentColorRed)"; // Jouw rode kleur
+            alert("Wijzigingen opgeslagen!"); // Even een bevestiging voor jezelf
+        }
+    });
+    // Zoek alle elementen die we bewerkbaar willen maken
+    const editableElements = [
+        document.getElementById('userName'),
+        document.getElementById('rol'),
+        document.querySelectorAll('#importantQualities li')
+        
+    ];
+
+    editableElements.forEach(el => {
+        if (el) el.contentEditable = isEditing; // Zet 'true' of 'false'
     });
 
+    // Verander knop tekst
+    editBtn.textContent = isEditing ? "Opslaan" : "Aanpassen";
+        editBtn.textContent = document.body.classList.contains('is-editing') ? "Opslaan" : "Aanpassen";
+        editBtn.style.backgroundColor = document.body.classList.contains('is-editing') ? "#28a745" : "var(--accentColorRed)";
+
+
     // 4. De functie die het project op JOUW pagina opslaat
-    function saveManualProject() {
-        const title = document.getElementById('new-title').value;
-        const type = document.getElementById('new-type').value;
-        const img = document.getElementById('new-img').value;
-        const desc = document.getElementById('new-desc').value;
-        const newId = 'project_' + Date.now();
+function saveManualProject() {
+    // 1. Haal de input-elementen op
+    const fileInput = document.getElementById('new-img');
+    const title = document.getElementById('new-title').value;
+    const type = document.getElementById('new-type').value;
+    const desc = document.getElementById('new-desc').value;
 
-        projectDetails[newId] = { title, type, mainImage: img, genres: ["Handmatig"], role: "Producer", contribution: desc, year: 2024 };
+    // 2. Pak het ECHTE bestand uit de input
+    const file = fileInput.files[0]; 
+    let imgSource = "";
 
-        const grid = document.querySelector('.project-grid');
-        const addCard = document.querySelector('.add-project-card');
-        const li = document.createElement('li');
-        li.className = 'project-card';
-        li.innerHTML = `
-            <button class="project-link" data-project-id="${newId}">
-                <div class="image-placeholder"><img src="${img}"></div>
-                <div class="project-info"><h3>${title}</h3><h4>${type}</h4></div>
-            </button>`;
-        
-        grid.insertBefore(li, addCard);
-        li.querySelector('.project-link').addEventListener('click', () => openModal(newId));
-        
-        document.getElementById('add-project-modal').style.display = 'none';
-        alert("Project toegevoegd!");
+    if (file) {
+        // Maak een tijdelijke URL die de browser begrijpt
+        imgSource = URL.createObjectURL(file);
+    } else {
+        imgSource = "/images/placeholder.jpg"; // Backup als er niks is gekozen
     }
 
-    // Algemene sluit-logica
-    window.onclick = (event) => {
-        if (event.target === modal) closeModal();
-        if (event.target === document.getElementById('add-project-modal')) {
-            document.getElementById('add-project-modal').style.display = "none";
-        }
+    // De rest van je functie (ID maken, li aanmaken, etc.)
+    const newId = 'project_' + Date.now();
+    
+    // Gebruik nu 'imgSource' in plaats van 'img'
+    projectDetails[newId] = { 
+        title: title, 
+        type: type, 
+        mainImage: imgSource, // De tijdelijke link
+        genres: ["Handmatig"], 
+        role: "Producer", 
+        contribution: desc, 
+        year: 2024 
+    };
+
+    const grid = document.querySelector('.project-grid');
+    const addCard = document.querySelector('.add-project-card');
+    const li = document.createElement('li');
+    li.className = 'project-card';
+    li.innerHTML = `
+        <button class="project-link" data-project-id="${newId}">
+            <div class="image-placeholder"><img src="${imgSource}"></div>
+            <div class="project-info"><h3>${title}</h3><h4>${type}</h4></div>
+        </button>`;
+    
+    grid.insertBefore(li, addCard);
+    
+    // Zorg dat de klik-event ook werkt voor de nieuwe kaart
+    li.querySelector('.project-link').addEventListener('click', () => openModal(newId));
+    
+    document.getElementById('add-project-modal').style.display = 'none';
     };
 </script>
 
