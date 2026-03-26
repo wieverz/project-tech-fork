@@ -28,15 +28,34 @@ const path = require('path'); // Ingebouwd in Node, hoef je niet te installeren
 const uri = process.env.URI;
 const client = new MongoClient(uri);
 
-async function connectDB() {
-    try {
-        await client.connect();
-        console.log("Succesvol verbonden met MongoDB via MongoClient");
-    } catch (error) {
-        console.error("Database verbinding mislukt:", error);
-    }
+// async function connectDB() {
+//     try {
+//         await client.connect();
+//         console.log("Succesvol verbonden met MongoDB via MongoClient");
+//     } catch (error) {
+//         console.error("Database verbinding mislukt:", error);
+//     }
+// }
+// connectDB();
+
+/////////////// register functie ////////////////
+let profileCollection; // Dit heb je al goed staan!
+
+async function run() {
+  try {
+    await client.connect();
+    const db = client.db("filmcrew");
+    
+    // Zorg dat deze naam overeenkomt met wat je in de app.post gebruikt
+    profileCollection = db.collection("profiles"); 
+    
+    console.log("Database verbinding succesvol!");
+  } catch (error) {
+    console.error("Verbindingsfout:", error);
+  }
 }
-connectDB();
+
+run().catch(console.dir);
 
 // Middleware instellen
 app.set('view engine', 'ejs');
@@ -49,6 +68,8 @@ app.use(session({
   saveUninitialized: false
 }));
 
+
+
 // Een test route
 app.get('/', (req, res) => {
     res.render('index');
@@ -60,8 +81,51 @@ app.listen(port, () => {
 app.get('/register', (req, res) => {
   res.render('register');
 });
-app.get('/register2', (req, res) => {
-  res.render('register2');
+
+app.post('/register', async (req, res) => {
+  try {
+    // alles van stap 1 & 2 opslaan
+    const { 
+      username, 
+      email, 
+      age, 
+      password, 
+      function: userFunction,
+      bio,
+      experience 
+    } = req.body;
+
+    // Check of de gebruiker al bestaat 
+    const userExists = await profileCollection.findOne({ name: username });
+    if (userExists) {
+      return res.send('Deze naam is al bezet.');
+    }
+
+    // Wachtwoord versleutelen
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // volledige profiel opbouwen
+    const newUser = {
+      name: username,
+      email: email,
+      age: Number(age),
+      password: hashedPassword,
+      role: userFunction,
+      bio: bio,
+      experience: Number(experience), 
+      createdAt: new Date()
+    };
+
+    // Opslaan in de juiste collectie
+    await profileCollection.insertOne(newUser);
+    
+    console.log('Volledig profiel opgeslagen voor:', username);
+    res.redirect('/login');
+
+  } catch (err) {
+    console.error("Fout bij registreren:", err);
+    res.status(500).send("Er ging iets mis bij het aanmaken van je profiel.");
+  }
 });
 
 app.get('/login', (req, res) => {
