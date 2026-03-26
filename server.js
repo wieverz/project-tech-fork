@@ -3,6 +3,7 @@ const fs = require('fs');
 const app = express();
 const port = 4000;
 const session = require('express-session');
+const multer = require('multer');
 
 app.use(session({
   secret: 'redbullgeeftjevleugels', // willekeurige lange zin
@@ -73,6 +74,8 @@ app.get('/profielPaginaIndividueel', (req, res) => {
   res.render('profielPaginaIndividueel');
 });
 
+// crew profile
+
 app.get('/crew-profile', (req, res) => {
   //  Maak de lijst met afbeeldingen aan
   const projectImages = [
@@ -90,3 +93,4 @@ app.get('/crew-profile', (req, res) => {
     projectTags: projectTags
   });
 });
+
