@@ -1,0 +1,23 @@
+<section class="slideshow" aria-label="Project visuals">
+    <button class="slideshow__nav slideshow__nav--prev" aria-label="Previous image">&#10094;</button>
+    
+   <div class="slideshow__container">
+    <div class="slideshow__upload edit-only">
+        <label for="file-upload" class="add-photo-btn">
+            Foto toevoegen
+        </label>
+        <input type="file" id="file-upload" accept="image/*" onchange="previewImage(this)" style="display:none;">
+    </div>
+
+    <% projectImages.forEach((img, index) => { %>
+        <div class="slideshow__item <%= index === 0 ? 'slideshow__item--active' : '' %>">
+            <img src="<%= img %>" alt="Project visual" class="slideshow__image">
+            <button type="button" class="remove-photo edit-only" onclick="removePhotoFromSlideshow(this)">
+                Foto verwijderen
+            </button>
+        </div>
+    <% }) %>
+</div>
+
+    <button class="slideshow__nav slideshow__nav--next" aria-label="Next image">&#10095;</button>
+   </section>

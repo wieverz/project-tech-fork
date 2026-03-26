@@ -22,31 +22,9 @@
         </div>
     </header>
 
-  <section class="slideshow" aria-label="Project visuals">
-    <button class="slideshow__nav slideshow__nav--prev" aria-label="Previous image">&#10094;</button>
-    
-   <div class="slideshow__container">
-    <div class="slideshow__upload edit-only">
-        <label for="file-upload" class="add-photo-btn">
-            Foto toevoegen
-        </label>
-        <input type="file" id="file-upload" accept="image/*" onchange="previewImage(this)" style="display:none;">
-    </div>
-
-    <% projectImages.forEach((img, index) => { %>
-        <div class="slideshow__item <%= index === 0 ? 'slideshow__item--active' : '' %>">
-            <img src="<%= img %>" alt="Project visual" class="slideshow__image">
-            <button type="button" class="remove-photo edit-only" onclick="removePhotoFromSlideshow(this)">
-                Foto verwijderen
-            </button>
-        </div>
-    <% }) %>
-</div>
-
-    <button class="slideshow__nav slideshow__nav--next" aria-label="Next image">&#10095;</button>
-   </section>
-
-    <nav class="tag-container" aria-label="Project categories">
+    <%- include('partials/slideshow') %> 
+    <%- include ('partials/tijdelijke-filters') %>
+    <!-- <nav class="tag-container" aria-label="Project categories">
     <ul class="tag-list"> 
         <% projectTags.forEach((tag) => { %>
             <li class="tag">
@@ -67,7 +45,7 @@
         </select>
         <button type="button" class="button--profile" onclick="addTagFromSelect()">Voeg toe</button>
     </div>
-</nav>
+</nav> -->
 
     <p class="project-text" contenteditable="false">
         Maak kennis met Lord de Vries. Hij is rijk, heeft een kasteel en een adellijke titel. Maar er is één ding dat hij níét heeft: street credibility. In zijn wanhopige poging om de coolste man op aarde te worden, ontdekt hij een verborgen ondergronds toernooi: extreem knikkeren voor miljardairs.
@@ -75,8 +53,6 @@ Vergeet basketballen en voetbal; dit is de arena waar reputaties worden gemaakt 
     </p>
 
 </main>
-
-</div>
 
  <section class="production">
         <h3 class="production_Title">Productie Informatie</h3>
@@ -104,16 +80,8 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
         <% for (let i = 0; i < 5; i++) { %>
             <li class="carousel__list-Item">
 
-        <article class="matching__card">
-            <header>
-                <img src="/images/cameraman.png" width="335" alt="">
-                <h3>David de Boer - Acteur</h3>
-            </header>
-            <p>5 jaar ervaring als lead actor, speelde in meerdere shortfilms en commercials.</p>
-            <div class="matching__card-link">
-                <a href="#">Bekijk details</a>
-            </div>
-        </article>
+        <%- include('partials/matching') %>
+        
         
         </li>
         <% } %>
@@ -128,16 +96,7 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
         <% for (let i = 0; i < 5; i++) { %>
             <li class="carousel__list-Item">
 
-        <article class="matching__card">
-            <header>
-                <img src="/images/cameraman.png" width="335" alt="">
-                <h3>David de Boer - Acteur</h3>
-            </header>
-            <p>5 jaar ervaring als lead actor, speelde in meerdere shortfilms en commercials.</p>
-            <div class="matching__card-link">
-                <a href="#">Bekijk details</a>
-            </div>
-        </article>
+        <%- include('partials/matching') %>
         
         </li>
         <% } %>
@@ -152,16 +111,7 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
         <% for (let i = 0; i < 5; i++) { %>
             <li class="carousel__list-Item">
 
-        <article class="matching__card">
-            <header>
-                <img src="/images/cameraman.png" width="335" alt="">
-                <h3>David de Boer - Acteur</h3>
-            </header>
-            <p>5 jaar ervaring als lead actor, speelde in meerdere shortfilms en commercials.</p>
-            <div class="matching__card-link">
-                <a href="#">Bekijk details</a>
-            </div>
-        </article>
+        <%- include('partials/matching') %>
         
         </li>
         <% } %>
