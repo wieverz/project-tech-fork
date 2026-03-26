@@ -2,12 +2,22 @@
     <button class="slideshow__nav slideshow__nav--prev" aria-label="Previous image">&#10094;</button>
     
    <div class="slideshow__container">
+    
     <div class="slideshow__upload edit-only">
+    <form action="/upload-photo" method="POST" enctype="multipart/form-data">
+        
         <label for="file-upload" class="add-photo-btn">
             Foto toevoegen
         </label>
-        <input type="file" id="file-upload" accept="image/*" onchange="previewImage(this)" style="display:none;">
-    </div>
+
+        <input type="file" 
+               name="projectImage" 
+               id="file-upload" 
+               accept="image/*" 
+               onchange="this.form.submit()" 
+               style="display:none;">
+    </form>
+</div>
 
     <% projectImages.forEach((img, index) => { %>
         <div class="slideshow__item <%= index === 0 ? 'slideshow__item--active' : '' %>">
