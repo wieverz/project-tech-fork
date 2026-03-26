@@ -1,0 +1,137 @@
+/* slidehow */
+
+.slideshow {
+    position: relative;
+    background-color: var(--accentColorGrey); 
+    width: 100%;
+    height: 55vh;
+    border-radius: 10px;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.slideshow__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slideshow__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Modifier voor de zichtbare slide */
+.slideshow__item--active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slideshow__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slideshow__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.slideshow__nav:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Specifieke modifiers voor de knoppen */
+.slideshow__nav--prev { left: 20px; }
+.slideshow__nav--next { right: 20px; }
+
+/* Gedeelde styling voor beide knoppen bovenop de slideshow */
+.add-photo-btn, .remove-photo {
+    position: absolute;
+    top: 15px;
+    z-index: 100;
+    pointer-events: auto; 
+    cursor: pointer;
+    
+    /* Visuele stijl  */
+
+    background-color: black;
+    color: var(--accentColorWhite);
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    
+    font-size: var(--fontWeightRegular);
+    font-weight: var(--fontWeightBold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+/* linker knop toevoegen */
+.add-photo-btn {
+    left: 15px;
+}
+.add-photo-btn:hover {
+    background-color: green; /* Of een andere kleur naar wens */
+    transform: scale(1.05);
+}
+
+/* rechter knop verwijderen */
+.remove-photo {
+    right: 15px;
+}
+.remove-photo:hover {
+    background-color: var(--accentColorRed);
+    transform: scale(1.05);
+}
+
+body.is-editing .add-project-card {
+    display: flex !important; 
+    
+    width: 335px; 
+    min-height: 367px; 
+
+    border-radius: var(--buttonCornerRadius);
+    background-color: var(--accentColorWhite);
+    flex-shrink: 0; 
+    gap: var(--gapMedium);
+}
+
+.add-project-card .add-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
