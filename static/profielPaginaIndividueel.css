@@ -40,13 +40,6 @@
     background-color: #333; /* Kleur bij hover */
 }
 
-/*  zorgt dat de afbeelding niet vervormt */
-.profile-header img {
-    width: 18em;
-    height: auto;
-    object-fit: cover;
-}
-
 .important-qualities {
     display: flex;
     padding-top: var(--gapSmall);
@@ -254,21 +247,6 @@
     display: none;
 }
 
-/* Als de body de class 'is-editing' heeft, toon dan de aanpas-opties */
-body.is-editing .edit-only {
-    display: inline-block;
-}
-
-/* feedback dat je aan het editen bent */
-body.is-editing section {
-    outline: 0.1em dashed var(--accentColorGold);
-    cursor: pointer;
-}
-
-body.is-editing main {
-    outline: 0.1em dashed var(--accentColorGold);
-    cursor: pointer;
-}
 
 /* Standaard is de 'voeg toe' kaart onzichtbaar */
 .add-project-card {
@@ -320,4 +298,93 @@ body.is-editing .add-project-card {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+/* Styling aanpas knop van de pfp */
+
+/* Container relative zodat de knop erbovenop kan */
+.pfpContainer {
+    position: relative;
+    display: inline-block;
+    width: 19em; 
+    height: auto;
+}
+
+.pfpContainer img {
+    width: 18em;
+    height: auto;
+    object-fit: cover;
+}
+
+/* De knop standaard verbergen */
+.edit-photo-label {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Zet hem exact in het midden */
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-align: center;
+    width: 80%;
+}
+
+/* Alleen zien als je op aanpassen drukt */
+body.is-editing .edit-photo-label {
+    display: block;
+}
+
+/* Styling voor de invulvelden in de modal */
+.edit-modal-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.edit-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    background-color: #f9f9f9;
+}
+
+.edit-input:focus {
+    outline: none;
+    border-color: var(--accentColorRed);
+    background-color: #fff;
+}
+
+/* De Verwijderknop */
+.delete-project-btn {
+    background-color: var(--accentColorWhite);
+    padding: 0.5em;
+    color: var(--accentColorRed);
+    border-width: 1px;
+    border-color: var(--accentColorRed);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 9em;
+    margin-right: var(--gapMedium);
+}
+
+.delete-project-btn:hover {
+    background-color: var(--accentColorRed);
+    color: var(--accentColorWhite);
+}
+
+
+/* Input veld in de modal voor nieuwe qualities */
+.modal-quality-input-wrapper {
+    display: flex;
+    gap: 10px;
+
 }

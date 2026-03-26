@@ -1,0 +1,39 @@
+/* Gouden stippellijntjes als feedback */
+    body.is-editing section, 
+    body.is-editing main{
+        outline: 2px dashed var(--accentColorGold);
+        outline-offset: 4px;
+    }
+
+    /* Kruisjes op de kwaliteiten */
+    .delete-tag {
+        display: none;
+        margin-left: 8px;
+        cursor: pointer;
+        color: var(--accentColorRed);
+        font-weight: bold;
+    }
+
+    /* Kruisjes alleen tonen in edit-mode */
+    body.is-editing .delete-tag {
+        display: inline !important;
+    }
+
+    /* De 'Voeg toe' button styling */
+    .add-quality-btn {
+        display: none;
+        background-color: var(--accentColorWhite);
+        border: 1px solid var(--accentColorGold);
+        color: var(--accentColorGold);
+        padding: 0.5em 1.1em;
+        border-radius: 1em;
+        cursor: pointer;
+        font-family: var(--montserratFont);
+        font-size: var(--bodyTekstSize);
+        margin-bottom: 0.5em;
+        vertical-align: top;
+    }
+
+    body.is-editing .add-quality-btn {
+        display: inline-block;
+    }

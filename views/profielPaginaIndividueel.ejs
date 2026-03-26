@@ -10,239 +10,208 @@
 <body>
     <%- include('partials/header') %>
     <main>
-    <section class="profile-header">
-    <img src="/images/producer.jpg" alt="producer">
-    
-    <div class="profile-content">
-        <button id="edit-mode-toggle" class="admin-toggle-btn">Aanpassen</button>
-        <h1 id="userName" contenteditable="false">Mooie Naam</h1>
-        <h2 id="rol" contenteditable="false">Producer</h2>
-        <ul class="important-qualities" id="importantQualities">
-            <li contenteditable="false"><h4>4 jaar werkervaring</h4></li>
-            <li contenteditable="false"><h4>Amsterdam</h4></li>
-        </ul>
-        <p id="bio" contenteditable="false">Mijn naam is Mooie naam, ik werk al vier jaar als regisseur/ producer. Ik ben bekend met verschillende genres waaronder: 
-        Thriller, drama & indie. Het liefste werk ik aan comedies en romantische films. Ik heb gestudeerd aan de filmacedemie in Utrecht. In mijn vrije tijd doe ik schaatsen en koken. Ik zou mijzelf omschrijven als een sociaal persoon. Ik hou van samenwerken, of dat nou met de acteurs, schrijvers of kostuum ontwerpers is. Denk je dat wij een echte match zijn? Stuur mij gerust een bericht.</p>
-        <ul class="qualities" id="idQualities" contenteditable="false">
-            <li contenteditable="false">Color grading</li>
-            <li contenteditable="false">Producen</li>
-            <li contenteditable="false">Samenwerken</li>
-            <li contenteditable="false">Schrijven</li>
-            <li contenteditable="false">Engelse taal</li>
-        </ul>
-    </div>
-</section>
+        <section class="profile-header">
+            <div class="pfpContainer">
+                <img src="/images/producer.jpg" id="userPfp" alt="producer">
+                <input type="file" id="change-pfp-input" style="display: none;">
+                <label for="change-pfp-input" class="edit-photo-label">Foto aanpassen</label>
+            </div>
+            <div class="profile-content">
+                <%- include('partials/editMode') %>
+                
+                <h1 id="userName">Mooie Naam</h1>
+                <h2 id="rol">Producer</h2>
+                
+                <ul class="important-qualities" id="importantQualities">
+                    <li><h4>4 jaar werkervaring</h4></li>
+                    <li><h4>Amsterdam</h4></li>
+                </ul>
+                
+                <p id="bio">Mijn naam is Mooie naam, ik werk al vier jaar als regisseur/ producer. Ik ben bekend met verschillende genres waaronder: 
+                Thriller, drama & indie. Het liefste werk ik aan comedies en romantische films. Ik heb gestudeerd aan de filmacedemie in Utrecht. In mijn vrije tijd doe ik schaatsen en koken. Ik zou mijzelf omschrijven als een sociaal persoon. Ik hou van samenwerken, of dat nou met de acteurs, schrijvers of kostuum ontwerpers is. Denk je dat wij een echte match zijn? Stuur mij gerust een bericht.</p>
+                
+                <ul class="qualities" id="idQualities">
+                    <li>Color grading</li>
+                    <li>Producen</li>
+                    <li>Samenwerken</li>
+                    <li>Schrijven</li>
+                    <li>Engelse taal</li>
+                </ul>
+            </div>
+        </section>
 
-<section class="projects-section">
-    <h2>Projecten</h2>
-    <ul class="project-grid">
-        <li class="project-card">
-            <button class="project-link" data-project-id="project1">
-                <div class="image-placeholder">
-                    <img src="/images/project1.jpg" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>Boterbloem</h3>
-                    <h4>Korte film</h4>
-                </div>
-            </button>
-        </li>
-        <li class="project-card">
-             <button class="project-link" data-project-id="project2">
-                <div class="image-placeholder">
-                    <img src="/images/project2.jpg" alt="foto bar">
-                </div>
-                <div class="project-info">
-                    <h3>Happy hour</h3>
-                    <h4>Pilot-aflevering</h4>
-                </div>
-                 </button>
-        </li>
-         <li class="project-card">
-             <button class="project-link" data-project-id="project3">
-                                <div class="image-placeholder">
-                    <img src="/images/project3.jpg" alt="spons">
-                </div>
-                <div class="project-info">
-                    <h3>Schoon!</h3>
-                    <h4>Reclamespotje</h4>
-                </div>
-                 </button>
-        </li>
-<%- include('partials/addProjectCard') %>
-</ul>
-
+        <section class="projects-section">
+            <h2>Projecten</h2>
+            <ul class="project-grid">
+                <li class="project-card">
+                    <button class="project-link" data-project-id="project1">
+                        <div class="image-placeholder"><img src="/images/project1.jpg" alt=""></div>
+                        <div class="project-info">
+                            <h3>Boterbloem</h3>
+                            <h4>Korte film</h4>
+                        </div>
+                    </button>
+                </li>
+                <li class="project-card">
+                    <button class="project-link" data-project-id="project2">
+                        <div class="image-placeholder"><img src="/images/project2.jpg" alt=""></div>
+                        <div class="project-info">
+                            <h3>Happy hour</h3>
+                            <h4>Pilot-aflevering</h4>
+                        </div>
+                    </button>
+                </li>
+                <li class="project-card">
+                    <button class="project-link" data-project-id="project3">
+                        <div class="image-placeholder"><img src="/images/project3.jpg" alt=""></div>
+                        <div class="project-info">
+                            <h3>Schoon!</h3>
+                            <h4>Reclamespotje</h4>
+                        </div>
+                    </button>
+                </li>
+                <%- include('partials/addProjectCard') %>
+            </ul>
+        </section>
     </main>
 
     <div id="project-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        
-        <div id="modal-body">
-            </div>
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
     </div>
-</div>
 
+    <%- include('partials/footer') %>
 
-<%- include('partials/footer') %>
+    <script src="/js/addProjectCard.js"></script>
+    <script src="/js/editMode.js"></script>
 
-<script src="/js/addProjectCard.js"></script>
+    <script>
+        // --- 1. Database (Specifiek voor deze pagina) ---
+        const projectDetails = {
+            project1: { title: "Boterbloem", type: "Korte film", mainImage: "/images/project1.jpg", genres: ["Drama", "Korte film"], contribution: "Planning enzo...", year: "2023" },
+            project2: { title: "Happy hour", type: "Pilot", mainImage: "/images/project2.jpg", genres: ["Komedie", "Pilot"], contribution: "Logistiek...", year: "2024" },
+            project3: { title: "Schoon!", type: "Reclame", mainImage: "/images/project3.jpg", genres: ["Product", "Reclame"], contribution: "Concept...", year: "2024" }
+        };
 
-<script>
-    // 1. Jouw eigen database
-    const projectDetails = {
-        project1: { title: "Boterbloem", type: "Korte film", mainImage: "/images/project1.jpg", genres: ["Drama"], role: "Producent", contribution: "Ik heb een groot deel van de planning van de film gedaan. Verscillende rollen gecombineerd, datas uitgestippeld enzovoort. Ik heb meegeholpen met de revisies op het script en de casting goedgekeurd.", year: "2023" },
-        project2: { title: "Happy hour", type: "Pilot", mainImage: "/images/project2.jpg", genres: ["Komedie"], role: "Regie", contribution: "Logistiek...", year: "2024" },
-        project3: { title: "Schoon!", type: "Reclame", mainImage: "/images/project3.jpg", genres: ["Product"], role: "Producer", contribution: "Concept...", year: "2024" }
-    };
+        const modal = document.getElementById("project-modal");
+        const modalBody = document.getElementById("modal-body");
+        const closeBtn = document.querySelector("#project-modal .close-modal");
 
-    // 2. Jouw eigen Modal Logica (Preview)
-    const modal = document.getElementById("project-modal");
-    const modalBody = document.getElementById("modal-body");
-    const closeBtn = document.querySelector("#project-modal .close-modal");
+        // --- 2. Modal Logica (Blijft hier, want dit gaat over de projecten op deze pagina) ---
+        function openModal(projectId) {
+            const details = projectDetails[projectId];
+            if (!details) return;
 
-function openModal(projectId) {
-    const details = projectDetails[projectId];
-    if (!details) return;
-
-    // STAP A: Maak van de genres en kenmerken HTML-lijstjes met de juiste class
-    // We gebruiken hier de class 'qualities' zodat het er hetzelfde uitziet als bovenin!
-    const genreList = details.genres.map(g => `<li>${g}</li>`).join('');
-    const extraSpecs = `<li>${details.role}</li><li>${details.year}</li>`;
-
-    const modalHtml = `
-        <img src="${details.mainImage}" alt="${details.title}" class="modal-image">
-        <h2>${details.title}</h2>
-        <h3>${details.type}</h3>
-        
-        <ul class="qualities">
-            ${extraSpecs}
-            ${genreList}
-        </ul>
-        
-        <p class="modal-description">${details.contribution}</p>
-    `;
-
-    modalBody.innerHTML = modalHtml;
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden";
-}
-
-    function closeModal() {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
-
-    // Event listeners voor jouw bestaande kaartjes
-    document.querySelectorAll(".project-link").forEach(link => {
-        link.addEventListener("click", () => openModal(link.getAttribute("data-project-id")));
-    });
-
-    closeBtn.addEventListener("click", closeModal);
-
-// 3. Jouw eigen Aanpas-knop (Edit Mode)
-    const editBtn = document.getElementById('edit-mode-toggle');
-
-    editBtn.addEventListener('click', () => {
-        // Stap A: Check of we nu in edit-mode zijn (geeft true of false)
-        const isEditing = document.body.classList.toggle('is-editing');
-
-        // Stap B: Zoek ALLE elementen die we bewerkbaar willen maken
-        const editableElements = [
-            document.getElementById('userName'),
-            document.getElementById('rol'),
-            document.getElementById('bio'),
-            ...document.querySelectorAll('#importantQualities li'),
-            ...document.querySelectorAll('#idQualities li')
-        ];
-
-        // Stap C: Loop door de lijst en zet contentEditable aan of uit
-        editableElements.forEach(el => {
-            if (el) {
-                el.contentEditable = isEditing;
+            const isEditing = document.body.classList.contains('is-editing');
+            
+            if (isEditing) {
+                modalBody.innerHTML = `
+                    <div class="edit-modal-wrapper">
+                        <h3>Project aanpassen</h3>
+                        <div class="pfpContainer" style="width: 100%; height: 200px;">
+                            <img src="${details.mainImage}" id="edit-project-img-preview" style="object-fit: cover; width: 100%; height: 100%;">
+                            <input type="file" id="edit-project-file-input" style="display: none;">
+                            <label for="edit-project-file-input" class="edit-photo-label" style="display: block;">Foto aanpassen</label>
+                        </div>
+                        <label>Titel</label>
+                        <input type="text" id="edit-title" value="${details.title}" class="edit-input">
+                        <label>Kwaliteiten / Tags</label>
+                        <ul class="qualities" id="edit-project-tags">
+                            ${details.genres.map(tag => `<li>${tag}<span class="delete-tag" style="display:inline;" onclick="this.parentElement.remove()">×</span></li>`).join('')}
+                            <button type="button" onclick="addNewTagToModal()" class="add-quality-btn" style="display:inline-block;">+ Toevoegen</button>
+                        </ul>
+                        <label>Jouw bijdrage</label>
+                        <textarea id="edit-contribution" class="edit-input" rows="4">${details.contribution}</textarea>
+                        <button onclick="saveProjectChanges('${projectId}')" class="admin-toggle-btn" style="position: static; width: 100%;">Wijzigingen Opslaan</button>
+                        <button onclick="deleteProject('${projectId}')" class="delete-project-btn">Verwijder Project</button>
+                    </div>
+                `;
+                
+                document.getElementById('edit-project-file-input').addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) { document.getElementById('edit-project-img-preview').src = URL.createObjectURL(file); }
+                });
+            } else {
+                const genreList = details.genres.map(g => `<li>${g}</li>`).join('');
+                modalBody.innerHTML = `
+                    <img src="${details.mainImage}" class="modal-image">
+                    <h2>${details.title}</h2>
+                    <ul class="qualities">${genreList}</ul>
+                    <p>${details.contribution}</p>
+                `;
             }
+            modal.style.display = "block";
+        }
+
+        // --- 3. Extra Tags toevoegen (Prompt logica voor deze pagina) ---
+        function addNewTagToModal() {
+            const val = prompt("Welke nieuwe tag?");
+            if (val) {
+                const li = document.createElement('li');
+                li.innerHTML = `${val}<span class="delete-tag" style="display:inline;" onclick="this.parentElement.remove()">×</span>`;
+                const list = document.getElementById('edit-project-tags');
+                list.insertBefore(li, list.querySelector('.add-quality-btn'));
+            }
+        }
+
+        function addProfileQuality() {
+            const val = prompt("Nieuwe kwaliteit?");
+            if (val) {
+                const li = document.createElement('li');
+                li.innerHTML = `${val}<span class="delete-tag" onclick="this.parentElement.remove()">×</span>`;
+                document.getElementById('idQualities').appendChild(li);
+            }
+        }
+
+        // --- 4. Opslaan & Helpers ---
+        function saveProjectChanges(projectId) {
+            const tagElements = document.querySelectorAll('#edit-project-tags li');
+            const updatedTags = Array.from(tagElements).map(li => li.childNodes[0].textContent.trim());
+
+            projectDetails[projectId].title = document.getElementById('edit-title').value;
+            projectDetails[projectId].contribution = document.getElementById('edit-contribution').value;
+            projectDetails[projectId].mainImage = document.getElementById('edit-project-img-preview').src;
+            projectDetails[projectId].genres = updatedTags;
+
+            const card = document.querySelector(`[data-project-id="${projectId}"]`);
+            if (card) {
+                card.querySelector('h3').textContent = projectDetails[projectId].title;
+                card.querySelector('img').src = projectDetails[projectId].mainImage;
+            }
+            closeModal();
+        }
+
+        function deleteProject(id) { 
+            if (confirm("Project verwijderen?")) { 
+                delete projectDetails[id]; 
+                document.querySelector(`[data-project-id="${id}"]`).closest('.project-card').remove(); 
+                closeModal(); 
+            } 
+        }
+
+        function closeModal() { modal.style.display = "none"; document.body.style.overflow = "auto"; }
+        closeBtn.onclick = closeModal;
+
+        document.querySelectorAll(".project-link").forEach(link => {
+            link.addEventListener("click", () => openModal(link.getAttribute("data-project-id")));
         });
 
-        // Stap D: Pas de knop-look aan op basis van de status (isEditing)
-        if (isEditing) {
-            editBtn.textContent = "Opslaan";
-            editBtn.style.backgroundColor = "#28a745"; // Groen
-        } else {
-            editBtn.textContent = "Aanpassen";
-            editBtn.style.backgroundColor = "var(--accentColorRed)"; // Jouw rode kleur
-            alert("Wijzigingen opgeslagen!"); // Even een bevestiging voor jezelf
+        // Proffielfoto preview (uniek voor deze pagina)
+        document.getElementById('change-pfp-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) { document.getElementById('userPfp').src = URL.createObjectURL(file); }
+        });
+
+        // "+ Toevoegen" knop klaarzetten voor de profiel qualities
+        if (!document.querySelector('#idQualities .add-quality-btn')) {
+            const btn = document.createElement('button');
+            btn.className = 'add-quality-btn';
+            btn.innerHTML = '+ Kwaliteit toevoegen';
+            btn.onclick = addProfileQuality;
+            document.getElementById('idQualities').appendChild(btn);
         }
-    });
-    // Zoek alle elementen die we bewerkbaar willen maken
-    const editableElements = [
-        document.getElementById('userName'),
-        document.getElementById('rol'),
-        document.querySelectorAll('#importantQualities li')
-        
-    ];
-
-    editableElements.forEach(el => {
-        if (el) el.contentEditable = isEditing; // Zet 'true' of 'false'
-    });
-
-    // Verander knop tekst
-    editBtn.textContent = isEditing ? "Opslaan" : "Aanpassen";
-        editBtn.textContent = document.body.classList.contains('is-editing') ? "Opslaan" : "Aanpassen";
-        editBtn.style.backgroundColor = document.body.classList.contains('is-editing') ? "#28a745" : "var(--accentColorRed)";
-
-
-    // 4. De functie die het project op JOUW pagina opslaat
-function saveManualProject() {
-    // 1. Haal de input-elementen op
-    const fileInput = document.getElementById('new-img');
-    const title = document.getElementById('new-title').value;
-    const type = document.getElementById('new-type').value;
-    const desc = document.getElementById('new-desc').value;
-
-    // 2. Pak het ECHTE bestand uit de input
-    const file = fileInput.files[0]; 
-    let imgSource = "";
-
-    if (file) {
-        // Maak een tijdelijke URL die de browser begrijpt
-        imgSource = URL.createObjectURL(file);
-    } else {
-        imgSource = "/images/placeholder.jpg"; // Backup als er niks is gekozen
-    }
-
-    // De rest van je functie (ID maken, li aanmaken, etc.)
-    const newId = 'project_' + Date.now();
-    
-    // Gebruik nu 'imgSource' in plaats van 'img'
-    projectDetails[newId] = { 
-        title: title, 
-        type: type, 
-        mainImage: imgSource, // De tijdelijke link
-        genres: ["Handmatig"], 
-        role: "Producer", 
-        contribution: desc, 
-        year: 2024 
-    };
-
-    const grid = document.querySelector('.project-grid');
-    const addCard = document.querySelector('.add-project-card');
-    const li = document.createElement('li');
-    li.className = 'project-card';
-    li.innerHTML = `
-        <button class="project-link" data-project-id="${newId}">
-            <div class="image-placeholder"><img src="${imgSource}"></div>
-            <div class="project-info"><h3>${title}</h3><h4>${type}</h4></div>
-        </button>`;
-    
-    grid.insertBefore(li, addCard);
-    
-    // Zorg dat de klik-event ook werkt voor de nieuwe kaart
-    li.querySelector('.project-link').addEventListener('click', () => openModal(newId));
-    
-    document.getElementById('add-project-modal').style.display = 'none';
-    };
-</script>
-
-
+    </script>
 </body>
 </html>
