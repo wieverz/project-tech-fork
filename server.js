@@ -5,6 +5,17 @@ const port = 4000;
 const session = require('express-session');
 const multer = require('multer');
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); 
+  }
+});
+
+const upload = multer({ storage: storage });
+
 app.use(session({
   secret: 'redbullgeeftjevleugels', // willekeurige lange zin
   resave: false,
@@ -79,35 +90,73 @@ app.get('/profielPaginaIndividueel', (req, res) => {
 
 // crew profile
 
-app.get('/crew-profile', (req, res) => {
-  //  Maak de lijst met afbeeldingen aan
-  const projectImages = [
-    "/images/placeholder-hero.jpg",
-    "/images/cameraman.png",
-    "/images/home-page-image.png"
-  ];
+app.get('/crew-profile', async (req, res) => {
+    try {
+        const db = client.db('filmcrew');
 
-  // maak de tags aan 
-  const projectTags = ["Sci-Fi", "Action", "Adventure", "Thriller", "Animation"];
+        // 1. Haal het project op, het eerste project wat je ziet. 
+        const project = await db.collection('projects').findOne({}) || {};
 
-  // Stuur alles naar de render functie
-  res.render('crew-profile', {
-    projectImages: projectImages,
-    projectTags: projectTags
-  });
+        // Haal het profiel op moet nog aan gewerkt worden 
+        // const profile = await db.collection('profiles').findOne({ username: req.session.username }) || {};
+
+
+        // pak alle foto's van de database en stop dit in een array. Als project.images niet bestaat, maken we er een lege array [] van.
+        const projectImages = project.images || []; 
+        
+        // moet nog in database komen.
+        const projectTags = ["Sci-Fi", "Action", "Adventure", "Thriller", "Animation"];
+
+        // Stuur alles naar de EJS
+        res.render('crew-profile', {
+            projectData: project,   // Bevat: title, subtitle, description, images
+            projectImages: projectImages, // De array met fotopaden voor je slideshow
+            projectTags: projectTags
+        });
+    } catch (error) {
+        console.error("Fout bij ophalen profiel/project:", error);
+        res.status(500).send("Fout bij laden profiel");
+    }
 });
 
-app.post('/upload-photo', upload.single('projectImage'), async (req, res) => {
-    const db = client.db('filmcrew');
-    const imagePath = `/uploads/${req.file.filename}`;
+//  upload.array omdat je meerdere foto's tegelijk kunt uploaden.
+app.post('/save-project', upload.array('projectImages'), async (req, res) => {
+    try {
+        const db = client.db('filmcrew');
 
-    await db.collection('profiles').updateOne(
-        { username: req.session.username },
-        { $push: { projectImages: imagePath } }
-    );
+        // De lijst van foto's die overblijven na het klikken op verwijderen
+        let remainingImages = [];
+        // maak er een array van en sla geen lege velden op. 
+        if (req.body.remainingImages) {
+            remainingImages = req.body.remainingImages.split(',').filter(path => path !== "");
+        }
 
-    // Na het uploaden sturen we de gebruiker gewoon weer terug naar de profielpagina
-    res.redirect('/crew-profile'); 
+        // nieuwe foto's, neem hun pad
+        const newUploads = req.files.map(file => `/uploads/${file.filename}`);
+
+        // combineren van nieuwe met oude foto's
+        const finalImagesList = [...remainingImages, ...newUploads];
+
+        // pak alle veranderingen bij elkaar en stop dit in een object
+        const updatedProject = {
+            title: req.body.title,
+            subtitle: req.body.subtitle,
+            description: req.body.description,
+            images: finalImagesList, // We overschrijven de oude lijst volledig
+            updatedAt: new Date()
+        };
+
+        await db.collection('projects').updateOne(
+            {}, // upload naar het eerste project wat je ziet 
+            { $set: updatedProject }, // vervang oude data met nieuwe data 
+            { upsert: true } // maak aan als er nog geen project bestaat
+        );
+
+        res.redirect('/crew-profile'); // stuur gebruiker terug naar crew-profile 
+    } catch (error) {
+        console.error("Opslaan mislukt:", error);
+        res.status(500).send("Fout bij opslaan");
+    }
 });
 
 app.get('/current-matches', (req, res) => {

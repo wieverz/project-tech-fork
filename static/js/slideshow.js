@@ -1,43 +1,40 @@
-
-let slides; 
+let slides; // lijstje voor de foto's 
 const nextBtn = document.querySelector('.slideshow__nav--next');
 const prevBtn = document.querySelector('.slideshow__nav--prev');
-let currentIndex = 0;
-let slideInterval;
+let currentIndex = 0; // foto teller welke nu zichtbaar is 
+let slideInterval; // timer
 
 function updateSlidesArray() {
-    // Haal de lijst met slides opnieuw op
+    // zoek alle foto html elementen
     slides = document.querySelectorAll('.slideshow__item');
-    checkIfEmpty();
+    checkIfEmpty(); // functie aanroepen
 }
 
-updateSlidesArray();
-
 function showSlide(index) {
-    if (slides.length === 0) return; // Stop als er geen slides zijn
+    if (!slides || slides.length === 0) return; // doe niets als er geen foto's zijn 
 
+    // Verwijder active class van huidige slide
     slides[currentIndex].classList.remove('slideshow__item--active');
+    
+    // Bereken nieuwe index 
     currentIndex = (index + slides.length) % slides.length;
+    
+    // Voeg active class toe aan nieuwe slide
     slides[currentIndex].classList.add('slideshow__item--active');
 }
 
-// functie wordt aangeropen als de knoppen worden geklikt of als de timer voorbij is
+function nextSlide() { showSlide(currentIndex + 1); }
+function prevSlide() { showSlide(currentIndex - 1); }
 
-function nextSlide() {
-    showSlide(currentIndex + 1);
-}
-
-function prevSlide() {
-    showSlide(currentIndex - 1);
-}
-
-// Event Listeners
+// Event Listeners voor de knoppen
 if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
 if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
 
-// Timer functies
+// Timer functie
 function startTimer() {
-    slideInterval = setInterval(nextSlide, 10000);
+    if (slides && slides.length > 1) {
+        slideInterval = setInterval(nextSlide, 10000);
+    }
 }
 
 function resetTimer() {
@@ -45,42 +42,77 @@ function resetTimer() {
     startTimer();
 }
 
-startTimer();
+// foto's tonen voordat ze worden verstuurd
 
-// --- SLIDESHOW EDITING  ---
+function previewImages(input) {
+    const maxPhotos = 6;
+    // Tel hoeveel foto's er al in de slideshow staan
+    const currentPhotos = document.querySelectorAll('.slideshow__item').length;
+    // Tel hoeveel nieuwe foto's de gebruiker zojuist heeft geselecteerd
+    const selectedPhotos = input.files.length;
 
-// Functie om een foto te verwijderen uit de slideshow 
-function removePhotoFromSlideshow(buttonElement) {
-    // zoek naar de foto die bij de knop klik hoort
-    const slideToRemove = buttonElement.closest('.slideshow__item');
-    const isActiveSlide = slideToRemove.classList.contains('slideshow__item--active');
-
-    // Als we de actieve slide verwijderen, moeten we direct naar de volgende slide springen
-    if (isActiveSlide) {
-        if (slides.length > 1) {
-            nextSlide(); // Ga naar de volgende slide voordat we de huidige verwijderen
-        }
+    // Check of het totaal over de 6 heen gaat
+    if (currentPhotos + selectedPhotos > maxPhotos) {
+        alert(`Je kunt maximaal ${maxPhotos} foto's in de slideshow hebben. Je hebt er nu al ${currentPhotos}.`);
+        input.value = ""; // Maak de selectie leeg zodat er niets verzonden wordt
+        return; // Stop de functie
     }
 
-    // Verwijder het element uit de DOM
+    if (input.files) {
+        const container = document.querySelector('.slideshow__container');
+        
+        Array.from(input.files).forEach(file => {
+            const reader = new FileReader(); // lees het bestand
+            reader.onload = function(e) {
+                const newSlide = document.createElement('div'); // maak een nieuwe slide div
+                newSlide.className = 'slideshow__item';
+                
+                newSlide.innerHTML = `
+                    <img src="${e.target.result}" class="slideshow__image" alt="Preview">
+                    <button type="button" class="remove-photo edit-only" onclick="removePhotoFromSlideshow(this)">
+                        Verwijderen
+                    </button>
+                    <span class="preview-badge">Nieuw</span>
+                `;
+                
+                container.appendChild(newSlide);
+                updateSlidesArray(); // nieuwe slide toewijzen aan de container
+
+                // meteen zichtbaar als het de eerste foto is.
+                if (slides.length === 1) {
+                    slides[0].classList.add('slideshow__item--active');
+                    startTimer();
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+}
+
+
+function removePhotoFromSlideshow(buttonElement) {
+    // wis de foto die te zien is zodra je klikt 
+    const slideToRemove = buttonElement.closest('.slideshow__item');
+    const isActiveSlide = slideToRemove.classList.contains('slideshow__item--active');
+    // als de foto zichtbaar is wissel dan gelijk naar de volgende foto
+    if (isActiveSlide && slides.length > 1) {
+        nextSlide();
+    }
+
     slideToRemove.remove();
-
-    // Update de slides array zodat de navigatie weer klopt
     updateSlidesArray();
-
-    // Reset de timer zodat hij niet direct verspringt na verwijdering
     resetTimer();
 }
 
-// Functie om te checken of de slideshow leeg is en het bericht te tonen
-// laat of alleen het bericht zien of gewoon de normale styling
+// foto check 
 function checkIfEmpty() {
     const emptyMessage = document.getElementById('empty-message');
-    if (slides.length === 0) {
+    // als er geen foto's zijn laat hij de melding empty message zien.
+    if (!slides || slides.length === 0) {
         if (emptyMessage) emptyMessage.style.display = 'flex';
         if (nextBtn) nextBtn.style.display = 'none';
         if (prevBtn) prevBtn.style.display = 'none';
-        clearInterval(slideInterval); // Stop de timer
+        clearInterval(slideInterval);
     } else {
         if (emptyMessage) emptyMessage.style.display = 'none';
         if (nextBtn) nextBtn.style.display = 'flex';
@@ -88,35 +120,6 @@ function checkIfEmpty() {
     }
 }
 
-// Functie om een nieuwe foto toe te voegen aan de slideshow
-function previewImage(input) {
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            const container = document.querySelector('.slideshow__container');
-            
-            const newSlide = document.createElement('div');
-            newSlide.className = 'slideshow__item';
-            
-            // We voegen de afbeelding en de verwijderknop toe
-            newSlide.innerHTML = `
-            <img src="${e.target.result}" class="slideshow__image" alt="Nieuwe afbeelding">
-            <button type="button" class="remove-photo edit-only" onclick="removePhotoFromSlideshow(this)">Foto verwijderen</button>
-            `;
-            
-            container.appendChild(newSlide);
-
-            // Als dit de enige foto is, maak hem dan meteen zichtbaar
-            updateSlidesArray();
-            if (slides.length === 1) {
-                newSlide.classList.add('slideshow__item--active');
-                startTimer(); // Herstart de timer
-            }
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-
+// uitvoeren bij laden van de pagina 
+updateSlidesArray();
+startTimer();

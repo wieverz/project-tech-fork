@@ -2,32 +2,43 @@
 <%- include('partials/header') %> 
     <div class="background--wrapper">
 
-    <main class="project--container">
-
+    <main class="project--container crew-profile-edit">
+    <form id="projectForm" action="/save-project" method="POST" enctype="multipart/form-data">
+        
         <header class="project--header">
-        <div class="project--title-group">
-        <h1 class="project--title" contenteditable="false">Lord Of Balls</h1>
-        <h2 class="project--subtitle" contenteditable="false">Starring Lord De Vries</h2>
-        </div>
+            <div class="project--title-group">
+                <h1 id="projectTitle" class="project--title" contenteditable="false">
+                    <%= projectData.title || 'Project Titel' %>
+                </h1>
+                <span id="titleCounter" class="char-counter edit-only">0/20</span>
+                <input type="hidden" name="title" id="inputTitle">
 
-    <div class="project--header-info">
-    
-    <%- include('partials/editmode-button') %> 
+                <h2 id="projectSubtitle" class="project--subtitle" contenteditable="false">
+                    <%= projectData.subtitle || 'Hoofdrol Speler' %>
+                </h2>
+                <span id="subtitleCounter" class="char-counter edit-only">0/30</span>
+                <input type="hidden" name="subtitle" id="inputSubtitle">
+            </div>
 
-        <div>
-            <p>Dir: <a href="/director/d-de-vries"> D. de Vries</a></p>
-        </div>
-        </div>
-    </header>
+            <div class="project--header-info">
+                <%- include('partials/editmode-button') %> 
 
-    <%- include('partials/slideshow') %> 
-    <%- include ('partials/tijdelijke-filters') %>
+                <div>
+                    <p>Dir: <a href="/director/d-de-vries"> D. de Vries</a></p>
+                </div>
+            </div>
+        </header>
 
-    <p class="project-text" contenteditable="false">
-        Maak kennis met Lord de Vries. Hij is rijk, heeft een kasteel en een adellijke titel. Maar er is één ding dat hij níét heeft: street credibility. In zijn wanhopige poging om de coolste man op aarde te worden, ontdekt hij een verborgen ondergronds toernooi: extreem knikkeren voor miljardairs.
-Vergeet basketballen en voetbal; dit is de arena waar reputaties worden gemaakt of gebroken met glazen balletjes. Lord de Vries trekt zijn duurste, glimmendste joggingpak aan en zijn grootste zonnebril, vastbesloten om de 'Koning van de Knikkers' te worden en eindelijk respect te verdienen bij de 'jeugd van tegenwoordig'.
-    </p>
+        <%- include('partials/slideshow') %> 
+        <%- include('partials/tijdelijke-filters') %>
 
+         <p id="projectDescription" class="project-text" contenteditable="false">
+        <%= projectData.description || 'Maak kennis met Lord de Vries...' %>
+        </p>
+        <span id="descCounter" class="char-counter edit-only">0/500</span>
+        <input type="hidden" name="description" id="inputDescription">
+        
+    </form>
 </main>
 
  <section class="production">
@@ -97,6 +108,7 @@ Aantal draaidagen: We schatten momenteel 3 tot 5 intensieve draaidagen in (voorn
 <script src="js/slideshow.js"></script>
 <script src="js/tijdelijke-filters.js"></script>
 <script src="js/editmode-button.js"></script>
+<script src="js/tekstcounter.js"></script>
 <script src="/js/addProjectCard.js"></script>
 <%- include('partials/footer') %> 
 </body>

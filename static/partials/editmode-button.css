@@ -21,11 +21,11 @@
 }
 
 /* Verberg edit-elementen standaard */
-.edit-only {
+.crew-profile-edit.edit-only {
     display: none !important;
 }
 
 /* Toon edit-elementen alleen als de body de class 'is-editing' heeft */
-body.is-editing .edit-only {
+body.is-editing .crew-profile-edit .edit-only {
     display: flex !important;
 }
