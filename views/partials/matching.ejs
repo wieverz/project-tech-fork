@@ -3,10 +3,10 @@
 <article class="matching__card">
     <header>
         <img src="<%= profile.image %>" width="335" alt="<%= profile.name %>">
-        <h3><%= profile.name%> -<%= profile.role%></h3>
+        <h3 class="matching__card-body"><%= profile.name%> - <%= profile.role%> <%= profile.type%></h3>
     </header>
-    <p><%= profile.bio%></p>
-    <div class="matching__card-link">
+    <p class="matching__card-body"> <%= profile.bio%></p>
+    <div class=" matching__card-link">
         <a href="#">Bekijk details</a>
     </div>
 </article>

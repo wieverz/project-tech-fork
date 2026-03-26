@@ -89,34 +89,29 @@ app.get('/current-matches', (req, res) => {
   res.render('current-matches');
 });
 
-
+const getProfiles = async () => {
+  const database = client.db("filmcrew");
+  return await database.collection("profiles").find().toArray();
+}
 
 // Home
 app.get('/', async (req, res) => {
   try {
-    const database = client.db("filmcrew");
-    const profiles = await database.collection("profiles").find().toArray();
-
+    const profiles = await getProfiles();
     res.render('index', { profiles });
-
   } catch (error) {
     console.error(error);
     res.status(500).send("Database has an error");
   }
 });
 
-
-
 // Matching
 app.get('/matching', async (req, res) => {
   try {
-    const database = client.db("filmcrew");
-    const profiles = await database.collection("profiles").find().toArray();
-
+    const profiles = await getProfiles();
     res.render('matching', { profiles });
-
   } catch (error) {
-  console.error(error);
-  res.status(500).send("Database has an error");
+    console.error(error);
+    res.status(500).send("Database has an error");
   }
 });

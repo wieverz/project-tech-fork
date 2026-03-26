@@ -2,6 +2,7 @@
 .matching__card {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: var(--gapExtraSmall);
 
     background-color: var(--accentColorLightGrey);
@@ -12,6 +13,8 @@
 .matching__card img {
     border-radius: var(--buttonCornerRadius);
     object-fit: cover;
+    object-position: top;
+    aspect-ratio: 16/9;
     width: 100%;
 }
 
@@ -39,8 +42,26 @@
     color: var(--textColorWhite);
 }
 
-.matching__card :where(h3, p) {
+.matching__card-body {
     padding: 0 1rem;
+}
+
+.matching__card p {
+    flex-grow: 1;
+
+    /* Ellipsis overflow voor tekst bij een bepaald aantal lijnen aan tekst https://stackoverflow.com/questions/5269713/css-ellipsis-on-second-line */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @supports (-webkit-line-clamp: 4) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: initial;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
 }
 
 .matching-slider .matching__card {
@@ -49,6 +70,7 @@
 
 .matching-slider__item {
     flex: none !important;
+    display: flex;
 }
 
 

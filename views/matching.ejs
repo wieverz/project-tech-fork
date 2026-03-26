@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>matching</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <%- include('partials/header') %>
@@ -111,7 +111,7 @@
 
             <div class="matching__layout">
                 <div class="matching__results-bar">
-                    <h2>Resultaten (..)</h2>
+                    <h2>Resultaten (<%= profiles.length %>)</h2>
                     <div class="matching__results-btns">
                         <button command="show-modal" commandfor="filter-dialog" class="matching__filter-btn">Filter
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
@@ -238,9 +238,7 @@
         </section>
     </main>
 
-    <footer>
         <%- include('partials/footer') %>
-    </footer>
 
 </body>
 
