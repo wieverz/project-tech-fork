@@ -97,3 +97,8 @@ app.get('/crew-profile', (req, res) => {
 app.get('/current-matches', (req, res) => {
   res.render('current-matches');
 });
+
+app.get('/current-matches', (req, res) => {
+  res.render('current-matches');
+});
+
