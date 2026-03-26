@@ -171,12 +171,8 @@ app.get('/crew-profile', (req, res) => {
 });
 
 app.get('/current-matches', checkInlog, async (req, res) => {
-  const matches = await projectsCollection.find().toArray();
   
-  res.render('current-matches', { 
-    username: req.session.username, 
-    projects: matches 
-  });
+  res.render('current-matches');
 });
 
 ///////////////// inlog functies ////////////////////
