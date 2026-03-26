@@ -125,7 +125,7 @@
 }
 
 /* ////////// custom notification ///////// */
-.register__error-message {
+.register__error-message,.login__error-message {
   display: none; 
   
   font-family: var(--instrumentFont);
@@ -138,9 +138,9 @@
   flex-basis: 100%;
 }
 
-.register__error-message.active {
+.register__error-message.active, .login__error-message.active {
   display: flex;
 }
-.register__form input.invalid {
+.register__form input.invalid, .login__error-message.invalid {
   border: 2px solid var(--accentColorRed);
 }
