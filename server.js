@@ -3,6 +3,7 @@ const fs = require('fs');
 const app = express();
 const port = 4000;
 const session = require('express-session');
+const multer = require('multer');
 
 app.use(session({
   secret: 'redbullgeeftjevleugels', // willekeurige lange zin
@@ -76,6 +77,8 @@ app.get('/profielPaginaIndividueel', (req, res) => {
   res.render('profielPaginaIndividueel');
 });
 
+// crew profile
+
 app.get('/crew-profile', (req, res) => {
   //  Maak de lijst met afbeeldingen aan
   const projectImages = [
@@ -92,6 +95,19 @@ app.get('/crew-profile', (req, res) => {
     projectImages: projectImages,
     projectTags: projectTags
   });
+});
+
+app.post('/upload-photo', upload.single('projectImage'), async (req, res) => {
+    const db = client.db('filmcrew');
+    const imagePath = `/uploads/${req.file.filename}`;
+
+    await db.collection('profiles').updateOne(
+        { username: req.session.username },
+        { $push: { projectImages: imagePath } }
+    );
+
+    // Na het uploaden sturen we de gebruiker gewoon weer terug naar de profielpagina
+    res.redirect('/crew-profile'); 
 });
 
 app.get('/current-matches', (req, res) => {
