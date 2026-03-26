@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usernameInput = document.getElementById('username');
     const usernameError = document.getElementById('username-error');
 
-    if (form && usernameInput && usernameError) {
+    if (formR && usernameInput && usernameError) {
         form.addEventListener('submit', (event) => {
             if (!usernameInput.value.trim()) {
                 event.preventDefault();
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     });
-    const form = document.querySelector('.register__form');
-    const usernameInput = document.getElementById('username');
-    const usernameError = document.getElementById('username-error');
+    const formL = document.querySelector('.login__form');
+    const usernameInput = document.getElementById('Lusername');
+    const usernameError = document.getElementById('Lusername-error');
 
-    if (form && usernameInput && usernameError) {
-        form.addEventListener('submit', (event) => {
+    if (formL && usernameInput && usernameError) {
+        formL.addEventListener('submit', (event) => {
             if (!usernameInput.value.trim()) {
                 event.preventDefault();
                 usernameError.classList.add('active');
