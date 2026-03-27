@@ -23,7 +23,7 @@
       </button>
     
       <% if (username) { %>
-        <span class="header__welcome">Hoi, <strong><%= username %></strong></span>
+        <a href="/profielPaginaIndividueel" class="header__welcome">Hoi, <strong><%= username %></strong></a>
         <a href="/logout" class="header__logout-btn">Uitloggen</a>
       <% } else { %>
         <a href="/login" class="header__login-btn">Login</a>
