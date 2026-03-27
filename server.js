@@ -4,15 +4,6 @@ const app = express();
 const port = 4000;
 const session = require('express-session');
 
-app.use(session({
-  secret: 'redbullgeeftjevleugels', // willekeurige lange zin
-  resave: false,
-  saveUninitialized: false,
-  cookie: { 
-    secure: false, // Zet op true als je https gebruikt, maar op localhost is false prima
-    maxAge: 3600000 // Hoe lang de cookie geldig is (1 uur)
-  }
-}));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("static"));
 app.set('view engine', 'ejs');
@@ -28,25 +19,15 @@ const path = require('path'); // Ingebouwd in Node, hoef je niet te installeren
 const uri = process.env.URI;
 const client = new MongoClient(uri);
 
-// async function connectDB() {
-//     try {
-//         await client.connect();
-//         console.log("Succesvol verbonden met MongoDB via MongoClient");
-//     } catch (error) {
-//         console.error("Database verbinding mislukt:", error);
-//     }
-// }
-// connectDB();
 
 /////////////// register functie ////////////////
-let profileCollection; // Dit heb je al goed staan!
+let profileCollection; 
 
 async function run() {
   try {
     await client.connect();
     const db = client.db("filmcrew");
-    
-    // Zorg dat deze naam overeenkomt met wat je in de app.post gebruikt
+
     profileCollection = db.collection("profiles"); 
     
     console.log("Database verbinding succesvol!");
@@ -71,6 +52,12 @@ app.use(session({
     maxAge: 3600000 // 1 uur lang cookie
   }
 }));
+
+//////// is voor de header, zodat de username op alle pagina's gebruikt kan worden. ////////
+app.use((req, res, next) => {
+  res.locals.username = req.session.username || null;
+  next();
+});
 
 //////// checkt of je bent ingelogd /////////
 function checkInlog(req, res, next) {
@@ -203,4 +190,14 @@ app.post('/login', async (req, res) => {
     console.error("Login fout:", err);
     res.status(500).send("Serverfout.");
   }
+});
+
+// //////// logout funtie ////////////
+app.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log("Fout bij uitloggen:", err);
+    }
+    res.redirect('/login');
+  });
 });
