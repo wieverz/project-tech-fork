@@ -14,7 +14,7 @@ require('dotenv').config(); // MOET bovenaan staan voor de database link!
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const path = require('path'); // Ingebouwd in Node, hoef je niet te installeren
-
+//casper was hier//
 
 // Database connectie variabelen
 const uri = process.env.URI;
