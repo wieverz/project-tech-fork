@@ -40,6 +40,10 @@
     background-color: #333; /* Kleur bij hover */
 }
 
+.nameRole {
+    list-style: none;
+}
+
 .important-qualities {
     display: flex;
     padding-top: var(--gapSmall);

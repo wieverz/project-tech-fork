@@ -15,20 +15,22 @@
             if (el) el.contentEditable = isEditing;
         });
 
-        // Maak alle lijst-items bewerkbaar (behalve de important-qualities)
-        document.querySelectorAll('.qualities li').forEach(li => {
+        // Zoekt alle lijstjes die tekst bevatten die aangepastt moeten kunnen worden
+        const profileLists = document.querySelectorAll('.qualities li, .important-qualities li, .nameRole li');
+            
+        profileLists.forEach(li => {
             li.contentEditable = isEditing;
         });
-        
-        // Voeg kruisjes toe aan kwaliteiten als ze er nog niet staan
+
+        // Alleen voor gouden tags voegen we kruisjes toe
         document.querySelectorAll('.qualities li').forEach(li => {
             if (!li.querySelector('.delete-tag')) {
                 const span = document.createElement('span');
                 span.className = 'delete-tag';
                 span.innerHTML = '×';
-                span.contentEditable = false; // Kruisje zelf niet bewerkbaar maken
+                span.contentEditable = false; 
                 span.onclick = function() { this.parentElement.remove(); };
                 li.appendChild(span);
             }
         });
-    });
+            });
