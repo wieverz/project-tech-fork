@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndividueelProfielPagina</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+    <section class="profile-header">
+    <img src="/images/producer.jpg" alt="producer">
+    
+    <div class="profile-content">
+        <button id="edit-mode-toggle" class="admin-toggle-btn">Aanpassen</button>
+        <h1>Mooie Naam</h1>
+        <h2>Producer</h2>
+        <ul class="important-qualities">
+            <li><h4>4 jaar werkervaring</h4></li>
+            <li><h4>Amsterdam</h4></li>
+        </ul>
+        <p>Mijn naam is Mooie naam, ik werk al vier jaar als regisseur/ producer. Ik ben bekend met verschillende genres waaronder: 
+        Thriller, drama & indie. Het liefste werk ik aan comedies en romantische films. Ik heb gestudeerd aan de filmacedemie in Utrecht. In mijn vrije tijd doe ik schaatsen en koken. Ik zou mijzelf omschrijven als een sociaal persoon. Ik hou van samenwerken, of dat nou met de acteurs, schrijvers of kostuum ontwerpers is. Denk je dat wij een echte match zijn? Stuur mij gerust een bericht.</p>
+        <ul class="qualities">
+            <li>Color grading</li>
+            <li>Producen</li>
+            <li>Samenwerken</li>
+            <li>Schrijven</li>
+            <li>Engelse taal</li>
+        </ul>
+    </div>
+</section>
+
+<section class="projects-section">
+    <h2>Projecten</h2>
+    <ul class="project-grid">
+        <li class="project-card">
+            <button class="project-link" data-project-id="project1">
+                <div class="image-placeholder">
+                    <img src="/images/project1.jpg" alt="">
+                </div>
+                <div class="project-info">
+                    <h3>Boterbloem</h3>
+                    <h4>Korte film</h4>
+                </div>
+            </button>
+        </li>
+        <li class="project-card">
+             <button class="project-link" data-project-id="project2">
+                <div class="image-placeholder">
+                    <img src="/images/project2.jpg" alt="foto bar">
+                </div>
+                <div class="project-info">
+                    <h3>Happy hour</h3>
+                    <h4>Pilot-aflevering</h4>
+                </div>
+                 </button>
+        </li>
+         <li class="project-card">
+             <button class="project-link" data-project-id="project3">
+                                <div class="image-placeholder">
+                    <img src="/images/project3.jpg" alt="spons">
+                </div>
+                <div class="project-info">
+                    <h3>Schoon!</h3>
+                    <h4>Reclamespotje</h4>
+                </div>
+                 </button>
+        </li>
+<li class="project-card add-project-card">
+        <button class="add-btn">
+            <span class="plus-icon">+</span>
+            <h3>Project toevoegen</h3>
+        </button>
+    </li>
+</ul>
+
+    </main>
+
+    <div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        
+        <div id="modal-body">
+            </div>
+    </div>
+</div>
+
+<div id="add-project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" id="close-add-modal">&times;</span>
+        <h2>Nieuw project toevoegen</h2>
+        <p>Kies een bron voor je project:</p>
+        
+        <div class="choice-container">
+            <button class="choice-btn" id="btn-api">
+                <span class="icon">🎬</span>
+                <span>Bestaande Film (API)</span>
+            </button>
+            <button class="choice-btn" id="btn-crew">
+                <span class="icon">👥</span>
+                <span>Filmcrew Projecten</span>
+            </button>
+            <button class="choice-btn" id="btn-manual">
+                <span class="icon">✍️</span>
+                <span>Handmatig Toevoegen</span>
+            </button>
+        </div>
+
+        <div id="add-project-form-container"></div>
+    </div>
+</div>
+
+<script>
+    // 3a: De Project Details (onze "nep-database")
+    const projectDetails = {
+        project1: {
+            title: "Boterbloem",
+            type: "Korte film",
+            mainImage: "/images/project1.jpg", // Gebruik eventueel een andere foto
+            genres: ["Drama", "Indie"],
+            role: "Producent",
+            contribution: "Verantwoordelijk voor de complete productieplanning, budgetbeheer en het casten van de hoofdrollen. Tevens de distributie-strategie bepaald.",
+            year: "2023"
+        },
+        project2: {
+            title: "Happy hour",
+            type: "Pilot-aflevering",
+            mainImage: "/images/project2.jpg",
+            genres: ["Komedie", "Satire"],
+            role: "Co-Regisseur / Line Producer",
+            contribution: "Regie gevoerd over de outdoor scènes en de logistiek op de set beheerd. Nauw samengewerkt met de schrijvers voor de uiteindelijke montage.",
+            year: "2024"
+        },
+        project3: {
+            title: "Schoon!",
+            type: "Reclamespotje",
+            mainImage: "/images/project3.jpg",
+            genres: ["Reclame", "Product"],
+            role: "Producer",
+            contribution: "Het concept ontwikkeld voor een grote schoonmaakmerk-campagne. De volledige crew aangestuurd en de post-productie gesuperviseerd.",
+            year: "2024"
+        }
+    };
+
+    // 3b: Variabelen voor de DOM-elementen
+    const modal = document.getElementById("project-modal");
+    const modalBody = document.getElementById("modal-body");
+    const closeBtn = document.getElementsByClassName("close-modal")[0];
+    const projectLinks = document.querySelectorAll(".project-link");
+
+    // 3c: Functie om de modal te openen en vullen
+    function openModal(projectId) {
+        const details = projectDetails[projectId];
+        if (!details) return; // Beveiliging als ID niet bestaat
+
+        // Maak de genres tags HTML
+        const genresTags = details.genres.map(genre => `<span class="tag">${genre}</span>`).join('');
+
+        // Genereer de complete HTML inhoud
+        const modalHtml = `
+            <img src="${details.mainImage}" alt="${details.title}" class="modal-image">
+            <h2>${details.title}</h2>
+            <h3>${details.type} (${details.year})</h3>
+            
+            <div class="modal-meta">
+                <span class="tag">Rol: ${details.role}</span>
+                ${genresTags}
+            </div>
+            
+            <p class="modal-description">${details.contribution}</p>
+        `;
+
+        // Stop de HTML in de modal-body
+        modalBody.innerHTML = modalHtml;
+
+        // Toon de modal
+        modal.style.display = "block";
+        
+        // Voorkom scrollen van de achtergrondpagina
+        document.body.style.overflow = "hidden";
+    }
+
+    // 3d: Functie om de modal te sluiten
+    function closeModal() {
+        modal.style.display = "none";
+        // Herstel scrollen van de achtergrondpagina
+        document.body.style.overflow = "auto";
+    }
+
+    // 3e: Event Listeners koppelen
+
+    // 1. Luister naar clicks op de projectkaarten
+    projectLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            const projectId = this.getAttribute("data-project-id");
+            openModal(projectId);
+        });
+    });
+
+    // 2. Luister naar click op het kruisje
+    closeBtn.addEventListener("click", closeModal);
+
+    // 3. Luister naar click buiten de pop-up kaart (op de zwarte achtergrond)
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    });
+
+    // 4. Luister naar de 'Escape' toets om te sluiten
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && modal.style.display === "block") {
+            closeModal();
+        }
+    });
+
+const editBtn = document.getElementById('edit-mode-toggle');
+
+editBtn.addEventListener('click', () => {
+    // Schakel de 'is-editing' class aan of uit op de body
+    document.body.classList.toggle('is-editing');
+
+    // Verander de tekst van de knop op basis van de mode
+    if (document.body.classList.contains('is-editing')) {
+        editBtn.textContent = "Opslaan";
+        editBtn.style.backgroundColor = "#28a745"; // Groen voor opslaan
+    } else {
+        editBtn.textContent = "Aanpassen";
+        editBtn.style.backgroundColor = "var(--accentColorRed)";
+    }
+});
+
+const addProjectModal = document.getElementById('add-project-modal');
+const addBtn = document.querySelector('.add-btn');
+const closeAddModal = document.getElementById('close-add-modal');
+const formContainer = document.getElementById('add-project-form-container');
+
+// 1. Open de keuze-modal
+addBtn.addEventListener('click', () => {
+    formContainer.innerHTML = ''; // Maak vorig formulier leeg
+    addProjectModal.style.display = 'block';
+});
+
+// 2. Sluit modal
+closeAddModal.onclick = () => addProjectModal.style.display = 'none';
+
+// 3. Handmatig formulier opzetje
+document.getElementById('btn-manual').addEventListener('click', () => {
+    formContainer.innerHTML = `
+        <form class="manual-form" id="actual-manual-form">
+            <h3>Handmatig project toevoegen</h3>
+            
+            <label>Project Titel *</label>
+            <input type="text" id="new-title" placeholder="Bijv. Boterbloem" required>
+            
+            <label>Type Project *</label>
+            <input type="text" id="new-type" placeholder="Bijv. Korte film" required>
+            
+            <label>Jouw Rol *</label>
+            <input type="text" id="new-role" placeholder="Bijv. Producer" required>
+
+            <label>Afbeelding URL (voor nu een link naar een foto) *</label>
+            <input type="url" id="new-img" placeholder="https://website.nl/foto.jpg" required>
+
+            <label>Link naar Trailer (optioneel)</label>
+            <input type="url" id="new-trailer" placeholder="https://youtube.com/watch?v=...">
+            
+            <label>Beschrijving van je bijdrage *</label>
+            <textarea id="new-desc" rows="4" placeholder="Wat heb je precies gedaan?" required></textarea>
+            
+            <div id="form-feedback" style="color: var(--accentColorRed); font-size: 0.8em; min-height: 1.2em;"></div>
+
+            <button type="submit" class="admin-toggle-btn" style="position: static; margin-top: 1em; width: 100%;">
+                Project Toevoegen
+            </button>
+        </form>
+    `;
+
+    // Luister naar het verzenden van dit specifieke formulier
+    const form = document.getElementById('actual-manual-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault(); // Voorkom dat de pagina ververst
+        saveManualProject();
+    });
+});
+
+// 4. API / Filmcrew opzetje (Placeholder)
+document.getElementById('btn-api').addEventListener('click', () => {
+    formContainer.innerHTML = `
+        <div class="manual-form">
+            <h3>Zoek in film database</h3>
+            <input type="text" placeholder="Zoek titel..." id="api-search">
+            <p><small>Hier komen later de resultaten van de API te staan...</small></p>
+        </div>
+    `;
+});
+
+function saveManualProject() {
+    const feedback = document.getElementById('form-feedback');
+    
+    // Data ophalen
+    const title = document.getElementById('new-title').value;
+    const type = document.getElementById('new-type').value;
+    const role = document.getElementById('new-role').value;
+    const img = document.getElementById('new-img').value;
+    const trailer = document.getElementById('new-trailer').value;
+    const desc = document.getElementById('new-desc').value;
+
+    // Simpele validatie check (ook al doet 'required' al veel)
+    if (!title || !img || !desc) {
+        feedback.textContent = "Vul a.u.b. alle verplichte velden in.";
+        return;
+    }
+
+    // Uniek ID maken (bijv: project_170923456)
+    const newId = 'project_' + Date.now();
+
+    // 1. Toevoegen aan onze "database" object
+    projectDetails[newId] = {
+        title: title,
+        type: type,
+        mainImage: img,
+        genres: ["Handmatig"], // Je zou hier later nog een genre-input kunnen toevoegen
+        role: role,
+        contribution: desc,
+        year: new Date().getFullYear(),
+        trailer: trailer
+    };
+
+    // 2. De nieuwe kaart maken en toevoegen aan de HTML
+    const grid = document.querySelector('.project-grid');
+    const addCard = document.querySelector('.add-project-card'); // De plus-kaart
+
+    const li = document.createElement('li');
+    li.className = 'project-card';
+    li.innerHTML = `
+        <button class="project-link" data-project-id="${newId}">
+            <div class="image-placeholder">
+                <img src="${img}" alt="${title}">
+            </div>
+            <div class="project-info">
+                <h3>${title}</h3>
+                <h4>${type}</h4>
+            </div>
+        </button>
+    `;
+
+    // Voeg de nieuwe kaart in VÓÓR de 'voeg toe' kaart
+    grid.insertBefore(li, addCard);
+
+    // 3. Event listener toevoegen aan de nieuwe kaart zodat de pop-up ook werkt
+    li.querySelector('.project-link').addEventListener('click', function() {
+        openModal(newId);
+    });
+
+    // 4. Succes feedback en sluiten
+    alert("Project '" + title + "' is succesvol toegevoegd!");
+    addProjectModal.style.display = 'none';
+}
+
+</script>
+
+</body>
+</html>
