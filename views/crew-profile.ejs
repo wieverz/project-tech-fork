@@ -30,10 +30,10 @@
         </header>
 
         <%- include('partials/slideshow') %> 
-        <%- include('partials/tijdelijke-filters') %>
+        <%- include('partials/filters') %>
 
          <p id="projectDescription" class="project-text" contenteditable="false">
-        <%= projectData.description || 'Maak kennis met Lord de Vries...' %>
+        <%= projectData.description || 'Beschrijving van het project' %>
         </p>
         <span id="descCounter" class="char-counter edit-only">0/500</span>
         <input type="hidden" name="description" id="inputDescription">

@@ -4,6 +4,7 @@ const app = express();
 const port = 4000;
 const session = require('express-session');
 const multer = require('multer');
+const mongoose = require('mongoose');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -92,26 +93,23 @@ app.get('/profielPaginaIndividueel', (req, res) => {
 
 app.get('/crew-profile', async (req, res) => {
     try {
+
         const db = client.db('filmcrew');
 
         // 1. Haal het project op, het eerste project wat je ziet. 
         const project = await db.collection('projects').findOne({}) || {};
 
-        // Haal het profiel op moet nog aan gewerkt worden 
-        // const profile = await db.collection('profiles').findOne({ username: req.session.username }) || {};
-
+        // We zoeken in de collectie 'filters' binnen de database 'filmcrew'
+        const projectFilters = await db.collection('filters').find({}).toArray();
 
         // pak alle foto's van de database en stop dit in een array. Als project.images niet bestaat, maken we er een lege array [] van.
         const projectImages = project.images || []; 
-        
-        // moet nog in database komen.
-        const projectTags = ["Sci-Fi", "Action", "Adventure", "Thriller", "Animation"];
 
         // Stuur alles naar de EJS
         res.render('crew-profile', {
             projectData: project,   // Bevat: title, subtitle, description, images
-            projectImages: projectImages, // De array met fotopaden voor je slideshow
-            projectTags: projectTags
+            projectImages: projectImages || [], // De array met fotopaden voor je slideshow
+            projectFilters: projectFilters || []
         });
     } catch (error) {
         console.error("Fout bij ophalen profiel/project:", error);
@@ -143,6 +141,8 @@ app.post('/save-project', upload.array('projectImages'), async (req, res) => {
             subtitle: req.body.subtitle,
             description: req.body.description,
             images: finalImagesList, // We overschrijven de oude lijst volledig
+            type: req.body.type,
+            genre: req.body.genre, 
             updatedAt: new Date()
         };
 
