@@ -1,0 +1,5 @@
+node_modules/
+.env
+.idea/
+/static/style.css
+/css/style.css

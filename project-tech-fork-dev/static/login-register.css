@@ -1,0 +1,146 @@
+/* ////////// Register pagina ///////// */
+.register__h2{
+  margin: var(--formPadding);
+  margin-top: 5rem;
+}
+.register__form{
+  background-color: var(--accentColorWhite);
+  padding: var(--buttonPadding) ;
+  padding: 20px;
+  max-width: 750px;
+  margin: 20px auto;
+
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.register__login-redirect{
+  margin: var(--formPadding);
+  margin-left: 38.75rem;
+}
+.register__login-redirect a{
+  transition: all 0.2s;
+}
+.register__login-redirect a:hover{
+  color: var(--accentColorRed);
+  font-weight: var(--fontWeightBold);
+}
+
+.register__volgende-btn, .register__registreer-btn{
+  background: var(--accentColorRed);
+  color: var(--accentColorWhite);
+  font-weight: var(--fontWeightBold);
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.2s;
+  display: block;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}.register__volgende-btn:hover, .register__registreer-btn:hover { 
+  opacity: 0.9; 
+  padding: 12px 27px;
+}.register__volgende-btn a, .register__registreer-btn a {
+  color: var(--accentColorWhite);
+  font-family: var(--montserratFont);
+  font-size: var(--headerTextSize);
+  font-weight: var(--fontWeightBold);
+  text-decoration: none;
+}
+.register__registreer-btn:hover{
+  color: var(--accentColorWhite);
+  font-family: var(--montserratFont);
+  font-size: var(--headerTextSize);
+  font-weight: var(--fontWeightBold);
+  text-decoration: underline;
+}
+
+/* ////////// login pagina ///////// */
+
+.login__h2{
+  margin: var(--formPadding);
+  margin-top: 5rem;
+}
+.login__form{
+  background-color: var(--accentColorWhite);
+  padding: var(--buttonPadding) ;
+  padding: 20px;
+  max-width: 750px;
+  margin: 20px auto;
+
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login__register-redirect{
+  margin: var(--formPadding);
+  margin-left: 35rem;
+}
+.login__register-redirect a{
+  transition: all 0.2s;
+}
+.login__register-redirect a:hover{
+  color: var(--accentColorRed);
+  font-weight: var(--fontWeightBold);
+}
+
+.login__login-btn {
+  background: var(--accentColorRed);
+  color: var(--accentColorWhite);
+  font-family: var(--montserratFont);
+  font-size: var(--headerTextSize);
+  font-weight: var(--fontWeightBold);
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  transition: all 0.2s;
+  display: block;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}.login__login-btn:hover { 
+  opacity: 0.9; 
+  padding: 12px 27px;
+}
+
+
+
+
+/* ////////// login + register pagina ///////// */
+
+.register__form input, .login__form input{
+  width: 95%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* ////////// custom notification ///////// */
+.register__error-message,.login__error-message {
+  display: none; 
+  
+  font-family: var(--instrumentFont);
+  font-size: var(--bodyTextSize);
+  font-weight: var(--fontWeightLight);
+  color: var(--accentColorRed);
+  margin-top: 5px; 
+  margin-bottom: 10px;
+  
+  flex-basis: 100%;
+}
+
+.register__error-message.active, .login__error-message.active {
+  display: flex;
+}
+.register__form input.invalid, .login__error-message.invalid {
+  border: 2px solid var(--accentColorRed);
+}

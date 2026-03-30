@@ -1,0 +1,118 @@
+/* Hero */
+.hero {
+    position: relative;
+    margin: 0 -1.5rem;
+
+    @media (min-width: 640px) {
+        margin: 0 -5rem;
+    }
+}
+
+.hero__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapMedium);
+
+    padding: 7rem 5rem 5rem;
+}
+
+.hero__container p {
+    color: var(--textColorWhite);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-family: var(--montserratFont);
+    font-weight: var(--fontWeightBold);
+}
+
+.hero__container button {
+    width: fit-content;
+    padding: var(--buttonPadding);
+
+    color:  var(--textColorWhite);
+    background-color: var(--accentColorRed);
+    border-radius: var(--buttonCornerRadius);
+}
+
+.hero__heading {
+    font-size: clamp(3rem, 5vw, 6rem);
+    text-shadow: var(--textShadow);
+}
+
+.hero__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    filter: blur(4px);
+    object-fit: cover;
+}
+
+/* Everything for the matching-slider + filters */
+.matching__filter-bar,
+.matching__filters {
+    display: flex;
+    gap: var(--gapMedium);
+    flex-wrap: wrap;
+}
+
+.matching__filter-bar {
+    justify-content: space-between;
+}
+
+.filter-dropdown {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: var(--gapExtraSmall);
+
+    border-radius: var(--buttonCornerRadius);
+    background-color: var(--accentColorGold);
+
+    @media screen and (max-width: 640px) {
+        flex-grow: 1;
+    }
+}
+
+.filter-dropdown label:before {
+    content: '';
+    inset: 0;
+    position: absolute;
+}
+
+.filter-dropdown select {
+    font-family: var(--montserratFont);
+    font-weight: var(--fontWeightRegular);
+    font-size: var(--bodyTextSize);
+
+    background-color: unset;
+    border: none;
+    flex-grow: 1;
+}
+
+.filter-dropdown:has(select),
+.filter-dropdown:has(select) * {
+    cursor: pointer;
+}
+
+.filter-dropdown, .matching__refresh-btn {
+    padding: var(--buttonPadding);
+}
+
+.matching__refresh-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gapExtraSmall);
+
+    border-radius: var(--buttonCornerRadius);
+    border: none;
+    background: var(--accentColorGold);
+
+    @media screen and (max-width: 640px) {
+        flex-grow: 1;
+    }
+}

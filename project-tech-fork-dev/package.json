@@ -1,0 +1,44 @@
+{
+  "name": "project-tech-",
+  "version": "1.0.0",
+  "description": "Project Tech - Sarah, Anna, Wietse &amp; Noah",
+  "main": "server.js",
+  "dependencies": {
+    "autoprefixer": "^10.4.27",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.3.1",
+    "ejs": "^3.1.10",
+    "express": "^4.22.1",
+    "express-session": "^1.19.0",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.3.0",
+    "terser": "^5.31.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build:css": "postcss static/style.css -o public/css/style.css",
+    "watch:css": "postcss static/style.css -o public/css/style.css -w",
+    "watch:server": "nodemon server.js",
+    "dev": "concurrently \"npm run watch:css\" \"npm run watch:server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItzANoah/Project-Tech-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ItzANoah/Project-Tech-/issues"
+  },
+  "homepage": "https://github.com/ItzANoah/Project-Tech-#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cssnano": "^7.1.3",
+    "nodemon": "^3.1.14",
+    "postcss": "^8.5.8",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1"
+  }
+}
