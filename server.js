@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // 2. Middleware & Instellingen
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("static")); // Zorg dat je map 'static' heet
+app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
