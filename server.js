@@ -10,7 +10,10 @@ app.use(express.static("static"));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-require('dotenv').config(); // MOET bovenaan staan voor de database link!
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const path = require('path'); // Ingebouwd in Node, hoef je niet te installeren
