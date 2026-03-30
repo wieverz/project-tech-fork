@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/server.js" }
+  ]
+}git add .
+git commit -m "Fix: Vercel deployment settings, vercel.json en db connectie"
+git push origin main
