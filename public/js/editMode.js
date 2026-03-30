@@ -1,4 +1,5 @@
-
+    //    <script src="/js/editMode.js"></script>
+    
     const editModeBtn = document.getElementById('edit-mode-toggle');
     
     editModeBtn.addEventListener('click', () => {
@@ -17,7 +18,7 @@
 
         // Zoekt alle lijstjes die tekst bevatten die aangepastt moeten kunnen worden
         const profileLists = document.querySelectorAll('.qualities li, .important-qualities li, .nameRole li');
-            
+
         profileLists.forEach(li => {
             li.contentEditable = isEditing;
         });

@@ -90,7 +90,7 @@
     <script src="/js/editMode.js"></script>
 
     <script>
-        // --- 1. Database (Specifiek voor deze pagina) ---
+        // --- 1. Database voor deze pagina ---
         const projectDetails = {
             project1: { title: "Boterbloem", type: "Korte film", mainImage: "/images/project1.jpg", genres: ["Drama", "Korte film"], contribution: "Planning enzo...", year: "2023" },
             project2: { title: "Happy hour", type: "Pilot", mainImage: "/images/project2.jpg", genres: ["Komedie", "Pilot"], contribution: "Logistiek...", year: "2024" },
@@ -101,7 +101,7 @@
         const modalBody = document.getElementById("modal-body");
         const closeBtn = document.querySelector("#project-modal .close-modal");
 
-        // --- 2. Modal Logica (Blijft hier, want dit gaat over de projecten op deze pagina) ---
+        // --- 2. Modal Logica projecten op deze pagina ---
         function openModal(projectId) {
             const details = projectDetails[projectId];
             if (!details) return;
@@ -147,7 +147,7 @@
             modal.style.display = "block";
         }
 
-        // --- 3. Extra Tags toevoegen (Prompt logica voor deze pagina) ---
+        // --- 3. Extra Tags toevoegen ---
         function addNewTagToModal() {
             const val = prompt("Welke nieuwe tag?");
             if (val) {
@@ -200,13 +200,13 @@
             link.addEventListener("click", () => openModal(link.getAttribute("data-project-id")));
         });
 
-        // Proffielfoto preview (uniek voor deze pagina)
+        // Proffielfoto preview 
         document.getElementById('change-pfp-input').addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) { document.getElementById('userPfp').src = URL.createObjectURL(file); }
         });
 
-        // "+ Toevoegen" knop klaarzetten voor de profiel qualities
+        // + Toevoegen voor de profiel qualities
         if (!document.querySelector('#idQualities .add-quality-btn')) {
             const btn = document.createElement('button');
             btn.className = 'add-quality-btn';
