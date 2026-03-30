@@ -1,0 +1,58 @@
+/* CSS Variabelen */
+:root {
+
+   /* Logo */
+   --logoColorDark: #D44737;
+   --logoColor: #252525;
+   --logoFont: 'Montserrat', sans-serif;
+   --logoSize: 2rem;
+   --logoWeight: 900;
+
+   /* Colors */
+   --accentColorWhite: #ffffff;
+   --accentColorGold: #EEB628;
+   --accentColorRed: #D44737;
+   --accentColorGrey: #252525;
+   --accentColorLightGrey: #E6E6E6;
+
+   --textColor: #252525;
+   --textColorWhite: #ffffff;
+
+   --hoverColorGold: hsl(43, 95%, 45%);
+   --hoverColorRed: hsl(6, 75%, 40%);
+
+   /* Typography */
+   --abrilFont: "Abril Fatface";
+   --instrumentFont: "Instrument Sans";
+   --montserratFont: 'Montserrat', sans-serif;
+
+   --h1Size: 6rem;
+   --h2Size: 2rem;
+   --h3Size: 1.5rem;
+   --headerTextSize: 1.2rem;
+   --bodyTextSize: 1rem;
+
+   --fontWeightLight: 200;
+   --fontWeightRegular: 400;
+   --fontWeightBold: 700;
+
+   /* Spacing */
+   --sectionPadding: 7.5rem 0;
+   --mainPadding: 0 5rem;
+   --mainPaddingSmall: 0 1.5rem;
+
+   --formPadding: 2rem 20rem;
+
+   --buttonPadding: 0.5rem 2rem;
+
+   --gapExtraSmall: 0.5rem;
+   --gapSmall: 1rem;
+   --gapMedium: 2rem;
+   --gapLarge: 4rem;
+
+   /* Extra's */
+   --buttonCornerRadius: 2rem;
+   --textShadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+   --buttonShadow: rgba(0, 0, 0, 0.1) 0px 1px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px, rgba(0, 0, 0, 0.1) 0px 2px 4px;
+   --generalShadow: 1px 1px 2px #a4a4a4;
+}

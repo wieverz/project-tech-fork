@@ -1,33 +1,71 @@
-/* ////////// nav bar partial ///////// */
-.hoofd-nav {
-/* van https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
-padding: 20px;
-display: flex;
-width: 97vw;
-position:fixed;
+/* font ophalen */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@import "variables.css";
+@import "partials";
+
+@import "login-register.css";
+@import "crew-profile.css";
+@import "profielPaginaIndividueel.css";
+@import "homepage.css";
+@import "matching.css";
+@import "current-matches.css";
+
+* {
+    margin: 0;
+    padding: 0;
 }
-.nav-brand {
-  color:#262626;
-  margin-right: 20px;
-  font-size: 1.3rem;
-  text-decoration: none;
+
+/* :where niet specifiek, oftewel makkelijk te overschrijven wanneer nodig -> https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:where */
+body {
+    color: var(--textColor);
+    font-family: var(--montserratFont);
+    font-size: var(--bodyTextSize);
+    font-weight: var(--fontWeightRegular);
 }
-.nav-brand:hover{
-  color: #4c0000;
-  text-decoration: underline;
+
+a, p, label, input, button {
+    font: inherit;
 }
-.nav-link {
-  color: #262626;
-  text-decoration: none;
-  margin-right: 15px;
+
+:where(h1, h2, h3) {
+    color: var(--textColor);
+    font-weight: var(--fontWeightRegular);
+    font-family: var(--montserratFont);
 }
-.nav-link:hover {
-  color: #4c0000;
-  text-decoration: underline;
+
+:where(h1) {
+    color: var(--accentColorGold);
+    font-family: var(--abrilFont);
+    font-size: var(--h1Size);
+    font-weight: var(--fontWeightRegular);
+}
+
+:where(h2) {
+    color: var(--textColor);
+    font-family: var(--instrumentFont);
+    font-size: var(--h2Size);
+    font-weight: var(--fontWeightBold);
+}
+
+:where(h3) {
+    color: var(--textColor);
+    font-family: var(--montserratFont);
+    font-size: var(--h3Size);
+    font-weight: var(--fontWeightBold);
+}
+
+:where(main) {
+    padding: var(--mainPadding);
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: var(--mainPaddingSmall);
+    }
 }
